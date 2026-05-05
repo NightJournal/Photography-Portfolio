@@ -183,6 +183,84 @@ h1 {
   border-color: var(--ink);
 }
 
+.directory-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 200;
+}
+
+.directory-toggle summary {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.86);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  list-style: none;
+}
+
+.directory-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.directory-toggle summary span,
+.directory-toggle summary span::before,
+.directory-toggle summary span::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: white;
+  border-radius: 999px;
+  content: "";
+}
+
+.directory-toggle summary span {
+  position: relative;
+}
+
+.directory-toggle summary span::before {
+  position: absolute;
+  top: -6px;
+}
+
+.directory-toggle summary span::after {
+  position: absolute;
+  top: 6px;
+}
+
+.directory-panel {
+  width: min(280px, calc(100vw - 36px));
+  margin-top: 10px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.directory-panel strong {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.directory-panel a {
+  display: block;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 9px 10px;
+  font-size: 0.92rem;
+}
+
+.directory-panel a:hover {
+  background: var(--cream);
+}
+
 .hero-visual {
   min-height: 520px;
   background: #f0ebe5;
