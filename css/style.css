@@ -616,10 +616,85 @@ h2 {
   text-align: right;
 }
 
+.dolomites-photo-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dolomites-photo-hero::before {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.42), transparent 55%);
+  clip-path: none;
+  inset: 0;
+  height: auto;
+  z-index: 1;
+}
+
+.dolomites-photo-hero::after {
+  z-index: 2;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
 .trip-image.dolomites-visual {
   min-height: 300px;
   border: none;
   border-right: 1px solid var(--line);
+}
+
+.dolomites-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.dolomites-photo-card {
+  margin: 0;
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.dolomites-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.dolomites-photo-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 52%;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+}
+
+.dolomites-photo-card figcaption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 1;
+  color: white;
+}
+
+.dolomites-photo-card strong,
+.dolomites-photo-card span {
+  display: block;
+}
+
+.dolomites-photo-card strong {
+  font-size: 1.1rem;
+}
+
+.dolomites-photo-card span {
+  font-size: 0.82rem;
+  opacity: 0.9;
 }
 
 .itinerary-list {

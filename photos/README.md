@@ -7,6 +7,7 @@ Use these folders for gallery photos:
 - `europe/`
 - `north-america/`
 - `astrophotography/`
+- `dolomites/`
 
 Suggested naming pattern:
 
