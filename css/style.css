@@ -195,11 +195,11 @@ h1 {
   height: 46px;
   display: grid;
   place-items: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.86);
+  color: #fffaf0;
+  background: rgba(47, 42, 36, 0.86);
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 14px 34px rgba(47, 42, 36, 0.24);
   cursor: pointer;
   list-style: none;
 }
@@ -214,7 +214,7 @@ h1 {
   display: block;
   width: 18px;
   height: 2px;
-  background: white;
+  background: #fffaf0;
   border-radius: 999px;
   content: "";
 }
@@ -234,19 +234,20 @@ h1 {
 }
 
 .directory-panel {
-  width: min(280px, calc(100vw - 36px));
+  width: min(300px, calc(100vw - 36px));
   margin-top: 10px;
-  padding: 14px;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid var(--line);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  padding: 16px;
+  background: rgba(255, 250, 240, 0.94);
+  border: 1px solid rgba(220, 203, 182, 0.9);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(47, 42, 36, 0.24);
 }
 
 .directory-panel strong {
   display: block;
-  margin: 0 0 8px;
-  color: var(--ink);
-  font-size: 1rem;
+  margin: 0 0 10px;
+  color: var(--dark);
+  font-size: 1.1rem;
 }
 
 .directory-panel a {
@@ -254,11 +255,12 @@ h1 {
   color: var(--ink);
   text-decoration: none;
   padding: 9px 10px;
+  border-radius: 12px;
   font-size: 0.92rem;
 }
 
 .directory-panel a:hover {
-  background: var(--cream);
+  background: #ead9c2;
 }
 
 .hero-visual {
