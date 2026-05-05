@@ -87,6 +87,65 @@
     .btn{display:inline-flex; text-decoration:none; color:white; background:var(--dark); padding:12px 17px; border-radius:999px; font-weight:700; box-shadow:0 12px 28px rgba(47,42,36,.22); transition:transform .2s ease, box-shadow .2s ease;}
     .btn:hover{transform:translateY(-1px); box-shadow:0 16px 34px rgba(47,42,36,.25);}
     .btn.secondary{color:var(--dark); background:#efe3d0; border:1px solid var(--line);}
+    .directory-toggle{
+      position:fixed;
+      top:18px;
+      right:18px;
+      z-index:30;
+    }
+    .directory-toggle summary{
+      width:46px;
+      height:46px;
+      display:grid;
+      place-items:center;
+      color:#fffaf0;
+      background:rgba(47,42,36,.86);
+      border:1px solid rgba(255,250,240,.28);
+      border-radius:999px;
+      box-shadow:0 14px 34px rgba(47,42,36,.24);
+      cursor:pointer;
+      list-style:none;
+    }
+    .directory-toggle summary::-webkit-details-marker{display:none;}
+    .directory-toggle summary span,
+    .directory-toggle summary span:before,
+    .directory-toggle summary span:after{
+      display:block;
+      width:18px;
+      height:2px;
+      background:#fffaf0;
+      border-radius:999px;
+      content:"";
+    }
+    .directory-toggle summary span{position:relative;}
+    .directory-toggle summary span:before{position:absolute; top:-6px;}
+    .directory-toggle summary span:after{position:absolute; top:6px;}
+    .directory-panel{
+      width:min(300px, calc(100vw - 36px));
+      margin-top:10px;
+      padding:16px;
+      background:rgba(255,250,240,.94);
+      border:1px solid rgba(220,203,182,.9);
+      border-radius:22px;
+      box-shadow:0 24px 60px rgba(47,42,36,.24);
+    }
+    .directory-panel strong{
+      display:block;
+      margin:0 0 10px;
+      color:var(--dark);
+      font-size:1.1rem;
+    }
+    .directory-panel a{
+      display:block;
+      color:var(--dark);
+      text-decoration:none;
+      padding:9px 10px;
+      border-radius:12px;
+      font-size:.92rem;
+    }
+    .directory-panel a:hover{
+      background:#ead9c2;
+    }
     .hero-art{
       min-height:620px;
       position:relative;
@@ -171,6 +230,24 @@
   </style>
 </head>
 <body>
+  <details class="directory-toggle">
+    <summary aria-label="Open directory"><span></span></summary>
+    <div class="directory-panel">
+      <strong>Directory</strong>
+      <a href="../../index.html">Home</a>
+      <a href="../../gallery.html">Gallery</a>
+      <a href="../../trips.html">Trips</a>
+      <a href="#overview">Overview</a>
+      <a href="#timeline">Daily Plan</a>
+      <a href="#parking">Parking</a>
+      <a href="#stays">Accommodation</a>
+      <a href="#photo-ref">Photos</a>
+      <a href="#photo-guide">Photography</a>
+      <a href="#budget">Budget</a>
+      <a href="#cut">Cut List</a>
+    </div>
+  </details>
+
   <header class="hero" id="top">
     <div class="wrap">
       <div class="hero-card">
