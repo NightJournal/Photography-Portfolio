@@ -79,7 +79,7 @@
 
   photos.forEach((photo) => {
     photo.closest(".photo-card").addEventListener("click", () => {
-      fullImage.src = photo.currentSrc || photo.src;
+      fullImage.src = photo.dataset.fullSrc || photo.currentSrc || photo.src;
       fullImage.alt = photo.alt || "Expanded photo";
       lightbox.classList.add("is-open");
       document.body.classList.add("lightbox-open");
