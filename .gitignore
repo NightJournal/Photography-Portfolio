@@ -1,2 +1,15 @@
 .DS_Store
 Dolomites Planning/
+
+# Keep full-resolution local photo uploads out of Git.
+# The site uses optimized copies in photos/web/.
+photos/asia/*
+photos/europe/*
+photos/north-america/*
+photos/south-africa/*
+photos/astrophotography/*
+!photos/asia/.gitkeep
+!photos/europe/.gitkeep
+!photos/north-america/.gitkeep
+!photos/south-africa/.gitkeep
+!photos/astrophotography/.gitkeep
