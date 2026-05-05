@@ -409,41 +409,6 @@ h2 {
   transform: scale(1.02);
 }
 
-.photo-card .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.photo-card:hover .overlay {
-  opacity: 1;
-}
-
-.photo-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 16px;
-  color: white;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-
-.photo-card:hover .photo-caption {
-  opacity: 1;
-}
-
-.photo-caption strong {
-  display: block;
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-  font-weight: 600;
-}
-
 /* Category Hub */
 .category-grid {
   display: grid;
