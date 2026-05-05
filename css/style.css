@@ -306,6 +306,17 @@ h2 {
   font-weight: 700;
 }
 
+.section-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-title-link:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
 .section-note {
   color: var(--muted);
   max-width: 600px;
