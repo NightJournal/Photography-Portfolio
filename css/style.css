@@ -30,6 +30,12 @@ body {
   line-height: 1.6;
 }
 
+img {
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
 .wrap {
   width: min(1200px, calc(100% - 40px));
   margin: 0 auto;
