@@ -373,6 +373,60 @@ h2 {
 }
 
 /* Gallery Grid */
+.country-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.country-nav a {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: var(--font-caps);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 8px 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.country-nav a:hover {
+  border-color: var(--ink);
+  background: var(--cream);
+}
+
+.country-section {
+  margin-top: 48px;
+}
+
+.country-section:first-of-type {
+  margin-top: 0;
+}
+
+.country-heading {
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+}
+
+.country-heading h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0;
+}
+
+.country-heading span {
+  color: var(--muted);
+  font-family: var(--font-caps);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -384,7 +438,7 @@ h2 {
   overflow: hidden;
   border-radius: 0;
   box-shadow: none;
-  aspect-ratio: 1;
+  background: var(--paper);
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid var(--line);
@@ -398,10 +452,18 @@ h2 {
 
 .photo-card img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  aspect-ratio: 1;
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
+}
+
+.photo-card figcaption {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 12px 14px;
 }
 
 .photo-card:hover img {
