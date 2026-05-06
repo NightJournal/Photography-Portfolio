@@ -71,6 +71,12 @@ nav a:hover {
   padding-bottom: 2px;
 }
 
+nav a[aria-current="page"] {
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink);
+  padding-bottom: 3px;
+}
+
 nav .logo {
   font-weight: 700;
   color: var(--ink);
@@ -324,6 +330,11 @@ h1 {
 
 .directory-panel a:hover {
   background: #ead9c2;
+}
+
+.directory-panel a[aria-current="page"] {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 
@@ -1114,6 +1125,58 @@ footer a:hover {
 }
 
 @media (max-width: 560px) {
+  .directory-toggle[open] {
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .directory-toggle[open] summary {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 202;
+    pointer-events: auto;
+  }
+
+  .directory-toggle[open] summary span {
+    background: transparent;
+  }
+
+  .directory-toggle[open] summary span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .directory-toggle[open] summary span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .directory-toggle[open] .directory-panel {
+    position: fixed;
+    inset: 0;
+    z-index: 201;
+    width: 100vw;
+    margin: 0;
+    padding: 110px 28px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    pointer-events: auto;
+    border: 0;
+    border-radius: 0;
+    background: rgba(255, 250, 240, 0.98);
+    box-shadow: none;
+  }
+
+  .directory-panel a {
+    padding: 15px 14px;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+    border-radius: 0;
+    font-size: 1.35rem;
+  }
+
   .wrap {
     width: calc(100% - 24px);
   }

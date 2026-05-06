@@ -146,6 +146,10 @@
     .directory-panel a:hover{
       background:#ead9c2;
     }
+    .directory-panel a[aria-current="page"]{
+      background:var(--dark);
+      color:#fffaf0;
+    }
     .hero-art{
       min-height:620px;
       position:relative;
@@ -220,7 +224,16 @@
     @media (max-width:900px){
       .hero-card{grid-template-columns:1fr}.hero-art{min-height:360px}.grid.two,.grid.three,.shot{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.day{grid-template-columns:1fr}.day-label{position:relative; top:auto}.checklist{columns:1}.hero-copy{padding:36px 28px}
     }
-    @media (max-width:560px){.photo-grid{grid-template-columns:1fr}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{padding-top:18px}}
+    @media (max-width:560px){
+      .directory-toggle[open]{inset:0; pointer-events:none;}
+      .directory-toggle[open] summary{position:fixed; top:18px; right:18px; z-index:202; pointer-events:auto;}
+      .directory-toggle[open] summary span{background:transparent;}
+      .directory-toggle[open] summary span:before{top:0; transform:rotate(45deg);}
+      .directory-toggle[open] summary span:after{top:0; transform:rotate(-45deg);}
+      .directory-toggle[open] .directory-panel{position:fixed; inset:0; z-index:201; width:100vw; margin:0; padding:110px 28px 40px; display:flex; flex-direction:column; justify-content:center; gap:8px; pointer-events:auto; border:0; border-radius:0; background:rgba(255,250,240,.98); box-shadow:none;}
+      .directory-panel a{padding:15px 14px; border-bottom:1px solid rgba(47,42,36,.14); border-radius:0; font-size:1.35rem;}
+      .photo-grid{grid-template-columns:1fr}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{padding-top:18px}
+    }
     @media print{nav.sticky,.btn{display:none}body{background:white}.card,.hero-card{box-shadow:none}.day-label{position:relative;top:auto}.hero{min-height:auto}.hero-art{display:none}}
   </style>
 </head>
@@ -231,7 +244,7 @@
       <a href="../../index.html">Home</a>
       <a href="../../gallery.html">Gallery</a>
       <a href="../../films.html">Films</a>
-      <a href="../../trips.html">Upcoming Adventures</a>
+      <a href="../../trips.html" aria-current="page">Upcoming Adventures</a>
     </div>
   </details>
 
