@@ -428,12 +428,14 @@ h2 {
 }
 
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  columns: 3 320px;
+  column-gap: 24px;
 }
 
 .photo-card {
+  break-inside: avoid;
+  display: inline-block;
+  margin: 0 0 24px;
   position: relative;
   overflow: hidden;
   border-radius: 0;
@@ -453,8 +455,6 @@ h2 {
 .photo-card img {
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
@@ -1060,7 +1060,7 @@ footer a:hover {
   }
 
   .photo-grid {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
 
   .card {
