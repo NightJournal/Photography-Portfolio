@@ -141,6 +141,69 @@ h1 {
   font-weight: 400;
 }
 
+.page-banner {
+  min-height: 54vh;
+  display: grid;
+  align-items: end;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 64px;
+  background-position: center;
+  background-size: cover;
+}
+
+.page-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.18)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.44));
+}
+
+.page-banner .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.page-banner-copy {
+  max-width: 680px;
+}
+
+.page-banner h1,
+.page-banner .subtitle {
+  color: #fff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.page-banner .subtitle {
+  margin-bottom: 0;
+}
+
+.page-banner .btn {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+}
+
+.page-banner .btn:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+}
+
+.gallery-banner {
+  background-image: url("../photos/web/europe/1F7A6749.jpg");
+}
+
+.trips-banner {
+  background-image: url("../photos/dolomites/cover.png");
+}
+
+.films-banner {
+  background-image: url("../photos/web/astrophotography/1F7A8522.jpg");
+}
+
 .cta-group {
   display: flex;
   gap: 16px;
