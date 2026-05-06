@@ -1052,6 +1052,9 @@ footer a:hover {
 
 .footer-content {
   margin-bottom: 16px;
+}
+
+.footer-content strong {
   font-weight: 600;
 }
 
