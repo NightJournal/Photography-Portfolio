@@ -8,8 +8,3 @@ photos/europe/*
 photos/north-america/*
 photos/south-africa/*
 photos/astrophotography/*
-!photos/asia/.gitkeep
-!photos/europe/.gitkeep
-!photos/north-america/.gitkeep
-!photos/south-africa/.gitkeep
-!photos/astrophotography/.gitkeep
