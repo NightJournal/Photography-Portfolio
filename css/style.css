@@ -259,6 +259,7 @@ h1 {
 }
 
 .directory-toggle {
+  display: none;
   position: fixed;
   top: 88px;
   right: 18px;
@@ -1131,6 +1132,16 @@ footer a:hover {
 }
 
 @media (max-width: 560px) {
+  body > nav {
+    display: none;
+  }
+
+  .directory-toggle {
+    display: block;
+    top: 18px;
+    right: 18px;
+  }
+
   .directory-toggle[open] {
     inset: 0;
     pointer-events: none;
