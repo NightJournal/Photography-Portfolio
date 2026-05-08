@@ -1092,10 +1092,30 @@ footer a:hover {
   font-weight: 600;
 }
 
+.footer-instagram {
+  align-items: center;
+  color: var(--ink);
+  display: inline-flex;
+  justify-content: center;
+  margin: 2px 0 0;
+  opacity: 0.72;
+}
+
+.footer-instagram svg {
+  display: block;
+  height: 14px;
+  width: 14px;
+}
+
+.footer-instagram:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
 .credits {
   font-size: 0.85rem;
   color: var(--muted);
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 /* Responsive */
