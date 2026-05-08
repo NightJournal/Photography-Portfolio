@@ -352,8 +352,8 @@ h1 {
 
 .directory-panel .instagram-link svg {
   display: block;
-  height: 18px;
-  width: 18px;
+  height: 13px;
+  width: 13px;
 }
 
 
@@ -1217,8 +1217,8 @@ footer a:hover {
   }
 
   .directory-panel .instagram-link {
-    margin-top: 34px;
-    padding: 8px;
+    margin-top: 30px;
+    padding: 4px;
   }
 
   .wrap {
