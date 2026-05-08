@@ -151,12 +151,19 @@
       background:var(--dark);
       color:#fffaf0;
     }
-    .directory-panel .instagram-link{
+    .directory-panel .menu-socials{
+      align-items:center;
+      display:flex;
+      gap:18px;
+      justify-content:center;
+    }
+    .directory-panel .menu-social-link{
       align-items:center;
       display:flex;
       justify-content:center;
+      padding:4px;
     }
-    .directory-panel .instagram-link svg{
+    .directory-panel .menu-social-link svg{
       display:block;
       height:13px;
       width:13px;
@@ -232,6 +239,10 @@
     .budget-total{font-size:2rem; font-family:Georgia,serif; color:var(--accent); margin:.2rem 0 0;}
     .warning{border-left:6px solid var(--accent); background:#f4e3ce; padding:18px 20px; border-radius:18px; box-shadow:inset 0 0 0 1px rgba(165,107,63,.1);}
     footer{padding:42px 0 60px; color:var(--muted); text-align:center;}
+    .footer-socials{align-items:center; display:inline-flex; gap:18px; justify-content:center; margin:2px 0 0;}
+    .footer-instagram,.footer-email{align-items:center; color:var(--dark); display:inline-flex; justify-content:center; opacity:.72; text-decoration:none;}
+    .footer-instagram svg,.footer-email svg{display:block; height:10px; width:10px;}
+    .footer-instagram:hover,.footer-email:hover{opacity:1;}
     @media (max-width:900px){
       .hero-card{grid-template-columns:1fr}.hero-art{min-height:360px}.grid.two,.grid.three,.shot{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.day{grid-template-columns:1fr}.day-label{position:relative; top:auto}.checklist{columns:1}.hero-copy{padding:36px 28px}
     }
@@ -246,7 +257,7 @@
       .directory-toggle[open] .directory-panel{position:fixed; inset:0; z-index:201; width:100vw; margin:0; padding:110px 28px 40px; display:flex; flex-direction:column; justify-content:center; gap:8px; text-align:center; pointer-events:auto; border:0; border-radius:0; background:rgba(255,250,240,.98); box-shadow:none;}
       .directory-panel a{padding:11px 14px; border-bottom:0; border-radius:0; font-size:1rem;}
       .directory-panel a[aria-current="page"]{background:transparent; color:var(--dark);}
-      .directory-panel .instagram-link{margin-top:30px; padding:4px;}
+      .directory-panel .menu-socials{margin-top:30px; padding:4px;}
       .photo-grid{grid-template-columns:1fr}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{padding-top:18px}
     }
     @media print{nav.sticky,.btn{display:none}body{background:white}.card,.hero-card{box-shadow:none}.day-label{position:relative;top:auto}.hero{min-height:auto}.hero-art{display:none}}
@@ -440,7 +451,10 @@
   <footer>
     <div class="wrap">
       <div style="font-size:0.85rem; color:var(--dark); margin-bottom:8px; font-weight:400;">Photos sourced from online</div>
-      <a class="footer-instagram" href="https://www.instagram.com/hhanley.explore_/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></a>
+      <div class="footer-socials">
+        <a class="footer-instagram" href="https://www.instagram.com/hhanley.explore_/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></a>
+        <a class="footer-email" href="../../contact.html" aria-label="Get in Touch"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 8l7 5 7-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
       <div class="credits">© 2026 Hanley Ho</div>
     </div>
   </footer>
