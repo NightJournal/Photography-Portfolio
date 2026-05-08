@@ -41,7 +41,12 @@
   <main>
     <section>
       <div class="wrap contact-wrap">
-        <form class="contact-form" action="mailto:hho.explore@gmail.com" method="post" enctype="text/plain">
+        <form class="contact-form" action="https://formsubmit.co/hho.explore@gmail.com" method="post">
+          <input type="hidden" name="_subject" value="New message from Travel with Hanley">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none">
+
           <div class="form-row">
             <label for="first-name">First name (required)</label>
             <input id="first-name" name="first-name" type="text" autocomplete="given-name" required>
@@ -89,7 +94,6 @@
     </div>
   </footer>
   <script src="js/site-menu.js" defer></script>
-  <script src="js/contact-form.js" defer></script>
   <script src="js/photo-protection.js" defer></script>
 </body>
 </html>
