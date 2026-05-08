@@ -364,8 +364,8 @@ h1 {
 
 .directory-panel .menu-social-link svg {
   display: block;
-  height: 13px;
-  width: 13px;
+  height: 18px;
+  width: 18px;
 }
 
 
@@ -1124,8 +1124,8 @@ footer a:hover {
 .footer-instagram svg,
 .footer-email svg {
   display: block;
-  height: 10px;
-  width: 10px;
+  height: 18px;
+  width: 18px;
 }
 
 .footer-instagram:hover,
