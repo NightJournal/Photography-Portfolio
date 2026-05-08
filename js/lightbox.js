@@ -35,21 +35,54 @@
     }
     .photo-lightbox button {
       position: fixed;
-      top: 18px;
-      right: 18px;
-      width: 44px;
-      height: 44px;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      background: rgba(0, 0, 0, 0.35);
+      border: 0;
+      background: transparent;
       color: #fff;
-      font-size: 28px;
       line-height: 1;
       cursor: pointer;
       display: grid;
       place-items: center;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+      transition: opacity 160ms ease;
     }
     .photo-lightbox button:hover {
-      background: rgba(255, 255, 255, 0.14);
+      opacity: 0.68;
+    }
+    .lightbox-close {
+      top: 18px;
+      right: 18px;
+      width: 44px;
+      height: 44px;
+      font-size: 34px;
+    }
+    .lightbox-nav {
+      top: 50%;
+      width: 58px;
+      height: 92px;
+      transform: translateY(-50%);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 74px;
+      font-weight: 300;
+    }
+    .lightbox-prev {
+      left: 14px;
+    }
+    .lightbox-next {
+      right: 14px;
+    }
+    @media (max-width: 560px) {
+      .photo-lightbox {
+        padding: 14px;
+      }
+      .photo-lightbox img {
+        max-width: 96vw;
+        max-height: 82vh;
+      }
+      .lightbox-nav {
+        width: 46px;
+        height: 74px;
+        font-size: 54px;
+      }
     }
     body.lightbox-open {
       overflow: hidden;
@@ -63,13 +96,27 @@
   lightbox.setAttribute("aria-modal", "true");
   lightbox.setAttribute("aria-label", "Expanded photo");
   lightbox.innerHTML = `
-    <button type="button" aria-label="Close expanded photo">&times;</button>
+    <button type="button" class="lightbox-close" aria-label="Close expanded photo">&times;</button>
+    <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#8249;</button>
     <img alt="">
+    <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photo">&#8250;</button>
   `;
   document.body.appendChild(lightbox);
 
   const fullImage = lightbox.querySelector("img");
-  const closeButton = lightbox.querySelector("button");
+  const closeButton = lightbox.querySelector(".lightbox-close");
+  const prevButton = lightbox.querySelector(".lightbox-prev");
+  const nextButton = lightbox.querySelector(".lightbox-next");
+  let activeIndex = 0;
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  const showPhoto = (index) => {
+    activeIndex = (index + photos.length) % photos.length;
+    const photo = photos[activeIndex];
+    fullImage.src = photo.dataset.fullSrc || photo.currentSrc || photo.src;
+    fullImage.alt = photo.alt || "Expanded photo";
+  };
 
   const close = () => {
     lightbox.classList.remove("is-open");
@@ -79,8 +126,7 @@
 
   photos.forEach((photo) => {
     photo.closest(".photo-card").addEventListener("click", () => {
-      fullImage.src = photo.dataset.fullSrc || photo.currentSrc || photo.src;
-      fullImage.alt = photo.alt || "Expanded photo";
+      showPhoto(photos.indexOf(photo));
       lightbox.classList.add("is-open");
       document.body.classList.add("lightbox-open");
       closeButton.focus();
@@ -88,14 +134,42 @@
   });
 
   closeButton.addEventListener("click", close);
+  prevButton.addEventListener("click", () => showPhoto(activeIndex - 1));
+  nextButton.addEventListener("click", () => showPhoto(activeIndex + 1));
   lightbox.addEventListener("click", (event) => {
     if (event.target === lightbox) {
       close();
     }
   });
+  lightbox.addEventListener("touchstart", (event) => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive: true });
+  lightbox.addEventListener("touchend", (event) => {
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+
+    if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      showPhoto(activeIndex + (deltaX < 0 ? 1 : -1));
+    }
+  }, { passive: true });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+    if (!lightbox.classList.contains("is-open")) {
+      return;
+    }
+
+    if (event.key === "Escape") {
       close();
+    }
+
+    if (event.key === "ArrowLeft") {
+      showPhoto(activeIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      showPhoto(activeIndex + 1);
     }
   });
 })();

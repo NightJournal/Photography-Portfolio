@@ -267,15 +267,15 @@ h1 {
 }
 
 .directory-toggle summary {
-  width: 46px;
-  height: 46px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
-  color: #fffaf0;
-  background: rgba(47, 42, 36, 0.86);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
-  box-shadow: 0 14px 34px rgba(47, 42, 36, 0.24);
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   cursor: pointer;
   list-style: none;
 }
@@ -289,8 +289,8 @@ h1 {
 .directory-toggle summary span::after {
   display: block;
   width: 18px;
-  height: 2px;
-  background: #fffaf0;
+  height: 1px;
+  background: currentColor;
   border-radius: 999px;
   content: "";
 }
@@ -342,6 +342,18 @@ h1 {
 .directory-panel a[aria-current="page"] {
   background: var(--ink);
   color: var(--paper);
+}
+
+.directory-panel .instagram-link {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.directory-panel .instagram-link svg {
+  display: block;
+  height: 18px;
+  width: 18px;
 }
 
 
@@ -1184,6 +1196,7 @@ footer a:hover {
     flex-direction: column;
     justify-content: center;
     gap: 8px;
+    text-align: center;
     pointer-events: auto;
     border: 0;
     border-radius: 0;
@@ -1192,10 +1205,20 @@ footer a:hover {
   }
 
   .directory-panel a {
-    padding: 15px 14px;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+    padding: 11px 14px;
+    border-bottom: 0;
     border-radius: 0;
-    font-size: 1.35rem;
+    font-size: 1rem;
+  }
+
+  .directory-panel a[aria-current="page"] {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .directory-panel .instagram-link {
+    margin-top: 34px;
+    padding: 8px;
   }
 
   .wrap {

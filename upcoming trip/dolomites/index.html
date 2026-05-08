@@ -95,15 +95,15 @@
       z-index:30;
     }
     .directory-toggle summary{
-      width:46px;
-      height:46px;
+      width:36px;
+      height:36px;
       display:grid;
       place-items:center;
-      color:#fffaf0;
-      background:rgba(47,42,36,.86);
-      border:1px solid rgba(255,250,240,.28);
-      border-radius:999px;
-      box-shadow:0 14px 34px rgba(47,42,36,.24);
+      color:var(--dark);
+      background:transparent;
+      border:0;
+      border-radius:0;
+      box-shadow:none;
       cursor:pointer;
       list-style:none;
     }
@@ -113,8 +113,8 @@
     .directory-toggle summary span:after{
       display:block;
       width:18px;
-      height:2px;
-      background:#fffaf0;
+      height:1px;
+      background:currentColor;
       border-radius:999px;
       content:"";
     }
@@ -150,6 +150,16 @@
     .directory-panel a[aria-current="page"]{
       background:var(--dark);
       color:#fffaf0;
+    }
+    .directory-panel .instagram-link{
+      align-items:center;
+      display:flex;
+      justify-content:center;
+    }
+    .directory-panel .instagram-link svg{
+      display:block;
+      height:18px;
+      width:18px;
     }
     .hero-art{
       min-height:620px;
@@ -233,8 +243,10 @@
       .directory-toggle[open] summary span{background:transparent;}
       .directory-toggle[open] summary span:before{top:0; transform:rotate(45deg);}
       .directory-toggle[open] summary span:after{top:0; transform:rotate(-45deg);}
-      .directory-toggle[open] .directory-panel{position:fixed; inset:0; z-index:201; width:100vw; margin:0; padding:110px 28px 40px; display:flex; flex-direction:column; justify-content:center; gap:8px; pointer-events:auto; border:0; border-radius:0; background:rgba(255,250,240,.98); box-shadow:none;}
-      .directory-panel a{padding:15px 14px; border-bottom:1px solid rgba(47,42,36,.14); border-radius:0; font-size:1.35rem;}
+      .directory-toggle[open] .directory-panel{position:fixed; inset:0; z-index:201; width:100vw; margin:0; padding:110px 28px 40px; display:flex; flex-direction:column; justify-content:center; gap:8px; text-align:center; pointer-events:auto; border:0; border-radius:0; background:rgba(255,250,240,.98); box-shadow:none;}
+      .directory-panel a{padding:11px 14px; border-bottom:0; border-radius:0; font-size:1rem;}
+      .directory-panel a[aria-current="page"]{background:transparent; color:var(--dark);}
+      .directory-panel .instagram-link{margin-top:34px; padding:8px;}
       .photo-grid{grid-template-columns:1fr}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{padding-top:18px}
     }
     @media print{nav.sticky,.btn{display:none}body{background:white}.card,.hero-card{box-shadow:none}.day-label{position:relative;top:auto}.hero{min-height:auto}.hero-art{display:none}}
@@ -427,6 +439,7 @@
 
   <footer><div class="wrap"><div style="font-size:0.85rem; color:var(--dark); margin-bottom:8px; font-weight:400;">Photos sourced from online</div>© 2026 Hanley Ho</div></footer>
   <script src="../../js/lightbox.js" defer></script>
+  <script src="../../js/site-menu.js" defer></script>
   <script src="../../js/photo-protection.js" defer></script>
 </body>
 </html>
