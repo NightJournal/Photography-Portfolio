@@ -1,5 +1,6 @@
 (() => {
   const form = document.querySelector(".contact-form");
+  const recipient = "hho.explore@gmail.com";
 
   if (!form) {
     return;
@@ -25,6 +26,6 @@
       message
     ].join("\n");
 
-    window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 })();
