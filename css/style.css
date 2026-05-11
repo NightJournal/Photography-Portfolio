@@ -1025,7 +1025,7 @@ h2 {
   position: absolute;
   right: 0;
   left: 0;
-  top: -0.25em;
+  top: calc(var(--band-height) - 0.25em);
   padding: 0 24px;
   text-shadow: none !important;
   text-transform: uppercase;
@@ -1908,8 +1908,6 @@ footer a:hover {
 
   .gallery-word-card .category-info h3 {
     font-size: clamp(3rem, 15vw, 4.8rem);
-    top: -0.25em;
-    bottom: 0;
   }
 
   .gallery-word-card:nth-child(3) .category-info h3 {
