@@ -1080,8 +1080,25 @@ h2 {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.56));
 }
 
+.gallery-word-card:nth-child(1) .category-info h3 {
+  background-position: 50% 58%;
+}
+
+.gallery-word-card:nth-child(2) .category-info h3 {
+  background-position: 50% 46%;
+}
+
+.gallery-word-card:nth-child(3) .category-info h3 {
+  background-position: 50% 54%;
+}
+
+.gallery-word-card:nth-child(4) .category-info h3 {
+  background-position: 50% 48%;
+}
+
 .gallery-word-card:nth-child(5) .category-info h3 {
   -webkit-text-stroke: 0;
+  background-position: 50% 54%;
 }
 
 .gallery-word-card:nth-child(5) .category-info > span:last-child {
