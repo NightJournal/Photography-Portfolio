@@ -995,13 +995,13 @@ h2 {
 
 .gallery-word-card .category-kicker {
   color: rgba(24, 24, 24, 0.82);
-  display: flex;
-  justify-content: space-between;
-  left: 28px;
+  display: block;
+  left: 50%;
   margin: 0;
   position: absolute;
-  right: 28px;
+  text-align: center;
   top: clamp(24px, 3vw, 42px);
+  transform: translateX(-50%);
   font-family: var(--font-caps);
   font-size: clamp(0.66rem, 1vw, 0.88rem);
   font-weight: 400;
