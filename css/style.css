@@ -974,20 +974,21 @@ h2 {
   text-transform: uppercase;
   letter-spacing: -0.055em;
 
-  background-image: var(--resolved-card-image, var(--card-image));
+  background-image: var(--resolved-card-image);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 
   color: transparent;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
 
-  opacity: 0.78;
+  opacity: 1;
   z-index: 3;
   pointer-events: none;
 
-  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.14));
+  filter: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.22));
 }
 
 /* Europe card */
