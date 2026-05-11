@@ -1011,13 +1011,16 @@ h2 {
 }
 
 .gallery-word-card .category-info h3 {
-  background-position: center center;
+  align-items: flex-end;
+  background-position: center 30%;
   background-size: cover;
-  bottom: 0;
+  bottom: auto;
   color: transparent;
+  display: flex;
   font-family: var(--font-caps);
   font-size: var(--title-size, clamp(4.4rem, 11vw, 9rem));
   font-weight: 900;
+  height: var(--band-height);
   letter-spacing: -0.04em;
   line-height: 0.78;
   margin: 0;
@@ -1025,7 +1028,7 @@ h2 {
   position: absolute;
   right: 0;
   left: 0;
-  top: calc(var(--band-height) - 0.25em);
+  top: 0;
   padding: 0 24px;
   text-shadow: none !important;
   text-transform: uppercase;
@@ -1081,28 +1084,28 @@ h2 {
 
 .gallery-word-card:nth-child(1) .category-info h3 {
   background-image: url('../photos/web/asia/DJI_0702.jpg');
-  background-position: 50% 58%;
+  background-position: 50% 20%;
 }
 
 .gallery-word-card:nth-child(2) .category-info h3 {
   background-image: url('../photos/web/south-africa/IMG_8638-Edit.jpg');
-  background-position: 50% 46%;
+  background-position: 50% 15%;
 }
 
 .gallery-word-card:nth-child(3) .category-info h3 {
   background-image: url('../photos/web/europe/IMG_7059.jpg');
-  background-position: 50% 54%;
+  background-position: 50% 20%;
 }
 
 .gallery-word-card:nth-child(4) .category-info h3 {
   background-image: url('../photos/web/north-america/1F7A2673.jpg');
-  background-position: 50% 48%;
+  background-position: 50% 15%;
 }
 
 .gallery-word-card:nth-child(5) .category-info h3 {
   -webkit-text-stroke: 0;
   background-image: url('../photos/web/astrophotography/Untitled_Panorama-1.jpg');
-  background-position: 50% 54%;
+  background-position: 50% 25%;
 }
 
 .gallery-word-card:nth-child(5) .category-info > span:last-child {
