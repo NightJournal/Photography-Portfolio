@@ -825,14 +825,41 @@ h2 {
 }
 
 .gallery-category-grid {
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  display: grid;
+  grid-auto-rows: 150px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
 }
 
 .gallery-word-card {
-  min-height: 340px;
+  min-height: 0;
   border: 0;
   background: #d9d9d9;
+}
+
+.gallery-word-card:nth-child(1) {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.gallery-word-card:nth-child(2) {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.gallery-word-card:nth-child(3) {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.gallery-word-card:nth-child(4) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-word-card:nth-child(5) {
+  grid-column: span 6;
+  grid-row: span 2;
 }
 
 .gallery-word-card:hover {
@@ -848,19 +875,20 @@ h2 {
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.04) 0%,
-      rgba(0, 0, 0, 0.06) 40%,
-      rgba(0, 0, 0, 0.62) 100%
+      rgba(232, 230, 226, 0.74) 0%,
+      rgba(232, 230, 226, 0.44) 29%,
+      rgba(12, 12, 12, 0.1) 52%,
+      rgba(12, 12, 12, 0.34) 100%
     );
 }
 
 .gallery-word-card .category-info {
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
   color: #fff;
   overflow: hidden;
-  text-align: left;
+  text-align: center;
 }
 
 .gallery-word-card:hover .category-info {
@@ -872,12 +900,12 @@ h2 {
 }
 
 .gallery-word-card .category-kicker {
-  margin: 0 0 10px;
-  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 2px;
+  color: #1f1f1f;
   font-family: var(--font-caps);
-  font-size: 0.68rem;
+  font-size: clamp(0.66rem, 1vw, 0.88rem);
   font-weight: 400;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.5em;
   text-shadow: none;
   text-transform: uppercase;
   opacity: 0.95;
@@ -886,35 +914,32 @@ h2 {
 .gallery-word-card .category-info h3 {
   margin: 0;
   color: #fff;
-  font-family: var(--font-body);
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
-  font-weight: 700;
+  font-family: var(--font-caps);
+  font-size: clamp(3.8rem, 10vw, 8.2rem);
+  font-weight: 900;
   letter-spacing: 0;
-  line-height: 0.95;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.42);
-}
-
-.gallery-word-card .category-place {
-  margin-top: 10px;
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.4;
-  opacity: 0.96;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  line-height: 0.78;
+  max-width: 100%;
+  mix-blend-mode: screen;
+  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.18);
+  text-transform: uppercase;
 }
 
 .gallery-word-card .category-info > span:last-child {
-  margin-top: 6px;
-  color: rgba(255, 255, 255, 0.86);
+  margin-top: 10px;
+  color: #fff;
   font-family: var(--font-caps);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   opacity: 1;
   text-transform: uppercase;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+.gallery-word-card:nth-child(4) .category-info h3,
+.gallery-word-card:nth-child(5) .category-info h3 {
+  font-size: clamp(2.4rem, 6.8vw, 5.7rem);
 }
 
 /* Trips Section */
@@ -1430,6 +1455,24 @@ footer a:hover {
   .category-grid {
     grid-template-columns: 1fr;
   }
+
+  .gallery-category-grid {
+    grid-auto-rows: 170px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-word-card:nth-child(1),
+  .gallery-word-card:nth-child(2),
+  .gallery-word-card:nth-child(3),
+  .gallery-word-card:nth-child(4),
+  .gallery-word-card:nth-child(5) {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .gallery-word-card:nth-child(5) {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1595,7 +1638,21 @@ footer a:hover {
   }
 
   .gallery-word-card {
-    min-height: 300px;
+    min-height: 280px;
+  }
+
+  .gallery-category-grid {
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-word-card:nth-child(1),
+  .gallery-word-card:nth-child(2),
+  .gallery-word-card:nth-child(3),
+  .gallery-word-card:nth-child(4),
+  .gallery-word-card:nth-child(5) {
+    grid-column: 1;
+    grid-row: auto;
   }
 
   .gallery-word-card .category-info {
@@ -1604,15 +1661,16 @@ footer a:hover {
 
   .gallery-word-card .category-kicker {
     font-size: 0.62rem;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.34em;
   }
 
   .gallery-word-card .category-info h3 {
-    font-size: clamp(2.1rem, 11vw, 3.4rem);
+    font-size: clamp(3rem, 15vw, 5.3rem);
   }
 
-  .gallery-word-card .category-place {
-    font-size: 0.92rem;
+  .gallery-word-card:nth-child(4) .category-info h3,
+  .gallery-word-card:nth-child(5) .category-info h3 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
   }
 
   .card {
