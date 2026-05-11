@@ -1018,10 +1018,11 @@ h2 {
   font-family: var(--font-caps);
   font-size: var(--title-size, clamp(4.4rem, 11vw, 9rem));
   font-weight: 900;
-  letter-spacing: 0;
+  letter-spacing: -0.04em;
   line-height: 0.78;
   margin: 0;
   max-width: 100%;
+  opacity: 0.82;
   position: absolute;
   right: 24px;
   left: 24px;
