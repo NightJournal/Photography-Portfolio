@@ -842,6 +842,7 @@ h2 {
 }
 
 .category-card {
+  --image-start: 45%;
   position: relative;
   overflow: hidden;
   border-radius: 0;
@@ -914,33 +915,37 @@ h2 {
 }
 
 .gallery-word-card {
-  --band-height: 42%;
   min-height: 0;
   border: 0;
   background: var(--card-tone, #d9d9d9);
 }
 
 .gallery-word-card:nth-child(1) {
+  --card-image: url("../photos/web/asia/DJI_0702.jpg");
   grid-column: span 3;
   grid-row: span 2;
 }
 
 .gallery-word-card:nth-child(2) {
+  --card-image: url("../photos/web/south-africa/IMG_8638-Edit.jpg");
   grid-column: span 3;
   grid-row: span 2;
 }
 
 .gallery-word-card:nth-child(3) {
+  --card-image: url("../photos/web/europe/IMG_7059.jpg");
   grid-column: span 2;
   grid-row: span 2;
 }
 
 .gallery-word-card:nth-child(4) {
+  --card-image: url("../photos/web/north-america/1F7A2673.jpg");
   grid-column: span 4;
   grid-row: span 2;
 }
 
 .gallery-word-card:nth-child(5) {
+  --card-image: url("../photos/web/astrophotography/Untitled_Panorama-1.jpg");
   grid-column: span 6;
   grid-row: span 2;
 }
@@ -950,8 +955,11 @@ h2 {
 }
 
 .gallery-word-card img {
-  height: 100%;
-  inset: 0;
+  bottom: auto;
+  height: calc(100% - var(--image-start));
+  inset-inline: 0;
+  top: var(--image-start);
+  width: 100%;
   filter: saturate(0.95) contrast(1.02);
   object-position: center;
   transition: transform 0.5s ease;
@@ -961,7 +969,7 @@ h2 {
 .gallery-word-card::before {
   background: var(--card-tone, #d9d9d9);
   bottom: auto;
-  height: var(--band-height);
+  height: var(--image-start);
   z-index: 1;
 }
 
@@ -969,7 +977,7 @@ h2 {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.32));
   bottom: 0;
   content: "";
-  height: calc(100% - var(--band-height));
+  height: calc(100% - var(--image-start));
   left: 0;
   pointer-events: none;
   position: absolute;
@@ -992,14 +1000,14 @@ h2 {
   transform: none;
 }
 
-.gallery-word-card .category-kicker {
+.gallery-word-card .category-label {
   color: rgba(24, 24, 24, 0.82);
   display: block;
   left: 28px;
   margin: 0;
   position: absolute;
   text-align: left;
-  top: clamp(24px, 3vw, 42px);
+  top: 44px;
   transform: none;
   font-family: var(--font-caps);
   font-size: clamp(0.66rem, 1vw, 0.88rem);
@@ -1010,52 +1018,57 @@ h2 {
   opacity: 0.95;
 }
 
-.gallery-word-card .category-info h3 {
-  background-image: var(--title-img);
+.gallery-word-card .category-title {
+  background-image: var(--card-image);
   background-position: center;
   background-size: cover;
-  bottom: auto;
-  box-sizing: border-box;
   color: transparent;
-  display: block;
   font-family: var(--font-caps);
-  font-size: var(--title-size, clamp(4.4rem, 11vw, 9rem));
-  font-weight: 900;
-  height: 100%;
-  letter-spacing: -0.04em;
-  line-height: 0.78;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
   margin: 0;
-  max-width: 100%;
   position: absolute;
-  inset: 0;
-  padding: calc(var(--band-height) - 0.62em) 24px 0;
-  text-align: center;
+  top: var(--image-start);
+  left: 50%;
+  transform: translate(-50%, -48%);
+  white-space: nowrap;
   text-shadow: none !important;
   text-transform: uppercase;
-  z-index: 3;
+  z-index: 2;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0;
-  opacity: 0.6;
+  opacity: 0.62;
+  pointer-events: none;
 }
 
-.gallery-word-card .category-info > span:last-child {
+.gallery-word-card .category-title.long {
+  font-size: clamp(2.8rem, 5.8vw, 5.4rem);
+}
+
+.gallery-word-card .category-title.extra-long {
+  font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+}
+
+.gallery-word-card .category-subtitle {
   color: #fff;
   font-family: var(--font-body);
   font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.24em;
-  left: 28px;
-  line-height: 1.45;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  left: 50%;
+  line-height: 1.35;
   margin: 0;
-  max-width: calc(100% - 56px);
   opacity: 1;
   position: absolute;
-  right: 28px;
-  top: calc(var(--band-height) + 12px);
+  top: calc(var(--image-start) + 24px);
+  transform: translateX(-50%);
   text-transform: uppercase;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
   z-index: 3;
 }
 
@@ -1083,11 +1096,7 @@ h2 {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.56));
 }
 
-.gallery-word-card:nth-child(5) .category-info h3 {
-  -webkit-text-stroke: 0;
-}
-
-.gallery-word-card:nth-child(5) .category-info > span:last-child {
+.gallery-word-card:nth-child(5) .category-subtitle {
   color: rgba(255, 255, 255, 0.96);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.78);
 }
@@ -1882,34 +1891,32 @@ footer a:hover {
     padding: 22px;
   }
 
-  .gallery-word-card .category-kicker {
+  .gallery-word-card .category-label {
     font-size: 0.62rem;
     letter-spacing: 0.34em;
     left: 22px;
   }
 
-  .gallery-word-card .category-info h3 {
+  .gallery-word-card .category-title {
     font-size: clamp(3rem, 15vw, 4.8rem);
   }
 
-  .gallery-word-card:nth-child(3) .category-info h3 {
-    font-size: clamp(2.8rem, 13vw, 4rem);
+  .gallery-word-card .category-title.long {
+    font-size: clamp(2.1rem, 9vw, 3.4rem);
   }
 
-  .gallery-word-card:nth-child(4) .category-info h3 {
-    font-size: clamp(1.7rem, 8.5vw, 2.8rem);
-  }
-
-  .gallery-word-card:nth-child(5) .category-info h3 {
-    font-size: clamp(1.1rem, 6.5vw, 2.2rem);
+  .gallery-word-card .category-title.extra-long {
+    font-size: clamp(1.45rem, 7vw, 2.6rem);
     letter-spacing: -0.05em;
   }
 
-  .gallery-word-card .category-info > span:last-child {
+  .gallery-word-card:nth-child(3) .category-title {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  .gallery-word-card .category-subtitle {
     font-size: 0.58rem;
-    left: 22px;
-    right: 22px;
-    top: calc(var(--band-height) + 10px);
+    top: calc(var(--image-start) + 18px);
   }
 
   .card {
