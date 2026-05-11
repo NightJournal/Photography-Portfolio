@@ -1807,28 +1807,6 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
-  .featured-photo-grid {
-    gap: 14px;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .featured-photo-grid .photo-card:first-child,
-  .featured-photo-grid .photo-card:nth-child(4) {
-    grid-column: 1 / -1;
-  }
-
-  .featured-photo-grid .photo-card:first-child img,
-  .featured-photo-grid .photo-card:nth-child(4) img {
-    aspect-ratio: 4 / 5;
-  }
-
-  .featured-photo-grid .photo-card:nth-child(2) img,
-  .featured-photo-grid .photo-card:nth-child(3) img,
-  .featured-photo-grid .photo-card:nth-child(5) img,
-  .featured-photo-grid .photo-card:nth-child(6) img {
-    aspect-ratio: 3 / 4;
-  }
-
   .country-section .photo-grid {
     columns: 1;
   }
