@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Oooh+Baby&display=swap");
+
 :root {
   --bg: #fafaf8;
   --paper: #ffffff;
@@ -142,6 +144,35 @@ h1 {
   letter-spacing: -1px;
   margin: 0 0 18px;
   font-weight: 700;
+}
+
+.signature-title {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  margin: 0 0 26px;
+}
+
+.title-small {
+  color: #171717;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.85rem, 1.1vw, 1.1rem);
+  font-weight: 500;
+  letter-spacing: 0.45em;
+  line-height: 1;
+  margin: 0 0 0.25rem 0.25rem;
+  text-transform: uppercase;
+}
+
+.title-script {
+  color: #9b8c7d;
+  font-family: "Oooh Baby", cursive;
+  font-size: clamp(5.2rem, 10vw, 9.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.75;
+  transform: translateX(-0.08em);
 }
 
 .subtitle {
@@ -1323,6 +1354,15 @@ footer a:hover {
 
   h1 {
     font-size: 1.8rem;
+  }
+
+  .title-small {
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+  }
+
+  .title-script {
+    font-size: clamp(4.2rem, 22vw, 6.2rem);
   }
 
   h2 {
