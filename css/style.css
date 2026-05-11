@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Oooh+Baby&display=swap");
 
+@font-face {
+  font-family: "Runiga";
+  src: url("../fonts/runiga/Runiga.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Narony";
+  src: url("../fonts/narony/Narony-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bitteva Script";
+  src: url("../fonts/bitteva-script/Bitteva-Script.ttf") format("truetype");
+  font-display: swap;
+}
+
 :root {
   --bg: #fafaf8;
   --paper: #ffffff;
@@ -14,6 +32,9 @@
   --radius: 2px;
   --font-body: "Times New Roman", Times, serif;
   --font-caps: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-title: "Runiga", "Times New Roman", Times, serif;
+  --font-signature: "Narony", "Oooh Baby", cursive;
+  --font-script-heading: "Bitteva Script", "Times New Roman", Times, serif;
 }
 
 * {
@@ -167,7 +188,7 @@ h1 {
 
 .title-script {
   color: #9b8c7d;
-  font-family: "Oooh Baby", cursive;
+  font-family: var(--font-signature);
   font-size: clamp(5.2rem, 10vw, 9.5rem);
   font-weight: 400;
   letter-spacing: 0;
@@ -239,6 +260,21 @@ h1 {
 .page-banner .subtitle {
   color: #fff;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.page-banner h1,
+header[style*="linear-gradient"] h1 {
+  font-family: var(--font-title);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.home-page .section-header h2 {
+  font-family: var(--font-script-heading);
+  font-size: clamp(2.7rem, 5vw, 4.8rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.92;
 }
 
 .page-banner .subtitle {
