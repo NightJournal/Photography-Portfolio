@@ -909,196 +909,158 @@ h2 {
 
 .gallery-category-grid {
   display: grid;
-  grid-auto-rows: 150px;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
 }
 
-.gallery-word-card {
-  min-height: 0;
-  border: 0;
-  background: var(--card-tone, #d9d9d9);
+.gallery-category-grid .category-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  background: var(--card-bg);
+  transition: box-shadow 0.3s ease;
+  --image-start: 43%;
 }
 
-.gallery-word-card:nth-child(1) {
-  --card-image: url("../photos/web/asia/DJI_0702.jpg");
-  grid-column: span 3;
-  grid-row: span 2;
+.gallery-category-grid .category-card:nth-child(1) {
+  --resolved-card-image: url("../photos/web/asia/DJI_0702.jpg");
 }
 
-.gallery-word-card:nth-child(2) {
-  --card-image: url("../photos/web/south-africa/IMG_8638-Edit.jpg");
-  grid-column: span 3;
-  grid-row: span 2;
+.gallery-category-grid .category-card:nth-child(2) {
+  --resolved-card-image: url("../photos/web/south-africa/IMG_8638-Edit.jpg");
 }
 
-.gallery-word-card:nth-child(3) {
-  --card-image: url("../photos/web/europe/IMG_7059.jpg");
-  grid-column: span 2;
-  grid-row: span 2;
+.gallery-category-grid .category-card:nth-child(3) {
+  --resolved-card-image: url("../photos/web/europe/IMG_7059.jpg");
 }
 
-.gallery-word-card:nth-child(4) {
-  --card-image: url("../photos/web/north-america/1F7A2673.jpg");
+.gallery-category-grid .category-card:nth-child(4) {
+  --resolved-card-image: url("../photos/web/north-america/1F7A2673.jpg");
+}
+
+.gallery-category-grid .category-card:nth-child(5) {
+  --resolved-card-image: url("../photos/web/astrophotography/Untitled_Panorama-1.jpg");
+}
+
+.gallery-category-grid .category-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-category-grid .category-card.small {
   grid-column: span 4;
-  grid-row: span 2;
 }
 
-.gallery-word-card:nth-child(5) {
-  --card-image: url("../photos/web/astrophotography/Untitled_Panorama-1.jpg");
+.gallery-category-grid .category-card.medium {
   grid-column: span 6;
-  grid-row: span 2;
 }
 
-.gallery-word-card:hover {
-  box-shadow: none;
+.gallery-category-grid .category-card.wide {
+  grid-column: span 8;
 }
 
-.gallery-word-card img {
-  bottom: auto;
-  height: calc(100% - var(--image-start));
-  inset-inline: 0;
-  top: var(--image-start);
-  width: 100%;
-  filter: saturate(0.95) contrast(1.02);
-  object-position: center;
-  transition: transform 0.5s ease;
-  z-index: 0;
+.gallery-category-grid .category-card.full {
+  grid-column: span 12;
 }
 
-.gallery-word-card::before {
-  background: var(--card-tone, #d9d9d9);
-  bottom: auto;
-  height: var(--image-start);
-  z-index: 1;
-}
-
-.gallery-word-card::after {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.32));
-  bottom: 0;
-  content: "";
-  height: calc(100% - var(--image-start));
-  left: 0;
-  pointer-events: none;
+.gallery-category-grid .category-card img {
   position: absolute;
+  left: 0;
   right: 0;
+  top: var(--image-start);
+  bottom: auto;
+  width: 100%;
+  height: calc(100% - var(--image-start));
+  object-fit: cover;
+}
+
+.gallery-category-grid .category-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--image-start);
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.08));
   z-index: 1;
+  pointer-events: none;
 }
 
-.gallery-word-card .category-info {
+.gallery-category-grid .category-info {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
   display: block;
-  padding: 24px;
-  color: #fff;
-  text-align: center;
+  text-decoration: none;
 }
 
-.gallery-word-card:hover .category-info {
+.gallery-category-grid .category-card:hover .category-info {
   background: transparent;
 }
 
-.gallery-word-card:hover img {
-  transform: none;
-}
-
-.gallery-word-card .category-label {
-  color: rgba(24, 24, 24, 0.82);
-  display: block;
+.gallery-category-grid .category-label {
+  position: absolute;
+  top: 38px;
   left: 28px;
   margin: 0;
-  position: absolute;
-  text-align: left;
-  top: 44px;
-  transform: none;
-  font-family: var(--font-caps);
-  font-size: clamp(0.66rem, 1vw, 0.88rem);
+  line-height: 1;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: 0.46em;
-  text-shadow: none;
+  letter-spacing: 0.45em;
   text-transform: uppercase;
-  opacity: 0.95;
+  color: #222;
+  z-index: 5;
 }
 
-.gallery-word-card .category-title {
-  background-image: var(--card-image);
-  background-position: center;
-  background-size: cover;
-  color: transparent;
-  font-family: var(--font-caps);
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 0.85;
-  margin: 0;
+.gallery-category-grid .category-title {
   position: absolute;
   top: var(--image-start);
   left: 50%;
-  transform: translate(-50%, -48%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  line-height: 0.85;
   white-space: nowrap;
-  text-shadow: none !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  font-weight: 900;
   text-transform: uppercase;
-  z-index: 2;
-  -webkit-background-clip: text;
-  background-clip: text;
+  letter-spacing: -0.07em;
+  background-image: var(--resolved-card-image, var(--card-image));
+  background-size: cover;
+  background-position: center;
+  color: transparent;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0;
-  opacity: 0.62;
+  background-clip: text;
+  -webkit-background-clip: text;
+  opacity: 0.68;
+  z-index: 3;
   pointer-events: none;
 }
 
-.gallery-word-card .category-title.long {
-  font-size: clamp(2.8rem, 5.8vw, 5.4rem);
+.gallery-category-grid .category-title.long {
+  font-size: clamp(2.8rem, 5.6vw, 5.8rem);
 }
 
-.gallery-word-card .category-title.extra-long {
-  font-size: clamp(2.4rem, 4.8vw, 4.8rem);
+.gallery-category-grid .category-title.extra-long {
+  font-size: clamp(2.4rem, 5vw, 5.2rem);
 }
 
-.gallery-word-card .category-subtitle {
-  color: #fff;
-  font-family: var(--font-body);
+.gallery-category-grid .category-subtitle {
+  position: absolute;
+  top: calc(var(--image-start) + 22px);
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.28em;
-  left: 50%;
-  line-height: 1.35;
-  margin: 0;
-  opacity: 1;
-  position: absolute;
-  top: calc(var(--image-start) + 24px);
-  transform: translateX(-50%);
   text-transform: uppercase;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
-  white-space: nowrap;
-  z-index: 3;
-}
-
-.gallery-word-card:nth-child(1) img {
-  object-position: center 58%;
-}
-
-.gallery-word-card:nth-child(2) img {
-  object-position: center 46%;
-}
-
-.gallery-word-card:nth-child(3) img {
-  object-position: center 54%;
-}
-
-.gallery-word-card:nth-child(4) img {
-  object-position: center 48%;
-}
-
-.gallery-word-card:nth-child(5) img {
-  object-position: center 54%;
-}
-
-.gallery-word-card:nth-child(5)::after {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.56));
-}
-
-.gallery-word-card:nth-child(5) .category-subtitle {
-  color: rgba(255, 255, 255, 0.96);
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.78);
+  color: white;
+  z-index: 4;
 }
 
 /* Trips Section */
@@ -1626,21 +1588,52 @@ footer a:hover {
   }
 
   .gallery-category-grid {
-    grid-auto-rows: 170px;
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .gallery-word-card:nth-child(1),
-  .gallery-word-card:nth-child(2),
-  .gallery-word-card:nth-child(3),
-  .gallery-word-card:nth-child(4),
-  .gallery-word-card:nth-child(5) {
+  .gallery-category-grid .category-card,
+  .gallery-category-grid .category-card.small,
+  .gallery-category-grid .category-card.medium,
+  .gallery-category-grid .category-card.wide,
+  .gallery-category-grid .category-card.full {
     grid-column: span 1;
-    grid-row: span 2;
   }
 
-  .gallery-word-card:nth-child(5) {
+  .gallery-category-grid .category-card.full {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-category-grid .category-card,
+  .gallery-category-grid .category-card.small,
+  .gallery-category-grid .category-card.medium,
+  .gallery-category-grid .category-card.wide,
+  .gallery-category-grid .category-card.full {
+    grid-column: span 1;
+  }
+
+  .gallery-category-grid .category-card {
+    min-height: 260px;
+    --image-start: 44%;
+  }
+
+  .gallery-category-grid .category-title {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .gallery-category-grid .category-title.long,
+  .gallery-category-grid .category-title.extra-long {
+    font-size: clamp(2.3rem, 11vw, 4rem);
+  }
+
+  .gallery-category-grid .category-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
   }
 }
 
@@ -1869,54 +1862,10 @@ footer a:hover {
     columns: 1;
   }
 
-  .gallery-word-card {
-    min-height: 280px;
-  }
-
-  .gallery-category-grid {
-    grid-auto-rows: auto;
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-word-card:nth-child(1),
-  .gallery-word-card:nth-child(2),
-  .gallery-word-card:nth-child(3),
-  .gallery-word-card:nth-child(4),
-  .gallery-word-card:nth-child(5) {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .gallery-word-card .category-info {
-    padding: 22px;
-  }
-
-  .gallery-word-card .category-label {
+  .gallery-category-grid .category-label {
     font-size: 0.62rem;
     letter-spacing: 0.34em;
     left: 22px;
-  }
-
-  .gallery-word-card .category-title {
-    font-size: clamp(3rem, 15vw, 4.8rem);
-  }
-
-  .gallery-word-card .category-title.long {
-    font-size: clamp(2.1rem, 9vw, 3.4rem);
-  }
-
-  .gallery-word-card .category-title.extra-long {
-    font-size: clamp(1.45rem, 7vw, 2.6rem);
-    letter-spacing: -0.05em;
-  }
-
-  .gallery-word-card:nth-child(3) .category-title {
-    font-size: clamp(2.8rem, 13vw, 4rem);
-  }
-
-  .gallery-word-card .category-subtitle {
-    font-size: 0.58rem;
-    top: calc(var(--image-start) + 18px);
   }
 
   .card {
