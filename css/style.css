@@ -974,7 +974,7 @@ h2 {
   text-transform: uppercase;
   letter-spacing: -0.055em;
 
-  background-image: var(--card-image, var(--resolved-card-image));
+  background-image: var(--resolved-card-image, var(--card-image));
   background-size: cover;
   background-position: center;
 
