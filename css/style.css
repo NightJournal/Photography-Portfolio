@@ -1045,6 +1045,12 @@ h2 {
   transform: translate(-50%, -70%);
 }
 
+.gallery-category-grid .category-card.small .category-title {
+  font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+  letter-spacing: -0.06em;
+  transform: translate(-50%, -70%);
+}
+
 .gallery-category-grid .category-title.extra-long {
   font-size: clamp(2.6rem, 5vw, 5.2rem);
   transform: translate(-50%, -68%);
