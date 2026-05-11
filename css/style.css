@@ -1013,7 +1013,7 @@ h2 {
 .gallery-word-card .category-info h3 {
   background-position: center 30%;
   background-size: 100% auto;
-  bottom: calc(100% - var(--band-height));
+  bottom: auto;
   color: transparent;
   font-family: var(--font-caps);
   font-size: var(--title-size, clamp(4.4rem, 11vw, 9rem));
@@ -1025,8 +1025,9 @@ h2 {
   position: absolute;
   right: 0;
   left: 0;
-  top: auto;
+  top: calc(var(--band-height) / 2 - 0.39em);
   padding: 0 24px;
+  text-align: center;
   text-shadow: none !important;
   text-transform: uppercase;
   z-index: 3;
