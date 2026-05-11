@@ -1608,6 +1608,43 @@ footer a:hover {
   }
 }
 
+@media (max-width: 900px) and (orientation: landscape) {
+  .home-page header.hero,
+  .home-page .hero-card {
+    min-height: 520px;
+  }
+
+  .home-page .hero-visual .signature-title {
+    top: 28px;
+    left: 32px;
+    max-width: 48%;
+  }
+
+  .home-page .hero-visual .title-small {
+    font-size: 0.56rem;
+    letter-spacing: 0.26em;
+  }
+
+  .home-page .hero-visual .title-script {
+    font-size: clamp(4rem, 11vh, 5.8rem);
+  }
+
+  .home-page .hero-copy {
+    bottom: 28px;
+    left: 32px;
+    width: min(430px, 52%);
+  }
+
+  .home-page .subtitle {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .home-page .cta-group {
+    margin-top: 18px;
+  }
+}
+
 @media (max-width: 560px) {
   body > nav {
     display: none;
