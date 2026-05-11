@@ -1025,8 +1025,9 @@ h2 {
   position: absolute;
   right: 0;
   left: 0;
-  top: 0;
+  top: -0.12em;
   padding: 0 24px;
+  text-shadow: none;
   text-transform: uppercase;
   z-index: 3;
   -webkit-background-clip: text;
