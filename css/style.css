@@ -1066,6 +1066,20 @@ h2 {
   object-position: center 54%;
 }
 
+.gallery-word-card:nth-child(5)::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.56));
+}
+
+.gallery-word-card:nth-child(5) .category-info h3 {
+  color: rgba(34, 37, 43, 0.92);
+  text-shadow: 0 1px 14px rgba(255, 255, 255, 0.28);
+}
+
+.gallery-word-card:nth-child(5) .category-info > span:last-child {
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.78);
+}
+
 /* Trips Section */
 .trip-card {
   background: var(--paper);
