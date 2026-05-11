@@ -915,7 +915,6 @@ h2 {
 
 .gallery-word-card {
   --band-height: 42%;
-  --title-solid: color-mix(in srgb, var(--card-tone, #d9d9d9) 62%, #141414 38%);
   min-height: 0;
   border: 0;
   background: var(--card-tone, #d9d9d9);
@@ -951,17 +950,19 @@ h2 {
 }
 
 .gallery-word-card img {
-  height: calc(100% - var(--band-height));
-  inset: auto 0 0;
+  height: 100%;
+  inset: 0;
   filter: saturate(0.95) contrast(1.02);
   object-position: center;
   transition: transform 0.5s ease;
+  z-index: 0;
 }
 
 .gallery-word-card::before {
-  background: var(--card-tone, #d9d9d9);
+  background: color-mix(in srgb, var(--card-tone, #d9d9d9) 88%, transparent 12%);
   bottom: auto;
   height: var(--band-height);
+  z-index: 1;
 }
 
 .gallery-word-card::after {
@@ -1011,18 +1012,8 @@ h2 {
 }
 
 .gallery-word-card .category-info h3 {
-  background-image:
-    linear-gradient(
-      180deg,
-      var(--title-solid) 0%,
-      var(--title-solid) 49.5%,
-      transparent 50%,
-      transparent 100%
-    ),
-    var(--category-image);
-  background-position: center, center bottom;
-  background-size: 100% 100%, cover;
-  color: transparent;
+  background: none;
+  color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-caps);
   font-size: var(--title-size, clamp(3.8rem, 10vw, 8.2rem));
   font-weight: 900;
@@ -1036,11 +1027,10 @@ h2 {
   top: calc(var(--band-height) - 0.47em);
   text-transform: uppercase;
   z-index: 3;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.18);
-  filter: drop-shadow(0 2px 16px rgba(0, 0, 0, 0.16));
+  mix-blend-mode: overlay;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.9);
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
 }
 
 .gallery-word-card .category-info > span:last-child {
@@ -1087,8 +1077,10 @@ h2 {
 }
 
 .gallery-word-card:nth-child(5) .category-info h3 {
-  --title-solid: #1f242e;
-  filter: drop-shadow(0 1px 12px rgba(255, 255, 255, 0.22));
+  color: rgba(22, 26, 34, 0.86);
+  mix-blend-mode: multiply;
+  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.18);
+  -webkit-text-fill-color: rgba(22, 26, 34, 0.86);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
 }
 
