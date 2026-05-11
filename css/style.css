@@ -1011,16 +1011,13 @@ h2 {
 }
 
 .gallery-word-card .category-info h3 {
-  align-items: flex-end;
   background-position: center 30%;
-  background-size: cover;
-  bottom: auto;
+  background-size: 100% auto;
+  bottom: calc(100% - var(--band-height));
   color: transparent;
-  display: flex;
   font-family: var(--font-caps);
   font-size: var(--title-size, clamp(4.4rem, 11vw, 9rem));
   font-weight: 900;
-  height: var(--band-height);
   letter-spacing: -0.04em;
   line-height: 0.78;
   margin: 0;
@@ -1028,7 +1025,7 @@ h2 {
   position: absolute;
   right: 0;
   left: 0;
-  top: 0;
+  top: auto;
   padding: 0 24px;
   text-shadow: none !important;
   text-transform: uppercase;
