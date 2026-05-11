@@ -914,9 +914,10 @@ h2 {
 }
 
 .gallery-word-card {
+  --band-height: 42%;
   min-height: 0;
   border: 0;
-  background: #d9d9d9;
+  background: var(--card-tone, #d9d9d9);
 }
 
 .gallery-word-card:nth-child(1) {
@@ -949,24 +950,33 @@ h2 {
 }
 
 .gallery-word-card img {
+  height: calc(100% - var(--band-height));
+  inset: auto 0 0;
   filter: saturate(0.95) contrast(1.02);
+  object-position: center;
   transition: transform 0.5s ease;
 }
 
 .gallery-word-card::before {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(232, 230, 226, 0.74) 0%,
-      rgba(232, 230, 226, 0.44) 29%,
-      rgba(12, 12, 12, 0.1) 52%,
-      rgba(12, 12, 12, 0.34) 100%
-    );
+  background: var(--card-tone, #d9d9d9);
+  bottom: auto;
+  height: var(--band-height);
+}
+
+.gallery-word-card::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.32));
+  bottom: 0;
+  content: "";
+  height: calc(100% - var(--band-height));
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
 }
 
 .gallery-word-card .category-info {
-  align-items: center;
-  justify-content: center;
+  display: block;
   padding: 24px;
   color: #fff;
   overflow: hidden;
@@ -982,46 +992,78 @@ h2 {
 }
 
 .gallery-word-card .category-kicker {
-  margin: 0 0 2px;
-  color: #1f1f1f;
+  color: rgba(24, 24, 24, 0.82);
+  display: flex;
+  justify-content: space-between;
+  left: 28px;
+  margin: 0;
+  position: absolute;
+  right: 28px;
+  top: clamp(24px, 3vw, 42px);
   font-family: var(--font-caps);
   font-size: clamp(0.66rem, 1vw, 0.88rem);
   font-weight: 400;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.46em;
   text-shadow: none;
   text-transform: uppercase;
   opacity: 0.95;
 }
 
 .gallery-word-card .category-info h3 {
-  margin: 0;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.88);
   font-family: var(--font-caps);
-  font-size: clamp(3.8rem, 10vw, 8.2rem);
+  font-size: var(--title-size, clamp(3.8rem, 10vw, 8.2rem));
   font-weight: 900;
   letter-spacing: 0;
   line-height: 0.78;
+  margin: 0;
   max-width: 100%;
-  mix-blend-mode: screen;
-  text-shadow: 0 2px 26px rgba(0, 0, 0, 0.18);
+  position: absolute;
+  right: 24px;
+  left: 24px;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.1);
+  top: calc(var(--band-height) - 0.47em);
   text-transform: uppercase;
+  z-index: 3;
 }
 
 .gallery-word-card .category-info > span:last-child {
-  margin-top: 10px;
   color: #fff;
   font-family: var(--font-caps);
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.12em;
+  left: 28px;
+  line-height: 1.45;
+  margin: 0;
+  max-width: calc(100% - 56px);
   opacity: 1;
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
   text-transform: uppercase;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  z-index: 3;
 }
 
-.gallery-word-card:nth-child(4) .category-info h3,
-.gallery-word-card:nth-child(5) .category-info h3 {
-  font-size: clamp(2.4rem, 6.8vw, 5.7rem);
+.gallery-word-card:nth-child(1) img {
+  object-position: center 58%;
+}
+
+.gallery-word-card:nth-child(2) img {
+  object-position: center 46%;
+}
+
+.gallery-word-card:nth-child(3) img {
+  object-position: center 54%;
+}
+
+.gallery-word-card:nth-child(4) img {
+  object-position: center 48%;
+}
+
+.gallery-word-card:nth-child(5) img {
+  object-position: center 54%;
 }
 
 /* Trips Section */
@@ -1782,12 +1824,23 @@ footer a:hover {
   }
 
   .gallery-word-card .category-info h3 {
-    font-size: clamp(3rem, 15vw, 5.3rem);
+    font-size: clamp(3rem, 15vw, 4.8rem);
+  }
+
+  .gallery-word-card:nth-child(3) .category-info h3 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
   }
 
   .gallery-word-card:nth-child(4) .category-info h3,
   .gallery-word-card:nth-child(5) .category-info h3 {
-    font-size: clamp(2rem, 10vw, 3.2rem);
+    font-size: clamp(1.7rem, 8.5vw, 2.8rem);
+  }
+
+  .gallery-word-card .category-info > span:last-child {
+    bottom: 20px;
+    font-size: 0.6rem;
+    left: 22px;
+    right: 22px;
   }
 
   .card {
