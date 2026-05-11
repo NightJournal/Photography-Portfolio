@@ -996,12 +996,12 @@ h2 {
 .gallery-word-card .category-kicker {
   color: rgba(24, 24, 24, 0.82);
   display: block;
-  left: 50%;
+  left: 28px;
   margin: 0;
   position: absolute;
-  text-align: center;
+  text-align: left;
   top: clamp(24px, 3vw, 42px);
-  transform: translateX(-50%);
+  transform: none;
   font-family: var(--font-caps);
   font-size: clamp(0.66rem, 1vw, 0.88rem);
   font-weight: 400;
@@ -1012,8 +1012,11 @@ h2 {
 }
 
 .gallery-word-card .category-info h3 {
-  background: none;
-  color: rgba(255, 255, 255, 0.9);
+  background-image: var(--category-image);
+  background-position: center bottom;
+  background-size: cover;
+  bottom: calc(100% - var(--band-height));
+  color: transparent;
   font-family: var(--font-caps);
   font-size: var(--title-size, clamp(3.8rem, 10vw, 8.2rem));
   font-weight: 900;
@@ -1024,21 +1027,22 @@ h2 {
   position: absolute;
   right: 24px;
   left: 24px;
-  top: calc(var(--band-height) - 0.47em);
+  top: auto;
   text-transform: uppercase;
   z-index: 3;
-  mix-blend-mode: overlay;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.9);
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.14);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(0 1px 14px rgba(0, 0, 0, 0.16));
 }
 
 .gallery-word-card .category-info > span:last-child {
   color: #fff;
-  font-family: var(--font-caps);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.24em;
   left: 28px;
   line-height: 1.45;
   margin: 0;
@@ -1046,7 +1050,7 @@ h2 {
   opacity: 1;
   position: absolute;
   right: 28px;
-  bottom: 24px;
+  top: calc(var(--band-height) + 12px);
   text-transform: uppercase;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
   z-index: 3;
@@ -1077,10 +1081,6 @@ h2 {
 }
 
 .gallery-word-card:nth-child(5) .category-info h3 {
-  color: rgba(22, 26, 34, 0.86);
-  mix-blend-mode: multiply;
-  text-shadow: 0 1px 12px rgba(255, 255, 255, 0.18);
-  -webkit-text-fill-color: rgba(22, 26, 34, 0.86);
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
 }
 
@@ -1881,6 +1881,7 @@ footer a:hover {
   .gallery-word-card .category-kicker {
     font-size: 0.62rem;
     letter-spacing: 0.34em;
+    left: 22px;
   }
 
   .gallery-word-card .category-info h3 {
@@ -1897,10 +1898,10 @@ footer a:hover {
   }
 
   .gallery-word-card .category-info > span:last-child {
-    bottom: 20px;
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     left: 22px;
     right: 22px;
+    top: calc(var(--band-height) + 10px);
   }
 
   .card {
