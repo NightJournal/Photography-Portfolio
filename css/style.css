@@ -13,8 +13,8 @@
 }
 
 @font-face {
-  font-family: "Bitteva Script";
-  src: url("../fonts/bitteva-script/Bitteva-Script.ttf") format("truetype");
+  font-family: "Blue Voltage";
+  src: url("../fonts/blue-voltage/Blue%20Voltage.otf") format("opentype");
   font-display: swap;
 }
 
@@ -34,7 +34,7 @@
   --font-caps: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-title: "Runiga", "Times New Roman", Times, serif;
   --font-signature: "Narony", "Oooh Baby", cursive;
-  --font-script-heading: "Bitteva Script", "Times New Roman", Times, serif;
+  --font-script-heading: "Blue Voltage", "Times New Roman", Times, serif;
 }
 
 * {
@@ -271,10 +271,12 @@ header[style*="linear-gradient"] h1 {
 
 .home-page .section-header h2 {
   font-family: var(--font-script-heading);
-  font-size: clamp(2.7rem, 5vw, 4.8rem);
+  font-size: clamp(1.55rem, 3.2vw, 2.85rem);
   font-weight: 400;
   letter-spacing: 0;
-  line-height: 0.92;
+  line-height: 1.08;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .page-banner .subtitle {
@@ -1716,6 +1718,10 @@ footer a:hover {
   .section-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .home-page .section-header h2 {
+    font-size: clamp(1.45rem, 5vw, 2.25rem);
   }
 
   .photo-grid {
