@@ -959,7 +959,7 @@ h2 {
 }
 
 .gallery-word-card::before {
-  background: color-mix(in srgb, var(--card-tone, #d9d9d9) 88%, transparent 12%);
+  background: var(--card-tone, #d9d9d9);
   bottom: auto;
   height: var(--band-height);
   z-index: 1;
