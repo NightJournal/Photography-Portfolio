@@ -1032,6 +1032,7 @@ h2 {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0;
+  opacity: 0.58;
 }
 
 .gallery-word-card .category-info > span:last-child {
