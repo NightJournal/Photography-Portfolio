@@ -1016,7 +1016,11 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   bottom: auto;
+  box-sizing: border-box;
   color: transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   font-family: var(--font-caps);
   font-size: var(--title-size, clamp(4.4rem, 11vw, 9rem));
   font-weight: 900;
@@ -1025,10 +1029,8 @@ h2 {
   margin: 0;
   max-width: 100%;
   position: absolute;
-  right: 0;
-  left: 0;
-  top: calc(var(--band-height) / 2 - 0.39em);
-  padding: 0 24px;
+  inset: 0;
+  padding: calc(var(--band-height) - 0.62em) 24px 0;
   text-align: center;
   text-shadow: none !important;
   text-transform: uppercase;
@@ -1062,20 +1064,40 @@ h2 {
   object-position: center 58%;
 }
 
+.gallery-word-card:nth-child(1) .category-info h3 {
+  background-position: center 58%;
+}
+
 .gallery-word-card:nth-child(2) img {
   object-position: center 46%;
+}
+
+.gallery-word-card:nth-child(2) .category-info h3 {
+  background-position: center 46%;
 }
 
 .gallery-word-card:nth-child(3) img {
   object-position: center 54%;
 }
 
+.gallery-word-card:nth-child(3) .category-info h3 {
+  background-position: center 54%;
+}
+
 .gallery-word-card:nth-child(4) img {
   object-position: center 48%;
 }
 
+.gallery-word-card:nth-child(4) .category-info h3 {
+  background-position: center 48%;
+}
+
 .gallery-word-card:nth-child(5) img {
   object-position: center 54%;
+}
+
+.gallery-word-card:nth-child(5) .category-info h3 {
+  background-position: center 54%;
 }
 
 .gallery-word-card:nth-child(5)::after {
