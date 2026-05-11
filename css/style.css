@@ -834,79 +834,7 @@ h2 {
   text-transform: uppercase;
 }
 
-/* Category Hub */
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.category-card {
-  --image-start: 45%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 0;
-  min-height: 280px;
-  cursor: pointer;
-  box-shadow: none;
-  transition: all 0.3s ease;
-  border: 1px solid var(--line);
-}
-
-.category-card:hover {
-  transform: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.category-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  inset: 0;
-}
-
-.category-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%);
-  z-index: 1;
-}
-
-.category-info {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.category-card:hover .category-info {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.category-info h3 {
-  font-family: var(--font-body);
-  font-size: 1.8rem;
-  margin: 0;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  font-weight: 700;
-}
-
-.category-info span {
-  font-size: 0.85rem;
-  opacity: 0.95;
-  margin-top: 8px;
-  font-weight: 400;
-}
-
+/* Gallery Category Hub */
 .gallery-category-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -921,6 +849,7 @@ h2 {
   cursor: pointer;
   background: var(--card-bg);
   transition: box-shadow 0.3s ease;
+
   --image-start: 43%;
 }
 
@@ -964,17 +893,19 @@ h2 {
   grid-column: span 12;
 }
 
-.gallery-category-grid .category-card img {
+/* image only starts under the colour block */
+.gallery-category-grid .category-card > img {
   position: absolute;
   left: 0;
   right: 0;
   top: var(--image-start);
-  bottom: auto;
+
   width: 100%;
   height: calc(100% - var(--image-start));
   object-fit: cover;
 }
 
+/* dark overlay only on photo area */
 .gallery-category-grid .category-card::before {
   content: "";
   position: absolute;
@@ -982,7 +913,13 @@ h2 {
   right: 0;
   top: var(--image-start);
   bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.08));
+
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.22),
+    rgba(0, 0, 0, 0.08)
+  );
+
   z-index: 1;
   pointer-events: none;
 }
@@ -991,86 +928,111 @@ h2 {
   position: absolute;
   inset: 0;
   z-index: 2;
+
   display: block;
   text-decoration: none;
+  color: inherit;
 }
 
 .gallery-category-grid .category-card:hover .category-info {
   background: transparent;
 }
 
+/* EXPLORE label */
 .gallery-category-grid .category-label {
   position: absolute;
   top: 38px;
   left: 28px;
+
   margin: 0;
   line-height: 1;
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: 0.45em;
   text-transform: uppercase;
+
   color: #222;
   z-index: 5;
 }
 
+/* large image-filled title */
 .gallery-category-grid .category-title {
   position: absolute;
   top: var(--image-start);
   left: 50%;
   transform: translate(-50%, -72%);
+
   margin: 0;
   line-height: 0.85;
   white-space: nowrap;
+
   font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(4rem, 8vw, 7.5rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.07em;
-  background-image: var(--card-image);
+
+  background-image: var(--card-image, var(--resolved-card-image));
   background-size: cover;
   background-position: center;
+
   color: transparent;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  opacity: 0.9;
+
+  opacity: 0.88;
   z-index: 3;
   pointer-events: none;
+
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
 }
 
-.gallery-category-grid .category-title.long {
-  font-size: clamp(3rem, 5.8vw, 5.8rem);
-  transform: translate(-50%, -70%);
-}
-
+/* Europe card */
 .gallery-category-grid .category-card.small .category-title {
-  font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-  letter-spacing: -0.06em;
+  font-size: clamp(2.3rem, 4.2vw, 4.1rem);
+  letter-spacing: -0.055em;
   transform: translate(-50%, -70%);
 }
 
+/* North America */
+.gallery-category-grid .category-title.long {
+  font-size: clamp(2.8rem, 5.6vw, 5.5rem);
+  letter-spacing: -0.065em;
+  transform: translate(-50%, -70%);
+}
+
+/* Astrophotography */
 .gallery-category-grid .category-title.extra-long {
-  font-size: clamp(2.6rem, 5vw, 5.2rem);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  letter-spacing: -0.065em;
   transform: translate(-50%, -68%);
 }
 
+/* subtitle */
 .gallery-category-grid .category-subtitle {
   position: absolute;
   top: calc(var(--image-start) + 26px);
   left: 50%;
   transform: translateX(-50%);
+
   margin: 0;
   white-space: nowrap;
+  text-align: center;
+
   font-family: Georgia, "Times New Roman", serif;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: white;
+
   z-index: 5;
 }
+
+
 
 /* Trips Section */
 .trip-card {
