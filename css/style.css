@@ -871,205 +871,152 @@ h2 {
   gap: 24px;
 }
 
-.gallery-category-grid .category-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 280px;
-  border: 1px solid var(--line);
-  cursor: pointer;
-  background: var(--card-bg);
-  transition: box-shadow 0.3s ease;
-
+.region-card {
   --image-start: 43%;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  min-height: 280px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
 }
 
-.gallery-category-grid .category-card:nth-child(1) {
-  --resolved-card-image: url("../photos/web/asia/DJI_0702.jpg");
-}
-
-.gallery-category-grid .category-card:nth-child(2) {
-  --resolved-card-image: url("../photos/web/south-africa/IMG_8638-Edit.jpg");
-}
-
-.gallery-category-grid .category-card:nth-child(3) {
-  --resolved-card-image: url("../photos/web/europe/IMG_7059.jpg");
-}
-
-.gallery-category-grid .category-card:nth-child(4) {
-  --resolved-card-image: url("../photos/web/north-america/1F7A2673.jpg");
-}
-
-.gallery-category-grid .category-card:nth-child(5) {
-  --resolved-card-image: url("../photos/web/astrophotography/Untitled_Panorama-1.jpg");
-}
-
-.gallery-category-grid .category-card:hover {
+.region-card:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.gallery-category-grid .category-card.small {
+.region-card:nth-child(1) {
+  --region-img: url("../photos/web/asia/DJI_0702.jpg");
+}
+
+.region-card:nth-child(2) {
+  --region-img: url("../photos/web/south-africa/IMG_8638-Edit.jpg");
+}
+
+.region-card:nth-child(3) {
+  --region-img: url("../photos/web/europe/IMG_7059.jpg");
+}
+
+.region-card:nth-child(4) {
+  --region-img: url("../photos/web/north-america/1F7A2673.jpg");
+}
+
+.region-card:nth-child(5) {
+  --region-img: url("../photos/web/astrophotography/Untitled_Panorama-1.jpg");
+}
+
+.region-card.small {
   grid-column: span 4;
 }
 
-.gallery-category-grid .category-card.medium {
+.region-card.medium {
   grid-column: span 6;
 }
 
-.gallery-category-grid .category-card.wide {
+.region-card.wide {
   grid-column: span 8;
 }
 
-.gallery-category-grid .category-card.full {
+.region-card.full {
   grid-column: span 12;
 }
 
-/* image layer */
-.gallery-category-grid .category-card > img {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-
-/* solid layer */
-.gallery-category-grid .category-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: var(--image-start);
-
+.region-top {
   background: var(--card-bg);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.gallery-category-grid .category-card::after {
-  content: "";
+  height: var(--image-start);
+  inset: 0 0 auto;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: var(--image-start);
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.08));
-  z-index: 1;
-  pointer-events: none;
-}
-
-.gallery-category-grid .category-info {
-  position: absolute;
-  inset: 0;
   z-index: 2;
-
-  display: block;
-  text-decoration: none;
-  color: inherit;
 }
 
-.gallery-category-grid .category-card:hover .category-info {
-  background: transparent;
-}
-
-/* EXPLORE label */
-.gallery-category-grid .category-label {
+.region-image {
+  background-image: var(--region-img, var(--card-img));
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  inset: 0;
   position: absolute;
-  top: 38px;
-  left: 28px;
+  z-index: 1;
+}
 
-  margin: 0;
-  line-height: 1;
+.region-image::after {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.08));
+  content: "";
+  inset: var(--image-start) 0 0;
+  position: absolute;
+}
 
+.explore-label {
+  color: #222;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.75rem;
   font-weight: 400;
+  left: 28px;
   letter-spacing: 0.45em;
+  line-height: 1;
+  position: absolute;
   text-transform: uppercase;
-
-  color: #222;
+  top: 38px;
   z-index: 5;
 }
 
-/* large image-filled title */
-.gallery-category-grid .category-title {
-  position: absolute;
-  top: var(--image-start);
-  left: 50%;
-  transform: translate(-50%, -92%);
-
-  margin: 0;
-  line-height: 0.85;
-  white-space: nowrap;
-
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(4rem, 8vw, 7.5rem);
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.055em;
-
-  background-image: var(--resolved-card-image);
-  background-color: transparent;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  color: transparent;
-  -webkit-text-fill-color: transparent;
+.region-title {
   background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 0;
-
-  opacity: 1;
-  z-index: 3;
+  background-image: var(--region-img, var(--card-img));
+  background-position: center;
+  background-size: cover;
+  color: transparent;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: clamp(4rem, 8vw, 7.5rem);
+  font-weight: 800;
+  left: 50%;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+  margin: 0;
   pointer-events: none;
-
-  filter: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.22));
+  position: absolute;
+  text-transform: uppercase;
+  top: var(--image-start);
+  transform: translate(-50%, -92%);
+  white-space: nowrap;
+  z-index: 4;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Europe card */
-.gallery-category-grid .category-card.small .category-title {
+.region-card.small .region-title {
   font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-  letter-spacing: -0.06em;
   transform: translate(-50%, -90%);
 }
 
-/* North America */
-.gallery-category-grid .category-title.long {
+.region-title.long {
   font-size: clamp(3rem, 5.8vw, 5.8rem);
-  letter-spacing: -0.06em;
   transform: translate(-50%, -90%);
 }
 
-/* Astrophotography */
-.gallery-category-grid .category-title.extra-long {
+.region-title.extra-long {
   font-size: clamp(2.6rem, 5vw, 5.2rem);
-  letter-spacing: -0.055em;
   transform: translate(-50%, -88%);
 }
 
-/* subtitle */
-.gallery-category-grid .category-subtitle {
-  position: absolute;
-  top: calc(var(--image-start) + 34px);
-  left: 50%;
-  transform: translateX(-50%);
-
-  margin: 0;
-  white-space: nowrap;
-  text-align: center;
-
+.region-subtitle {
+  color: white;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 0.78rem;
   font-weight: 400;
+  left: 50%;
   letter-spacing: 0.28em;
+  margin: 0;
+  position: absolute;
+  text-align: center;
   text-transform: uppercase;
-  color: white;
-
+  top: calc(var(--image-start) + 34px);
+  transform: translateX(-50%);
+  white-space: nowrap;
   z-index: 5;
 }
 
@@ -1603,15 +1550,15 @@ footer a:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .gallery-category-grid .category-card,
-  .gallery-category-grid .category-card.small,
-  .gallery-category-grid .category-card.medium,
-  .gallery-category-grid .category-card.wide,
-  .gallery-category-grid .category-card.full {
+  .gallery-category-grid .region-card,
+  .gallery-category-grid .region-card.small,
+  .gallery-category-grid .region-card.medium,
+  .gallery-category-grid .region-card.wide,
+  .gallery-category-grid .region-card.full {
     grid-column: span 1;
   }
 
-  .gallery-category-grid .category-card.full {
+  .gallery-category-grid .region-card.full {
     grid-column: 1 / -1;
   }
 }
@@ -1621,20 +1568,20 @@ footer a:hover {
     grid-template-columns: 1fr;
   }
 
-  .gallery-category-grid .category-card,
-  .gallery-category-grid .category-card.small,
-  .gallery-category-grid .category-card.medium,
-  .gallery-category-grid .category-card.wide,
-  .gallery-category-grid .category-card.full {
+  .gallery-category-grid .region-card,
+  .gallery-category-grid .region-card.small,
+  .gallery-category-grid .region-card.medium,
+  .gallery-category-grid .region-card.wide,
+  .gallery-category-grid .region-card.full {
     grid-column: span 1;
   }
 
-  .gallery-category-grid .category-card {
+  .gallery-category-grid .region-card {
     min-height: 260px;
     --image-start: 44%;
   }
 
-  .gallery-category-grid .category-title {
+  .gallery-category-grid .region-title {
     font-size: clamp(2.5rem, 13vw, 4rem);
     max-width: calc(100% - 32px);
     white-space: nowrap;
@@ -1643,19 +1590,19 @@ footer a:hover {
     transform: translate(-50%, -90%);
   }
 
-  .gallery-category-grid .category-title.long {
+  .gallery-category-grid .region-title.long {
     font-size: clamp(1.7rem, 8vw, 3rem);
     line-height: 0.85;
     transform: translate(-50%, -88%);
   }
 
-  .gallery-category-grid .category-title.extra-long {
+  .gallery-category-grid .region-title.extra-long {
     font-size: clamp(1.1rem, 5.6vw, 2.2rem);
     line-height: 0.85;
     transform: translate(-50%, -86%);
   }
 
-  .gallery-category-grid .category-subtitle {
+  .gallery-category-grid .region-subtitle {
     font-size: 0.58rem;
     letter-spacing: 0.16em;
     max-width: calc(100% - 36px);
@@ -1867,7 +1814,7 @@ footer a:hover {
     columns: 1;
   }
 
-  .gallery-category-grid .category-label {
+  .gallery-category-grid .explore-label {
     font-size: 0.62rem;
     letter-spacing: 0.34em;
     left: 22px;
