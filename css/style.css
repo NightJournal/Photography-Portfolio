@@ -986,7 +986,7 @@ h2 {
   position: absolute;
   text-transform: uppercase;
   top: var(--image-start);
-  transform: translate(-50%, -92%);
+  transform: translate(-50%, -72%);
   white-space: nowrap;
   z-index: 4;
   -webkit-background-clip: text;
@@ -995,17 +995,17 @@ h2 {
 
 .region-card.small .region-title {
   font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, -70%);
 }
 
 .region-title.long {
   font-size: clamp(3rem, 5.8vw, 5.8rem);
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, -70%);
 }
 
 .region-title.extra-long {
   font-size: clamp(2.6rem, 5vw, 5.2rem);
-  transform: translate(-50%, -88%);
+  transform: translate(-50%, -68%);
 }
 
 .region-subtitle {
