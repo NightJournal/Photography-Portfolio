@@ -925,12 +925,17 @@ h2 {
   grid-column: span 12;
 }
 
-.region-top {
+.region-card::before {
   background: var(--card-bg);
+  content: "";
   height: var(--image-start);
   inset: 0 0 auto;
   position: absolute;
   z-index: 2;
+}
+
+.region-top {
+  display: contents;
 }
 
 .region-image {
