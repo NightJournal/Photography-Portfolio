@@ -984,14 +984,14 @@ h2 {
   position: absolute;
   top: var(--image-start);
   left: 50%;
-  transform: translate(-50%, -82%);
+  transform: translate(-50%, -50%);
 
   margin: 0;
   line-height: 0.85;
   white-space: nowrap;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(3rem, 5.8vw, 5.6rem);
+  font-size: clamp(4rem, 8vw, 7.5rem);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.055em;
@@ -1015,23 +1015,23 @@ h2 {
 
 /* Europe card */
 .gallery-category-grid .category-card.small .category-title {
-  font-size: clamp(2.2rem, 3.8vw, 3.6rem);
-  letter-spacing: -0.045em;
-  transform: translate(-50%, -80%);
+  font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+  letter-spacing: -0.06em;
+  transform: translate(-50%, -52%);
 }
 
 /* North America */
 .gallery-category-grid .category-title.long {
-  font-size: clamp(2.4rem, 4.6vw, 4.6rem);
-  letter-spacing: -0.055em;
-  transform: translate(-50%, -80%);
+  font-size: clamp(3rem, 5.8vw, 5.8rem);
+  letter-spacing: -0.06em;
+  transform: translate(-50%, -52%);
 }
 
 /* Astrophotography */
 .gallery-category-grid .category-title.extra-long {
-  font-size: clamp(2.2rem, 4.2vw, 4.2rem);
+  font-size: clamp(2.6rem, 5vw, 5.2rem);
   letter-spacing: -0.055em;
-  transform: translate(-50%, -78%);
+  transform: translate(-50%, -50%);
 }
 
 /* subtitle */
