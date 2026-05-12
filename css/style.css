@@ -790,8 +790,16 @@ h2 {
 }
 
 .collection-card figcaption {
+  bottom: auto;
   display: grid;
   gap: 2px;
+  left: 50%;
+  max-width: calc(100% - 32px);
+  right: auto;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
 }
 
 .collection-card figcaption strong {
