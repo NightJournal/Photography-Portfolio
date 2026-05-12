@@ -1617,17 +1617,29 @@ footer a:hover {
   }
 
   .gallery-category-grid .category-title {
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size: clamp(2.6rem, 14vw, 4.4rem);
+    max-width: calc(100% - 32px);
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: center;
   }
 
-  .gallery-category-grid .category-title.long,
+  .gallery-category-grid .category-title.long {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+    line-height: 0.9;
+  }
+
   .gallery-category-grid .category-title.extra-long {
-    font-size: clamp(2.3rem, 11vw, 4rem);
+    font-size: clamp(1.55rem, 7vw, 2.7rem);
+    line-height: 0.95;
   }
 
   .gallery-category-grid .category-subtitle {
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    max-width: calc(100% - 36px);
+    white-space: normal;
+    text-align: center;
   }
 }
 
