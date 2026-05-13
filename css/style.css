@@ -971,43 +971,48 @@ h2 {
 }
 
 .region-title {
+  --title-offset: clamp(3.1rem, 6.1vw, 5.8rem);
   background-clip: text;
   background-image: var(--region-img, var(--card-img));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
   color: transparent;
+  display: block;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   font-size: clamp(3.4rem, 6.8vw, 6.4rem);
   font-weight: 800;
-  left: 50%;
+  height: 100%;
+  inset: 0;
   letter-spacing: -0.06em;
   line-height: 0.9;
   margin: 0;
+  padding-top: calc(var(--image-start) - var(--title-offset));
   pointer-events: none;
   position: absolute;
+  text-align: center;
   text-transform: uppercase;
-  top: var(--image-start);
-  transform: translate(-50%, -93%);
   white-space: nowrap;
+  width: 100%;
   z-index: 4;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .region-card.small .region-title {
+  --title-offset: clamp(2.5rem, 4.4vw, 4.3rem);
   font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-  transform: translate(-50%, -94%);
 }
 
 .region-title.long {
+  --title-offset: clamp(2.7rem, 5.2vw, 5.2rem);
   font-size: clamp(3rem, 5.8vw, 5.8rem);
-  transform: translate(-50%, -94%);
 }
 
 .region-title.extra-long {
+  --title-offset: clamp(2.7rem, 5.2vw, 5.2rem);
   font-size: clamp(3rem, 5.7vw, 5.8rem);
-  transform: translate(-50%, -91%);
 }
 
 .region-subtitle {
@@ -1590,24 +1595,24 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-title {
+    --title-offset: clamp(2rem, 10.4vw, 3.05rem);
     font-size: clamp(2.2rem, 11.5vw, 3.4rem);
-    max-width: calc(100% - 32px);
+    max-width: none;
     white-space: nowrap;
     overflow-wrap: normal;
     text-align: center;
-    transform: translate(-50%, -104%);
   }
 
   .gallery-category-grid .region-title.long {
+    --title-offset: clamp(1.7rem, 8.1vw, 2.55rem);
     font-size: clamp(2rem, 9.5vw, 3.4rem);
     line-height: 0.85;
-    transform: translate(-50%, -102%);
   }
 
   .gallery-category-grid .region-title.extra-long {
+    --title-offset: clamp(1.3rem, 6.6vw, 2.05rem);
     font-size: clamp(1.65rem, 7.8vw, 2.9rem);
     line-height: 0.85;
-    transform: translate(-50%, -100%);
   }
 
   .gallery-category-grid .region-subtitle {
