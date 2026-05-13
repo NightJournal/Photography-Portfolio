@@ -1602,6 +1602,16 @@ footer a:hover {
     --image-start: 44%;
   }
 
+  .gallery-category-grid .region-card-uploaded {
+    aspect-ratio: var(--card-ratio);
+    height: auto;
+    min-height: 0;
+  }
+
+  .gallery-category-grid .region-card-uploaded.full {
+    min-height: 150px;
+  }
+
   .gallery-category-grid .explore-label {
     font-size: 0.66rem;
     left: 22px;
