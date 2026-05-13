@@ -972,7 +972,7 @@ h2 {
 
 .region-title {
   background-clip: text;
-  background-image: var(--card-img);
+  background-image: var(--region-img, var(--card-img));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
