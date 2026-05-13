@@ -985,7 +985,7 @@ h2 {
   line-height: 1;
   position: absolute;
   text-transform: uppercase;
-  top: 38px;
+  top: 24px;
   z-index: 5;
 }
 
@@ -1622,7 +1622,7 @@ footer a:hover {
     font-size: 0.66rem;
     left: 22px;
     letter-spacing: 0.4em;
-    top: 28px;
+    top: 18px;
   }
 
   .gallery-category-grid .region-title {
