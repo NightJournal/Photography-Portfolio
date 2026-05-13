@@ -1592,6 +1592,7 @@ footer a:hover {
 @media (max-width: 768px) {
   .gallery-category-grid {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .gallery-category-grid .region-card,
@@ -1610,6 +1611,11 @@ footer a:hover {
 
   .gallery-category-grid .region-card-uploaded.full {
     min-height: 150px;
+  }
+
+  .gallery-category-grid .region-card-uploaded {
+    justify-self: center;
+    width: min(100%, 560px);
   }
 
   .gallery-category-grid .explore-label {
