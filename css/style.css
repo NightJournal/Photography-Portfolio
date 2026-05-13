@@ -997,12 +997,12 @@ h2 {
 
 .region-card.small .region-title {
   font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-  transform: translate(-50%, -96%);
+  transform: translate(-50%, -97%);
 }
 
 .region-title.long {
   font-size: clamp(3rem, 5.8vw, 5.8rem);
-  transform: translate(-50%, -95%);
+  transform: translate(-50%, -96%);
 }
 
 .region-title.extra-long {
