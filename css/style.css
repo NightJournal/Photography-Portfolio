@@ -939,6 +939,12 @@ h2 {
   display: none;
 }
 
+.region-card-uploaded {
+  aspect-ratio: var(--card-ratio);
+  height: auto;
+  min-height: 0;
+}
+
 .region-top {
   display: contents;
 }
@@ -962,7 +968,7 @@ h2 {
 
 .region-card-uploaded .region-image {
   background-position: center;
-  background-size: 100% 100%;
+  background-size: cover;
 }
 
 .region-card-uploaded .region-image::after {
@@ -1600,12 +1606,6 @@ footer a:hover {
     min-height: 220px;
     height: 220px;
     --image-start: 44%;
-  }
-
-  .gallery-category-grid .region-card-uploaded {
-    aspect-ratio: var(--card-ratio);
-    height: auto;
-    min-height: 0;
   }
 
   .gallery-category-grid .region-card-uploaded.full {
