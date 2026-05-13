@@ -883,6 +883,7 @@ h2 {
   position: relative;
   text-decoration: none;
   transition: box-shadow 0.3s ease;
+  height: clamp(460px, 48vw, 680px);
 }
 
 .region-card:hover {
@@ -951,7 +952,7 @@ h2 {
 .region-image::after {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.08));
   content: "";
-  inset: var(--image-start) 0 0;
+  inset: 0;
   position: absolute;
 }
 
@@ -973,6 +974,7 @@ h2 {
   background-clip: text;
   background-image: var(--card-img);
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   color: transparent;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
@@ -980,7 +982,7 @@ h2 {
   font-weight: 800;
   left: 50%;
   letter-spacing: -0.06em;
-  line-height: 0.8;
+  line-height: 0.9;
   margin: 0;
   pointer-events: none;
   position: absolute;
@@ -991,7 +993,6 @@ h2 {
   z-index: 4;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
 }
 
 .region-card.small .region-title {
