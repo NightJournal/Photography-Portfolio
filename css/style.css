@@ -895,19 +895,19 @@ h2 {
 }
 
 .region-card:nth-child(2) {
-  --region-img: url("../photos/web/south-africa/IMG_8638-Edit.jpg");
+  --region-img: url("../photos/Gallery Region Pic/africa.jpg");
 }
 
 .region-card:nth-child(3) {
-  --region-img: url("../photos/web/europe/IMG_7059.jpg");
+  --region-img: url("../photos/Gallery Region Pic/europe.jpg");
 }
 
 .region-card:nth-child(4) {
-  --region-img: url("../photos/web/north-america/1F7A2673.jpg");
+  --region-img: url("../photos/Gallery Region Pic/north america.jpg");
 }
 
 .region-card:nth-child(5) {
-  --region-img: url("../photos/web/astrophotography/Untitled_Panorama-1.jpg");
+  --region-img: url("../photos/Gallery Region Pic/astro.jpg");
 }
 
 .region-card.small {
@@ -935,6 +935,10 @@ h2 {
   z-index: 2;
 }
 
+.region-card-uploaded::before {
+  display: none;
+}
+
 .region-top {
   display: contents;
 }
@@ -954,6 +958,15 @@ h2 {
   content: "";
   inset: 0;
   position: absolute;
+}
+
+.region-card-uploaded .region-image {
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+.region-card-uploaded .region-image::after {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.08));
 }
 
 .explore-label {
