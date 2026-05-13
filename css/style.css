@@ -976,7 +976,7 @@ h2 {
   background-size: cover;
   color: transparent;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  font-size: clamp(4rem, 8vw, 7.5rem);
+  font-size: clamp(3.4rem, 6.8vw, 6.4rem);
   font-weight: 800;
   left: 50%;
   letter-spacing: -0.06em;
@@ -986,7 +986,7 @@ h2 {
   position: absolute;
   text-transform: uppercase;
   top: var(--image-start);
-  transform: translate(-50%, -82%);
+  transform: translate(-50%, -94%);
   white-space: nowrap;
   z-index: 4;
   -webkit-background-clip: text;
@@ -995,17 +995,17 @@ h2 {
 
 .region-card.small .region-title {
   font-size: clamp(2.8rem, 4.8vw, 4.8rem);
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -92%);
 }
 
 .region-title.long {
   font-size: clamp(3rem, 5.8vw, 5.8rem);
-  transform: translate(-50%, -80%);
+  transform: translate(-50%, -92%);
 }
 
 .region-title.extra-long {
   font-size: clamp(2.6rem, 5vw, 5.2rem);
-  transform: translate(-50%, -78%);
+  transform: translate(-50%, -90%);
 }
 
 .region-subtitle {
@@ -1587,24 +1587,24 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-title {
-    font-size: clamp(2.5rem, 13vw, 4rem);
+    font-size: clamp(2.2rem, 11.5vw, 3.4rem);
     max-width: calc(100% - 32px);
     white-space: nowrap;
     overflow-wrap: normal;
     text-align: center;
-    transform: translate(-50%, -96%);
+    transform: translate(-50%, -104%);
   }
 
   .gallery-category-grid .region-title.long {
     font-size: clamp(2rem, 9.5vw, 3.4rem);
     line-height: 0.85;
-    transform: translate(-50%, -94%);
+    transform: translate(-50%, -102%);
   }
 
   .gallery-category-grid .region-title.extra-long {
     font-size: clamp(1.45rem, 6.9vw, 2.55rem);
     line-height: 0.85;
-    transform: translate(-50%, -92%);
+    transform: translate(-50%, -100%);
   }
 
   .gallery-category-grid .region-subtitle {
