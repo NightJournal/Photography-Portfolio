@@ -1584,30 +1584,37 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-card {
-    min-height: 230px;
-    height: 230px;
+    min-height: 220px;
+    height: 220px;
     --image-start: 44%;
   }
 
+  .gallery-category-grid .explore-label {
+    font-size: 0.66rem;
+    left: 22px;
+    letter-spacing: 0.4em;
+    top: 28px;
+  }
+
   .gallery-category-grid .region-title {
-    font-size: clamp(2.2rem, 11.5vw, 3.4rem);
+    font-size: clamp(2.3rem, 13vw, 3.9rem);
     max-width: calc(100% - 32px);
     white-space: nowrap;
     overflow-wrap: normal;
     text-align: center;
-    transform: translate(-50%, -104%);
+    transform: translate(-50%, -96%);
   }
 
   .gallery-category-grid .region-title.long {
-    font-size: clamp(2rem, 9.5vw, 3.4rem);
+    font-size: clamp(2.15rem, 11vw, 3.65rem);
     line-height: 0.85;
-    transform: translate(-50%, -102%);
+    transform: translate(-50%, -96%);
   }
 
   .gallery-category-grid .region-title.extra-long {
-    font-size: clamp(1.65rem, 7.8vw, 2.9rem);
+    font-size: clamp(1.9rem, 9.4vw, 3.3rem);
     line-height: 0.85;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -92%);
   }
 
   .gallery-category-grid .region-subtitle {
