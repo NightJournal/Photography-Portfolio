@@ -991,6 +991,7 @@ h2 {
   z-index: 4;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .region-card.small .region-title {
