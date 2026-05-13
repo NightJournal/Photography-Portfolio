@@ -1004,7 +1004,7 @@ h2 {
 }
 
 .region-title.extra-long {
-  font-size: clamp(2.6rem, 5vw, 5.2rem);
+  font-size: clamp(3rem, 5.7vw, 5.8rem);
   transform: translate(-50%, -91%);
 }
 
@@ -1602,7 +1602,7 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-title.extra-long {
-    font-size: clamp(1.45rem, 6.9vw, 2.55rem);
+    font-size: clamp(1.65rem, 7.8vw, 2.9rem);
     line-height: 0.85;
     transform: translate(-50%, -100%);
   }
