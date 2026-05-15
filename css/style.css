@@ -1040,7 +1040,7 @@ h2 {
   position: absolute;
   text-align: center;
   text-transform: uppercase;
-  top: calc(var(--image-start) + 8px);
+  top: calc(var(--image-start) - 4px);
   transform: translateX(-50%);
   white-space: nowrap;
   z-index: 5;
@@ -1652,7 +1652,7 @@ footer a:hover {
     max-width: calc(100% - 36px);
     white-space: normal;
     text-align: center;
-    top: calc(var(--image-start) + 6px);
+    top: calc(var(--image-start) - 2px);
   }
 }
 
