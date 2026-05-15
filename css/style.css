@@ -1619,6 +1619,12 @@ footer a:hover {
     min-height: 0;
   }
 
+  .gallery-category-grid .region-card-uploaded.full .region-image {
+    background-color: var(--card-bg);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
   .gallery-category-grid .region-card-uploaded {
     justify-self: center;
     width: min(100%, 560px);
@@ -1653,10 +1659,10 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-subtitle {
-    font-size: 0.58rem;
-    letter-spacing: 0.16em;
-    max-width: calc(100% - 36px);
-    white-space: normal;
+    font-size: clamp(0.42rem, 1.8vw, 0.58rem);
+    letter-spacing: 0.08em;
+    max-width: none;
+    white-space: nowrap;
     text-align: center;
     top: calc(var(--image-start) - 2px);
   }
