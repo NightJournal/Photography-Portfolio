@@ -1637,6 +1637,10 @@ footer a:hover {
     top: 18px;
   }
 
+  .gallery-category-grid .region-card-uploaded.full .explore-label {
+    top: 10px;
+  }
+
   .gallery-category-grid .region-title {
     font-size: clamp(2.3rem, 13vw, 3.9rem);
     max-width: calc(100% - 32px);
