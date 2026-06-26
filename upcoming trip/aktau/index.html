@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../favicon.png" type="image/png">
+  <title>Aktau Road Trip Itinerary</title>
+  <style>
+    @font-face{
+      font-family:"Runiga";
+      src:url("../../fonts/runiga/Runiga.otf") format("opentype");
+      font-display:swap;
+    }
+    :root{
+      --bg:#e7ddcf;
+      --paper:#fff8ef;
+      --paper2:#f4eadc;
+      --ink:#2d2a27;
+      --muted:#74675b;
+      --line:#d7c7b3;
+      --accent:#6f7d6b;
+      --accent-strong:#526055;
+      --accent2:#9b6f46;
+      --dark:#2b2a28;
+      --sea:#27586a;
+      --cream:#fff4e4;
+      --shadow:0 18px 50px rgba(64,53,39,.12);
+      --shadow-strong:0 26px 70px rgba(46,38,29,.2);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Georgia, 'Times New Roman', serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(111,125,107,.18), transparent 24%),
+        radial-gradient(circle at 86% 18%, rgba(39,88,106,.18), transparent 22%),
+        linear-gradient(180deg, #e8ddd0 0%, #f4eadc 46%, #e7ddcf 100%);
+      line-height:1.55;
+    }
+    .wrap{width:min(1180px, calc(100% - 36px)); margin:0 auto;}
+    .hero{
+      min-height:92vh;
+      display:grid;
+      align-items:center;
+      padding:32px 0 34px;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(43,42,40,.34), rgba(244,234,220,.18) 50%, transparent),
+        radial-gradient(circle at 72% 22%, rgba(255,240,214,.45), transparent 18%),
+        linear-gradient(150deg, #203746 0%, #5d6a57 30%, #b07d52 64%, #e6c79e 100%);
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, rgba(12,22,28,.68), rgba(12,22,28,.14) 48%, rgba(12,22,28,.06));
+    }
+    .hero > .wrap{position:relative; z-index:1;}
+    .hero-card{
+      background:rgba(255,248,239,.78);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(255,248,239,.56);
+      border-radius:28px;
+      box-shadow:var(--shadow-strong);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1.06fr .94fr;
+    }
+    .hero-copy{padding:58px 54px 54px; order:2;}
+    .eyebrow{
+      display:inline-flex; gap:8px; align-items:center;
+      color:var(--accent-strong);
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      margin-bottom:18px;
+    }
+    h1{
+      font-family:"Runiga", Georgia, 'Times New Roman', serif;
+      font-size:clamp(2.6rem, 6vw, 5.8rem);
+      line-height:.93;
+      font-weight:400;
+      margin:0 0 20px;
+    }
+    .subtitle{font-size:1.08rem; color:var(--muted); max-width:650px; margin:0 0 28px;}
+    .pillbar{display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 34px;}
+    .pill{border:1px solid rgba(111,125,107,.28); background:rgba(255,248,239,.6); padding:8px 13px; border-radius:999px; color:#4c4339; font-size:.88rem; box-shadow:0 6px 18px rgba(64,53,39,.07);}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap;}
+    .btn{display:inline-flex; text-decoration:none; color:white; background:var(--dark); padding:12px 17px; border-radius:999px; font-weight:700; box-shadow:0 12px 28px rgba(47,42,36,.22); transition:transform .2s ease, box-shadow .2s ease;}
+    .btn:hover{transform:translateY(-1px); box-shadow:0 16px 34px rgba(47,42,36,.25);}
+    .btn.secondary{color:var(--dark); background:#efe3d0; border:1px solid var(--line);}
+    .directory-toggle{display:none; position:fixed; top:88px; right:18px; z-index:30;}
+    .directory-toggle summary{width:36px; height:36px; display:grid; place-items:center; color:var(--dark); background:transparent; border:0; border-radius:0; box-shadow:none; cursor:pointer; list-style:none;}
+    .directory-toggle summary::-webkit-details-marker{display:none;}
+    .directory-toggle summary span,
+    .directory-toggle summary span:before,
+    .directory-toggle summary span:after{display:block; width:18px; height:1px; background:currentColor; border-radius:999px; content:"";}
+    .directory-toggle summary span{position:relative;}
+    .directory-toggle summary span:before{position:absolute; top:-6px;}
+    .directory-toggle summary span:after{position:absolute; top:6px;}
+    .directory-panel{width:min(300px, calc(100vw - 36px)); margin-top:10px; padding:16px; background:rgba(255,248,239,.94); border:1px solid rgba(215,199,179,.9); border-radius:22px; box-shadow:0 24px 60px rgba(47,42,36,.24);}
+    .directory-panel a{display:block; color:var(--dark); text-decoration:none; padding:9px 10px; border-radius:12px; font-size:.92rem;}
+    .directory-panel a:hover{background:#ead9c2;}
+    .directory-panel a[aria-current="page"]{background:var(--dark); color:#fffaf0;}
+    .directory-panel .menu-socials{align-items:center; display:flex; gap:18px; justify-content:center;}
+    .directory-panel .menu-social-link{align-items:center; display:flex; justify-content:center; padding:4px;}
+    .directory-panel .menu-social-link svg{display:block; height:18px; width:18px;}
+    .hero-art{
+      min-height:620px;
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 25% 14%, rgba(255,242,211,.92) 0 2px, transparent 3px),
+        radial-gradient(circle at 78% 18%, rgba(255,242,211,.92) 0 2px, transparent 3px),
+        radial-gradient(circle at 66% 10%, rgba(255,242,211,.92) 0 2px, transparent 3px),
+        linear-gradient(180deg, rgba(34,53,63,.82) 0%, rgba(43,74,86,.5) 34%, rgba(176,125,82,.1) 100%),
+        linear-gradient(145deg, #21353f 0%, #54717a 35%, #dcbf8e 100%);
+    }
+    .hero-art:before{
+      content:"";
+      position:absolute;
+      inset:auto -10% 0 -10%;
+      height:44%;
+      background:
+        linear-gradient(130deg, transparent 0 18%, #4e6054 18% 30%, transparent 30%),
+        linear-gradient(55deg, transparent 0 25%, #7c8b7a 25% 39%, transparent 39%),
+        linear-gradient(110deg, transparent 0 42%, #6b5848 42% 53%, transparent 53%),
+        linear-gradient(62deg, transparent 0 60%, #b98a5b 60% 72%, transparent 72%);
+      clip-path:polygon(0 100%, 0 44%, 7% 60%, 16% 33%, 29% 62%, 40% 24%, 51% 58%, 63% 31%, 74% 67%, 84% 35%, 100% 58%, 100% 100%);
+      opacity:.95;
+    }
+    .hero-art:after{
+      content:"Aktau\A coast to desert";
+      white-space:pre;
+      position:absolute; bottom:28px; right:32px;
+      color:rgba(255,248,239,.82); font-family:Georgia,serif; font-size:1.8rem; line-height:1.1; text-align:right;
+    }
+    nav.site-nav{position:sticky; top:0; z-index:20; background:rgba(255,248,239,.96); border-bottom:1px solid rgba(215,199,179,.9);}
+    nav.site-nav .wrap{display:flex; align-items:center; gap:32px; overflow:auto; padding:18px 0;}
+    nav.site-nav a{white-space:nowrap; text-decoration:none; color:var(--dark); font-size:.95rem; font-weight:500; background:transparent; border:0; border-radius:0; padding:0;}
+    nav.site-nav a:hover{color:var(--accent2); border-bottom:1px solid var(--dark); padding-bottom:2px;}
+    nav.site-nav a[aria-current="page"]{border-bottom:2px solid var(--dark); padding-bottom:3px;}
+    nav.site-nav .logo{font-weight:700;}
+    nav.sticky{position:sticky; top:0; z-index:10; background:rgba(43,42,40,.84); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,248,239,.18);}
+    nav.sticky .wrap{display:flex; gap:9px; overflow:auto; padding:12px 0;}
+    nav.sticky a{white-space:nowrap; text-decoration:none; color:#fffaf0; background:rgba(255,248,239,.12); border:1px solid rgba(255,248,239,.24); border-radius:999px; padding:8px 12px; font-size:.86rem; font-weight:700;}
+    nav.sticky a:hover{background:#fffaf0; color:var(--dark);}
+    section{padding:54px 0;}
+    section:nth-of-type(even){background:rgba(255,248,239,.22); border-top:1px solid rgba(215,199,179,.34); border-bottom:1px solid rgba(215,199,179,.34);}
+    .section-title{display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:22px;}
+    h2{font-family:Georgia,serif; font-size:clamp(2rem, 4vw, 3.4rem); letter-spacing:-.04em; line-height:1; margin:0;}
+    .note{color:var(--muted); max-width:620px;}
+    .grid{display:grid; gap:18px;}
+    .grid.two{grid-template-columns:repeat(2,1fr)}
+    .grid.three{grid-template-columns:repeat(3,1fr)}
+    .card{background:rgba(255,248,239,.9); border:1px solid rgba(215,199,179,.9); border-radius:var(--radius); box-shadow:0 14px 38px rgba(64,53,39,.1); padding:24px;}
+    .grid .card{position:relative; overflow:hidden;}
+    .grid .card:before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,var(--accent2),var(--accent)); opacity:.55;}
+    .card h3{margin:0 0 8px; font-size:1.18rem;}
+    .card p{margin:.55rem 0; color:#564c42;}
+    .tag{display:inline-block; padding:4px 9px; border-radius:999px; background:#ead9c2; color:#745338; font-weight:700; font-size:.74rem; margin-bottom:12px; letter-spacing:.04em; text-transform:uppercase;}
+    .timeline{display:grid; gap:18px;}
+    .day{display:grid; grid-template-columns:155px 1fr; gap:16px; align-items:start;}
+    .day-label{position:sticky; top:72px; background:linear-gradient(160deg,#2b2a28,#56655b); color:#fffaf0; border-radius:20px; padding:16px; box-shadow:0 14px 34px rgba(47,42,36,.22);}
+    .day-label strong{display:block; font-family:Georgia,serif; font-size:1.5rem; line-height:1;}
+    .day-label span{font-size:.82rem; opacity:.84;}
+    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:18px; border:1px solid var(--line); background:var(--cream); box-shadow:inset 0 1px 0 rgba(255,255,255,.4);}
+    th,td{padding:13px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); font-size:.92rem;}
+    th{background:#ead9c2; color:#4a3d32; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em;}
+    tr:last-child td{border-bottom:0}
+    .photo-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+    .photo-card{min-height:230px; border-radius:24px; overflow:hidden; position:relative; border:1px solid rgba(255,248,239,.65); box-shadow:0 18px 42px rgba(64,53,39,.18); background:#8a735e;}
+    .photo-card img{width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0;}
+    .hero-media{min-height:620px; position:relative; overflow:hidden; background:#fff8ef linear-gradient(180deg, rgba(39,88,106,.18), rgba(39,88,106,.08)) left center / cover no-repeat; order:1;}
+    .hero-media:before{content:""; position:absolute; inset:auto -10% 0 -10%; height:46%; background:linear-gradient(110deg, transparent 0 22%, rgba(111,125,107,.55) 22% 32%, transparent 32%), linear-gradient(52deg, transparent 0 32%, rgba(154,111,70,.52) 32% 43%, transparent 43%), linear-gradient(122deg, transparent 0 48%, rgba(39,88,106,.5) 48% 58%, transparent 58%); clip-path:polygon(0 100%, 0 46%, 9% 60%, 18% 38%, 28% 62%, 40% 27%, 52% 64%, 63% 36%, 74% 62%, 86% 28%, 100% 55%, 100% 100%); opacity:.98;}
+    .hero-media:after{content:"Caspian coast\A desert edge"; white-space:pre; position:absolute; inset:auto 30px 28px auto; text-align:right; color:rgba(43,42,40,.78); font-family:Georgia,serif; font-size:1.7rem; line-height:1.1;}
+    .shot{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch;}
+    .mini-visual{border-radius:24px; min-height:260px; position:relative; overflow:hidden; background:linear-gradient(180deg,#203746,#587077 58%,#d1b18b);}
+    .mini-visual .stars{position:absolute; inset:0; background-image:radial-gradient(#fff 0 1px, transparent 1px); background-size:38px 38px; opacity:.35;}
+    .mini-visual .mw{position:absolute; width:120px; height:460px; background:linear-gradient(90deg, transparent, rgba(255,244,214,.16), rgba(255,255,255,.45), rgba(255,244,214,.16), transparent); filter:blur(1px); transform:rotate(20deg); left:44%; top:-44px; border-radius:50%;}
+    .mini-visual .mountain{position:absolute; left:-5%; right:-5%; bottom:0; height:43%; background:#3c362f; clip-path:polygon(0 100%,0 50%,13% 62%,23% 24%,35% 64%,47% 35%,58% 70%,68% 40%,78% 66%,89% 25%,100% 55%,100% 100%);}
+    .checklist{columns:2; column-gap:32px; list-style:none; padding:0; margin:0;}
+    .checklist li{break-inside:avoid; margin:0 0 10px; padding-left:28px; position:relative;}
+    .checklist li:before{content:"✓"; position:absolute; left:0; top:0; color:var(--accent); font-weight:900;}
+    .budget-total{font-size:2rem; font-family:Georgia,serif; color:var(--accent2); margin:.2rem 0 0;}
+    .warning{border-left:6px solid var(--accent2); background:#f4e3ce; padding:18px 20px; border-radius:18px; box-shadow:inset 0 0 0 1px rgba(154,111,70,.1);}
+    footer{padding:42px 0 60px; color:var(--muted); text-align:center;}
+    .footer-socials{align-items:center; display:inline-flex; gap:18px; justify-content:center; margin:2px 0 0;}
+    .footer-instagram,.footer-email{align-items:center; color:var(--dark); display:inline-flex; justify-content:center; opacity:.72; text-decoration:none;}
+    .footer-instagram svg,.footer-email svg{display:block; height:18px; width:18px;}
+    .footer-instagram:hover,.footer-email:hover{opacity:1;}
+    @media (max-width:900px){
+      .hero-card{grid-template-columns:1fr}.hero-art{min-height:360px}.grid.two,.grid.three,.shot{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.day{grid-template-columns:1fr}.day-label{position:relative; top:auto}.checklist{columns:1}.hero-copy{padding:36px 28px}
+    }
+    @media (max-width:560px){
+      nav.site-nav,nav.sticky{display:none;}
+      .directory-toggle{display:block; top:18px; right:18px; z-index:200;}
+      .directory-toggle[open]{inset:0; pointer-events:none;}
+      .directory-toggle[open] summary{position:fixed; top:18px; right:18px; z-index:202; pointer-events:auto;}
+      .directory-toggle[open] summary span{background:transparent;}
+      .directory-toggle[open] summary span:before{top:0; transform:rotate(45deg);}
+      .directory-toggle[open] summary span:after{top:0; transform:rotate(-45deg);}
+      .directory-toggle[open] .directory-panel{position:fixed; inset:0; z-index:201; width:100vw; margin:0; padding:110px 28px 40px; display:flex; flex-direction:column; justify-content:center; gap:8px; text-align:center; pointer-events:auto; border:0; border-radius:0; background:rgba(255,248,239,.98); box-shadow:none;}
+      .directory-panel a{padding:11px 14px; border-bottom:0; border-radius:0; font-size:1rem;}
+      .directory-panel a[aria-current="page"]{background:transparent; color:var(--dark);}
+      .directory-panel .menu-socials{margin-top:30px; padding:4px;}
+      .photo-grid{grid-template-columns:1fr}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{padding-top:18px}
+    }
+    @media print{nav.sticky,.btn{display:none}body{background:white}.card,.hero-card{box-shadow:none}.day-label{position:relative;top:auto}.hero{min-height:auto}.hero-art{display:none}}
+  </style>
+</head>
+<body>
+  <details class="directory-toggle">
+    <summary aria-label="Open directory"><span></span></summary>
+    <div class="directory-panel">
+      <a href="../../index.html">Home</a>
+      <a href="../../gallery.html">Gallery</a>
+      <a href="../../films.html">Films</a>
+      <a href="../../trips.html" aria-current="page">Upcoming Adventures</a>
+      <a href="../../contact.html">Get in Touch</a>
+    </div>
+  </details>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <a href="../../index.html" class="logo">Travel with Hanley</a>
+      <a href="../../index.html">Home</a>
+      <a href="../../gallery.html">Gallery</a>
+      <a href="../../films.html">Films</a>
+      <a href="../../trips.html" aria-current="page">Upcoming Adventures</a>
+      <a href="../../contact.html">Get in Touch</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <div class="eyebrow">Aktau coast route</div>
+          <h1>Aktau Photography Trip Itinerary</h1>
+          <p class="subtitle">7 July - 13 July. Caspian sunsets, Mangystau chalk cliffs and desert geology.</p>
+          <div class="pillbar">
+            <span class="pill">7 July - 13 July</span><span class="pill">Coastal light</span><span class="pill">Desert formations</span><span class="pill">Golden hour</span>
+          </div>
+          <div class="hero-actions"><a class="btn" href="#timeline">View itinerary</a><a class="btn secondary" href="#photo-notes">Photography Notes</a></div>
+        </div>
+        <div class="hero-media" aria-label="Aktau coastal background"></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sticky">
+    <div class="wrap">
+      <a href="#overview">Overview</a><a href="#timeline">Daily Plan</a><a href="#logistics">Logistics</a><a href="#stays">Accommodation</a><a href="#photo-notes">Photography</a><a href="#budget">Budget</a><a href="#reminders">Reminders</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <div class="wrap">
+        <div class="section-title"><h2>Trip Overview</h2></div>
+        <div class="grid three">
+          <div class="card"><span class="tag">Route</span><h3>Start from Aktau</h3><p>Use Aktau as the base for the first and last nights, then move inland for the Mangystau highlights so sunrise and sunset are not rushed.</p></div>
+          <div class="card"><span class="tag">Bases</span><h3>Aktau + inland camp</h3><p>One coastal base for the city and Caspian light, one or two inland nights for canyon, plateau, and desert access.</p></div>
+          <div class="card"><span class="tag">Priority</span><h3>Boszhira + Tuzbair</h3><p>If weather, fatigue, or road conditions force cuts, keep the chalk cliffs and salt flats first. Those give the strongest visuals.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="wrap">
+        <div class="section-title"><h2>Detailed itinerary</h2><p class="note">A simple day-by-day plan for your Aktau stay and local tour, focused on the main places to visit.</p></div>
+        <div class="timeline">
+          <article class="day"><div class="day-label"><strong>7-8 Jul</strong><span>Flight to Aktau · Rest</span></div><div class="card">
+            <div class="warning"><strong>Focus:</strong> arrive, settle in, and keep these two days light so you are fresh for the city and local tour.</div><br>
+            <div class="grid two">
+              <div class="card"><span class="tag">Places to go</span><h3>Aktau hotel and seafront</h3><p>Check in, rest, and if you have energy, take a short walk along the Aktau waterfront or nearby coast.</p></div>
+              <div class="card"><span class="tag">Easy option</span><h3>Caspian promenade</h3><p>Use the evening for a relaxed shoreline walk, coffee, and a slow reset after the flight.</p></div>
+            </div></div></article>
+
+          <article class="day"><div class="day-label"><strong>9 Jul</strong><span>City explore</span></div><div class="card">
+            <div class="grid two">
+              <div class="card"><span class="tag">City stops</span><h3>Aktau waterfront and center</h3><p>Explore the seafront promenade, central squares, local cafes, and the main parts of the city.</p></div>
+              <div class="card"><span class="tag">Optional stops</span><h3>Local viewpoints</h3><p>Add the lighthouse area, rocky shoreline, and any museum or market stops your guide recommends.</p></div>
+            </div></div></article>
+
+          <article class="day"><div class="day-label"><strong>10 Jul</strong><span>Local tour</span></div><div class="card">
+            <div class="grid two">
+              <div class="card"><span class="tag">Mangystau</span><h3>Torysh and Sherkala</h3><p>Visit the Valley of Balls at Torysh and continue to Sherkala for one of the most recognizable rock formations in the region.</p></div>
+              <div class="card"><span class="tag">Route</span><h3>Steppe scenery</h3><p>Use the drive itself for wide open steppe views, roadside stops, and simple landscape frames.</p></div>
+            </div></div></article>
+
+          <article class="day"><div class="day-label"><strong>11 Jul</strong><span>Local tour</span></div><div class="card">
+            <div class="grid two">
+              <div class="card"><span class="tag">Hero stop</span><h3>Boszhira Valley</h3><p>Spend the day around Boszhira for chalk cliffs, plateau views, and the strongest landscape scenery of the trip.</p></div>
+              <div class="card"><span class="tag">Optional extra</span><h3>Ustyurt Plateau viewpoints</h3><p>Add any plateau overlooks or camp stops that your local tour can reach safely.</p></div>
+            </div></div></article>
+
+          <article class="day"><div class="day-label"><strong>12 Jul</strong><span>Local tour</span></div><div class="card">
+            <div class="grid two">
+              <div class="card"><span class="tag">Salt flats</span><h3>Tuzbair</h3><p>Go to Tuzbair for salt-flat textures, reflections, and the most abstract desert compositions.</p></div>
+              <div class="card"><span class="tag">Final stop</span><h3>Desert return route</h3><p>Finish with one last inland viewpoint or scenic stop before returning to Aktau for departure the next day.</p></div>
+            </div></div></article>
+
+          <article class="day"><div class="day-label"><strong>13 Jul</strong><span>Flight back to London</span></div><div class="card">
+            <div class="grid two">
+              <div class="card"><span class="tag">Departure</span><h3>Aktau airport</h3><p>Keep the final day simple: pack, check out, and head to the airport for your flight home.</p></div>
+              <div class="card"><span class="tag">Last look</span><h3>Quick city stop if needed</h3><p>If the schedule allows, use one last short stop in Aktau before leaving for the airport.</p></div>
+            </div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="logistics">
+      <div class="wrap">
+        <div class="section-title"><h2>Logistics</h2></div>
+        <div class="grid three">
+          <div class="card"><span class="tag">Transport</span><h3>Use a strong 4x4 if possible</h3><p>Mangystau roads can get rough quickly. Ground clearance matters more than luxury. Keep fuel stops planned in advance.</p></div>
+          <div class="card"><span class="tag">Water</span><h3>Carry more than you think</h3><p>The landscape looks close on a map, but heat and dust make short days feel long. Bring extra water, snacks, and a cool bag if you have one.</p></div>
+          <div class="card"><span class="tag">Navigation</span><h3>Offline maps only</h3><p>Download maps, save coordinates, and mark the main stops before you leave Aktau. Assume signal will be inconsistent outside the city.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stays">
+      <div class="wrap">
+        <div class="section-title"><h2>Accommodation</h2></div>
+        <div class="grid two">
+          <div class="card"><span class="tag">Coastal base</span><h3>Aktau</h3><p><strong>Best for plan:</strong> first and last nights.</p><p><strong>Best value:</strong> an apartment or guesthouse with parking.</p><p><strong>Use for:</strong> easy arrival, backups, laundry, and a final coast shoot.</p></div>
+          <div class="card"><span class="tag">Inland base</span><h3>Simple guesthouse / camp near the route</h3><p><strong>Best for plan:</strong> Boszhira, Tuzbair, or a comparable inland stop.</p><p><strong>Best value:</strong> any place with secure parking and flexible check-in.</p><p><strong>Use for:</strong> avoiding unnecessary night driving.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="photo-notes">
+      <div class="wrap">
+        <div class="section-title"><h2>Photography Notes</h2></div>
+        <div class="shot">
+          <div class="mini-visual" aria-hidden="true"><span class="stars"></span><span class="mw"></span><span class="mountain"></span></div>
+          <div class="card">
+            <span class="tag">Camera settings</span>
+            <h3>Wide landscapes first</h3>
+            <p><strong>Start with:</strong> 14-24mm or 16-35mm, f/8 for daylight landscapes, f/2.8 for astro.</p>
+            <p>Use a tripod whenever the frame depends on clean edges, reflections, or low light.</p>
+            <p>For desert scenes, keep shutter speed high enough to avoid vibration from wind and hand movement.</p>
+            <p>White balance can stay warm for sunrise and a little cooler for the coast and blue hour.</p>
+          </div>
+        </div><br>
+        <div class="grid two">
+          <div class="card">
+            <span class="tag">Boszhira</span><h3>Cliff shapes</h3>
+            <p>Try low angles, foreground rocks, and long shadows. The cliffs read best when there is sky separation and a clean horizon.</p>
+            <p>Use a telephoto lens as often as the wide lens so the geology feels layered rather than empty.</p>
+          </div>
+          <div class="card">
+            <span class="tag">Aktau coast</span><h3>Sea and skyline</h3>
+            <p>Sunset is strongest when you include rock texture, water movement, and one simple anchor point in the frame.</p>
+            <p>Blue hour is ideal for a final sequence of the Caspian coast and the city edge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="budget">
+      <div class="wrap">
+        <div class="section-title"><h2>Budget Estimate</h2></div>
+        <div class="card">
+          <table><thead><tr><th>Category</th><th>Estimate</th><th>Notes</th></tr></thead><tbody>
+            <tr><td>Car rental, 5 days</td><td>Varies</td><td>4x4 is preferable for Mangystau road conditions.</td></tr>
+            <tr><td>Fuel</td><td>Moderate</td><td>Long inland drives add up quickly, especially on rough roads.</td></tr>
+            <tr><td>Accommodation, 4 nights</td><td>Budget to mid-range</td><td>Aktau is easiest for quality and logistics.</td></tr>
+            <tr><td>Food</td><td>Flexible</td><td>Plan for city meals plus simple roadside stops.</td></tr>
+            <tr><td>Extras</td><td>Small reserve</td><td>Water, cleaning supplies, and any local guide or transport support.</td></tr>
+          </tbody></table>
+          <p class="budget-total">Keep a healthy buffer for road conditions and last-minute changes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reminders">
+      <div class="wrap">
+        <div class="section-title"><h2>Reminders</h2></div>
+        <div class="grid two">
+          <div class="card"><span class="tag">If tired or weather shifts</span><h3>Drop in this order</h3><ol><li>Optional night astro.</li><li>Extra scouting stops after sunset.</li><li>Any non-essential detours away from the main route.</li></ol><p><strong>Keep if possible:</strong> Boszhira, Tuzbair, and one clean coast session in Aktau.</p></div>
+          <div class="card"><span class="tag">Packing</span><h3>Do not forget</h3><ul class="checklist"><li>Headlamp + power bank</li><li>Warm layer for dawn and night</li><li>Tripod</li><li>Offline maps and route pins</li><li>Spare batteries + card reader</li><li>Water + snacks</li><li>Lens cloth and rocket blower</li><li>Dust protection for gear</li></ul></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="font-size:0.85rem; color:var(--dark); margin-bottom:8px; font-weight:400;">Photos sourced from online</div>
+      <div class="footer-socials">
+        <a class="footer-instagram" href="https://www.instagram.com/hhanley.explore_/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg></a>
+        <a class="footer-email" href="../../contact.html" aria-label="Get in Touch"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 8l7 5 7-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="credits">© 2026 Hanley Ho</div>
+    </div>
+  </footer>
+  <script src="../../js/lightbox.js" defer></script>
+  <script src="../../js/site-menu.js" defer></script>
+  <script src="../../js/photo-protection.js" defer></script>
+</body>
+</html>
