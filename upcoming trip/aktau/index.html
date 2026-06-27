@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../../favicon.png" type="image/png">
-  <title>Aktau Road Trip Itinerary</title>
+  <title>Aktau Trip Itinerary</title>
   <style>
     @font-face{
       font-family:"Runiga";
@@ -174,16 +174,32 @@
     th{background:#ead9c2; color:#4a3d32; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em;}
     tr:last-child td{border-bottom:0}
     .photo-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
-    .photo-card{min-height:230px; border-radius:24px; overflow:hidden; position:relative; border:1px solid rgba(255,248,239,.65); box-shadow:0 18px 42px rgba(64,53,39,.18); background:#8a735e;}
+    .photo-card{min-height:230px; margin:0; border-radius:24px; overflow:hidden; position:relative; border:1px solid rgba(255,248,239,.65); box-shadow:0 18px 42px rgba(64,53,39,.18); background:#8a735e;}
     .photo-card img{width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0;}
-    .hero-media{min-height:620px; position:relative; overflow:hidden; background:#fff8ef linear-gradient(180deg, rgba(39,88,106,.18), rgba(39,88,106,.08)) left center / cover no-repeat; order:1;}
-    .hero-media:before{content:""; position:absolute; inset:auto -10% 0 -10%; height:46%; background:linear-gradient(110deg, transparent 0 22%, rgba(111,125,107,.55) 22% 32%, transparent 32%), linear-gradient(52deg, transparent 0 32%, rgba(154,111,70,.52) 32% 43%, transparent 43%), linear-gradient(122deg, transparent 0 48%, rgba(39,88,106,.5) 48% 58%, transparent 58%); clip-path:polygon(0 100%, 0 46%, 9% 60%, 18% 38%, 28% 62%, 40% 27%, 52% 64%, 63% 36%, 74% 62%, 86% 28%, 100% 55%, 100% 100%); opacity:.98;}
-    .hero-media:after{content:"Caspian coast\A desert edge"; white-space:pre; position:absolute; inset:auto 30px 28px auto; text-align:right; color:rgba(43,42,40,.78); font-family:Georgia,serif; font-size:1.7rem; line-height:1.1;}
+    .photo-card img.fill-screenshot{object-position:center top;}
+    .photo-card.feature-tile{grid-column:span 2; min-height:300px;}
+    .photo-card figcaption{position:absolute; left:14px; right:14px; bottom:14px; z-index:2; color:#fffaf0; font-weight:700; text-shadow:0 2px 12px rgba(0,0,0,.55);}
+    .photo-card:after{content:""; position:absolute; inset:45% 0 0; background:linear-gradient(180deg, transparent, rgba(0,0,0,.42)); pointer-events:none;}
+    .hero-media{min-height:620px; position:relative; overflow:hidden; background:#fff8ef url("../../photos/Aktau/Screenshot%202026-06-26%20at%203.49.34%E2%80%AFPM.png") center top / cover no-repeat; order:1;}
     .shot{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch;}
     .mini-visual{border-radius:24px; min-height:260px; position:relative; overflow:hidden; background:linear-gradient(180deg,#203746,#587077 58%,#d1b18b);}
     .mini-visual .stars{position:absolute; inset:0; background-image:radial-gradient(#fff 0 1px, transparent 1px); background-size:38px 38px; opacity:.35;}
     .mini-visual .mw{position:absolute; width:120px; height:460px; background:linear-gradient(90deg, transparent, rgba(255,244,214,.16), rgba(255,255,255,.45), rgba(255,244,214,.16), transparent); filter:blur(1px); transform:rotate(20deg); left:44%; top:-44px; border-radius:50%;}
     .mini-visual .mountain{position:absolute; left:-5%; right:-5%; bottom:0; height:43%; background:#3c362f; clip-path:polygon(0 100%,0 50%,13% 62%,23% 24%,35% 64%,47% 35%,58% 70%,68% 40%,78% 66%,89% 25%,100% 55%,100% 100%);}
+    .note-carousel{aspect-ratio:1180 / 946; border-radius:24px; min-height:0; overflow:hidden; position:relative; border:1px solid rgba(255,248,239,.65); box-shadow:0 18px 42px rgba(64,53,39,.18); background:#2b2a28;}
+    .note-carousel-track{height:100%; display:flex; transition:transform .32s ease;}
+    .note-carousel-slide{min-width:100%; min-height:0; margin:0; position:relative;}
+    .note-carousel-slide img{width:100%; height:100%; object-fit:fill; object-position:center; position:absolute; inset:0; display:block;}
+    .note-carousel-slide img.fill-screenshot{object-position:center;}
+    .note-carousel-slide figcaption{position:absolute; left:18px; right:18px; bottom:18px; z-index:2; color:#fffaf0; font-weight:700; text-shadow:0 2px 12px rgba(0,0,0,.55);}
+    .note-carousel-slide:after{content:""; position:absolute; inset:44% 0 0; background:linear-gradient(180deg, transparent, rgba(0,0,0,.45)); pointer-events:none;}
+    .carousel-arrow{position:absolute; top:50%; z-index:4; transform:translateY(-50%); width:42px; height:42px; border:1px solid rgba(255,248,239,.65); border-radius:999px; background:rgba(43,42,40,.62); color:#fffaf0; font-family:Georgia,serif; font-size:2rem; line-height:1; cursor:pointer; display:grid; place-items:center; box-shadow:0 12px 26px rgba(47,42,36,.25);}
+    .carousel-arrow:hover{background:rgba(43,42,40,.82);}
+    .carousel-arrow.prev{left:14px;}
+    .carousel-arrow.next{right:14px;}
+    .carousel-dots{position:absolute; left:0; right:0; bottom:14px; z-index:4; display:flex; justify-content:center; gap:8px; pointer-events:none;}
+    .carousel-dots span{width:7px; height:7px; border-radius:999px; background:rgba(255,248,239,.52);}
+    .carousel-dots span[aria-current="true"]{background:#fffaf0;}
     .checklist{columns:2; column-gap:32px; list-style:none; padding:0; margin:0;}
     .checklist li{break-inside:avoid; margin:0 0 10px; padding-left:28px; position:relative;}
     .checklist li:before{content:"✓"; position:absolute; left:0; top:0; color:var(--accent); font-weight:900;}
@@ -195,7 +211,7 @@
     .footer-instagram svg,.footer-email svg{display:block; height:18px; width:18px;}
     .footer-instagram:hover,.footer-email:hover{opacity:1;}
     @media (max-width:900px){
-      .hero-card{grid-template-columns:1fr}.hero-art{min-height:360px}.grid.two,.grid.three,.shot{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.day{grid-template-columns:1fr}.day-label{position:relative; top:auto}.checklist{columns:1}.hero-copy{padding:36px 28px}
+      .hero-card{grid-template-columns:1fr}.hero-art{min-height:360px}.grid.two,.grid.three,.shot{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.photo-card.feature-tile{grid-column:span 2}.day{grid-template-columns:1fr}.day-label{position:relative; top:auto}.checklist{columns:1}.hero-copy{padding:36px 28px}
     }
     @media (max-width:560px){
       nav.site-nav,nav.sticky{display:none;}
@@ -209,7 +225,7 @@
       .directory-panel a{padding:11px 14px; border-bottom:0; border-radius:0; font-size:1rem;}
       .directory-panel a[aria-current="page"]{background:transparent; color:var(--dark);}
       .directory-panel .menu-socials{margin-top:30px; padding:4px;}
-      .photo-grid{grid-template-columns:1fr}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{padding-top:18px}
+      .photo-grid{grid-template-columns:1fr}.photo-card.feature-tile{grid-column:span 1; min-height:260px}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{padding-top:18px}
     }
     @media print{nav.sticky,.btn{display:none}body{background:white}.card,.hero-card{box-shadow:none}.day-label{position:relative;top:auto}.hero{min-height:auto}.hero-art{display:none}}
   </style>
@@ -242,10 +258,10 @@
       <div class="hero-card">
         <div class="hero-copy">
           <div class="eyebrow">Aktau coast route</div>
-          <h1>Aktau Photography Trip Itinerary</h1>
-          <p class="subtitle">7 July - 13 July. Caspian sunsets, Mangystau chalk cliffs and desert geology.</p>
+          <h1>Aktau Trip Itinerary</h1>
+          <p class="subtitle">7 July - 13 July. Caspian sunsets, Mangystau cliffs and desert geology.</p>
           <div class="pillbar">
-            <span class="pill">7 July - 13 July</span><span class="pill">Coastal light</span><span class="pill">Desert formations</span><span class="pill">Golden hour</span>
+            <span class="pill">Ancient Seabeds</span><span class="pill">Desert Formations</span><span class="pill">Golden hour</span>
           </div>
           <div class="hero-actions"><a class="btn" href="#timeline">View itinerary</a><a class="btn secondary" href="#photo-notes">Photography Notes</a></div>
         </div>
@@ -256,7 +272,7 @@
 
   <nav class="sticky">
     <div class="wrap">
-      <a href="#overview">Overview</a><a href="#timeline">Daily Plan</a><a href="#logistics">Logistics</a><a href="#stays">Accommodation</a><a href="#photo-notes">Photography</a><a href="#budget">Budget</a><a href="#reminders">Reminders</a>
+      <a href="#overview">Overview</a><a href="#timeline">Daily Plan</a><a href="#Transportation">Transportation</a><a href="#stays">Accommodation</a><a href="#photo-notes">Photography</a><a href="#budget">Budget</a><a href="#reminders">Reminders</a>
     </div>
   </nav>
 
@@ -268,37 +284,6 @@
           <div class="card"><span class="tag">Route</span><h3>Start from Aktau</h3><p>Use Aktau as the base for the first and last nights, then move inland for the Mangystau highlights so sunrise and sunset are not rushed.</p></div>
           <div class="card"><span class="tag">Bases</span><h3>Aktau + inland camp</h3><p>One coastal base for the city and Caspian light, one or two inland nights for canyon, plateau, and desert access.</p></div>
           <div class="card"><span class="tag">Priority</span><h3>Boszhira + Tuzbair</h3><p>If weather, fatigue, or road conditions force cuts, keep the chalk cliffs and salt flats first. Those give the strongest visuals.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="aktau-photos">
-      <div class="wrap">
-        <div class="section-title">
-          <h2>Aktau Photos</h2>
-          <p class="note">A few of the uploaded reference images from Mangystau and the Aktau area.</p>
-        </div>
-        <div class="photo-grid featured-photo-grid">
-          <figure class="photo-card">
-            <img src="../../photos/Aktau/1.-Boszhira-mountain.jpg" alt="Boszhira mountain landscape in Mangystau" loading="lazy" decoding="async">
-            <figcaption>Boszhira mountain</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="../../photos/Aktau/stone-balls-valley-mangyshlak-kazakhstan-3.jpg" alt="Stone balls valley in Mangyshlak, Kazakhstan" loading="lazy" decoding="async">
-            <figcaption>Stone balls valley</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="../../photos/Aktau/aktau-mountains-kazakhstan-8d7x.webp.avif" alt="Aktau mountains in Kazakhstan" loading="lazy" decoding="async">
-            <figcaption>Aktau mountains</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="../../photos/Aktau/7bd4fa43d66f72e149bcda106c62b20765bb92af4e8a7044f19b5eb323af940e.jpg.avif" alt="Mangystau landscape photo" loading="lazy" decoding="async">
-            <figcaption>Mangystau landscape</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <img src="../../photos/Aktau/images.jpeg" alt="Aktau travel reference image" loading="lazy" decoding="async">
-            <figcaption>Aktau reference</figcaption>
-          </figure>
         </div>
       </div>
     </section>
@@ -321,38 +306,40 @@
             </div></div></article>
 
           <article class="day"><div class="day-label"><strong>10 Jul</strong><span>Local tour</span></div><div class="card">
-            <div class="grid two">
-              <div class="card"><span class="tag">Mangystau</span><h3>Torysh and Sherkala</h3><p>Visit the Valley of Balls at Torysh and continue to Sherkala for one of the most recognizable rock formations in the region.</p></div>
-              <div class="card"><span class="tag">Route</span><h3>Steppe scenery</h3><p>Use the drive itself for wide open steppe views, roadside stops, and simple landscape frames.</p></div>
+            <div class="grid four">
+              <div class="card"><span class="tag">Stop 1</span><h3>Torysh</h3><p>Visit the Valley of Balls at Torysh and explore the mysterious ball-shaped rock formation</p></div>
+              <div class="card"><span class="tag">Stop 2</span><h3>Kokala</h3><p>Marvel at the colourful purple gorge</p></div>
+              <div class="card"><span class="tag">Stop 3</span><h3>Sherkala</h3><p>known as the 'Sphinx of Mangystau'</p></div>
+              <div class="card"><span class="tag">Stop 4</span><h3>Airakty</h3><p>Valley of Castle-Shaped Mounts</p></div>
             </div></div></article>
 
           <article class="day"><div class="day-label"><strong>11 Jul</strong><span>Local tour</span></div><div class="card">
-            <div class="grid two">
-              <div class="card"><span class="tag">Hero stop</span><h3>Boszhira Valley</h3><p>Spend the day around Boszhira for chalk cliffs, plateau views, and the strongest landscape scenery of the trip.</p></div>
-              <div class="card"><span class="tag">Optional extra</span><h3>Ustyurt Plateau viewpoints</h3><p>Add any plateau overlooks or camp stops that your local tour can reach safely.</p></div>
+            <div class="grid four">
+              <div class="card"><span class="tag">Stop 1</span><h3>Bozjyra Crest</h3><p>Towering formation</p></div>
+              <div class="card"><span class="tag">Stop 2</span><h3>Mars Panoramic</h3><p>Unique chalky cliffs and red hues, a landscape that resembles the surface of Mars</p></div>
             </div></div></article>
 
           <article class="day"><div class="day-label"><strong>12 Jul</strong><span>Local tour</span></div><div class="card">
             <div class="grid two">
-              <div class="card"><span class="tag">Salt flats</span><h3>Tuzbair</h3><p>Go to Tuzbair for salt-flat textures, reflections, and the most abstract desert compositions.</p></div>
-              <div class="card"><span class="tag">Final stop</span><h3>Desert return route</h3><p>Finish with one last inland viewpoint or scenic stop before returning to Aktau for departure the next day.</p></div>
+              <div class="card"><span class="tag">Stop 1</span><h3>Bozjyra Fangs Formation</h3><p>Visting the famous Bozjyra Fangs Formation</p></div>
+              <div class="card"><span class="tag">Stop 2</span><h3>Bokty Mountain</h3><p>An isolated and fortress-like formation that rises from the steppe</p></div>
+              <div class="card"><span class="tag">Stop 3</span><h3>Tiramisu Canyon</h3><p>Layered mountains in vibrant red, yellow and orange hues</p></div>
             </div></div></article>
 
           <article class="day"><div class="day-label"><strong>13 Jul</strong><span>Flight back to London</span></div><div class="card">
             <div class="grid two">
-              <div class="card"><span class="tag">Departure</span><h3>Aktau airport</h3><p>Keep the final day simple: pack, check out, and head to the airport for your flight home.</p></div>
-              <div class="card"><span class="tag">Last look</span><h3>Quick city stop if needed</h3><p>If the schedule allows, use one last short stop in Aktau before leaving for the airport.</p></div>
+              <div class="card"><span class="tag">Departure</span><h3>Aktau airport</h3><p>Midnight flight: Head to the airport on the night of 12 July.</p></div>
             </div></div></article>
         </div>
       </div>
     </section>
 
-    <section id="logistics">
+    <section id="Transportation">
       <div class="wrap">
-        <div class="section-title"><h2>Logistics</h2></div>
+        <div class="section-title"><h2>Transportation</h2></div>
         <div class="grid three">
-          <div class="card"><span class="tag">Transport</span><h3>Use a strong 4x4 if possible</h3><p>Mangystau roads can get rough quickly. Ground clearance matters more than luxury. Keep fuel stops planned in advance.</p></div>
-          <div class="card"><span class="tag">Water</span><h3>Carry more than you think</h3><p>The landscape looks close on a map, but heat and dust make short days feel long. Bring extra water, snacks, and a cool bag if you have one.</p></div>
+          <div class="card"><span class="tag">Transport</span><h3>4WD Off-road Jeep</h3><p>798Km on road ~ 150km Off-road</p></div>
+          <div class="card"><span class="tag">Water</span><h3>1L per day provided</h3><p>35-40 Degree in Summer</p></div>
           <div class="card"><span class="tag">Navigation</span><h3>Offline maps only</h3><p>Download maps, save coordinates, and mark the main stops before you leave Aktau. Assume signal will be inconsistent outside the city.</p></div>
         </div>
       </div>
@@ -362,8 +349,8 @@
       <div class="wrap">
         <div class="section-title"><h2>Accommodation</h2></div>
         <div class="grid two">
-          <div class="card"><span class="tag">Coastal base</span><h3>Aktau</h3><p><strong>Best for plan:</strong> first and last nights.</p><p><strong>Best value:</strong> an apartment or guesthouse with parking.</p><p><strong>Use for:</strong> easy arrival, backups, laundry, and a final coast shoot.</p></div>
-          <div class="card"><span class="tag">Inland base</span><h3>Simple guesthouse / camp near the route</h3><p><strong>Best for plan:</strong> Boszhira, Tuzbair, or a comparable inland stop.</p><p><strong>Best value:</strong> any place with secure parking and flexible check-in.</p><p><strong>Use for:</strong> avoiding unnecessary night driving.</p></div>
+          <div class="card"><span class="tag">City</span><h3>Aktau</h3><p>3 nights at a hotel</p></div>
+          <div class="card"><span class="tag">Expedition</span><h3>Tent camping</h3><p>Prepare facial and body wipes</p></div>
         </div>
       </div>
     </section>
@@ -372,11 +359,45 @@
       <div class="wrap">
         <div class="section-title"><h2>Photography Notes</h2></div>
         <div class="shot">
-          <div class="mini-visual" aria-hidden="true"><span class="stars"></span><span class="mw"></span><span class="mountain"></span></div>
+          <div class="note-carousel" data-carousel aria-label="Photography notes photo carousel">
+            <div class="note-carousel-track">
+              <figure class="note-carousel-slide">
+                <img src="../../photos/Aktau/1.-Boszhira-mountain.jpg" alt="Boszhira mountain landscape in Mangystau" loading="lazy" decoding="async">
+                <figcaption>Boszhira Mountain</figcaption>
+              </figure>
+              <figure class="note-carousel-slide">
+                <img src="../../photos/Aktau/stone-balls-valley-mangyshlak-kazakhstan-3.jpg" alt="Stone balls valley in Mangyshlak, Kazakhstan" loading="lazy" decoding="async">
+                <figcaption>The Valley of Spheres</figcaption>
+              </figure>
+              <figure class="note-carousel-slide">
+                <img class="fill-screenshot" src="../../photos/Aktau/Screenshot%202026-06-26%20at%203.43.07%E2%80%AFPM.png" alt="Aktau route screenshot reference" loading="lazy" decoding="async">
+                <figcaption>Aktau Mountains</figcaption>
+              </figure>
+              <figure class="note-carousel-slide">
+                <img class="fill-screenshot" src="../../photos/Aktau/Screenshot%202026-06-26%20at%203.48.42%E2%80%AFPM.png" alt="Aktau landscape screenshot reference" loading="lazy" decoding="async">
+                <figcaption>Mount Bokty</figcaption>
+              </figure>
+              <figure class="note-carousel-slide">
+                <img class="fill-screenshot" src="../../photos/Aktau/Screenshot%202026-06-26%20at%203.49.02%E2%80%AFPM.png" alt="Aktau photo screenshot reference" loading="lazy" decoding="async">
+                <figcaption>Boszhira Mountain</figcaption>
+              </figure>
+              <figure class="note-carousel-slide">
+                <img class="fill-screenshot" src="../../photos/Aktau/Screenshot%202026-06-26%20at%203.49.11%E2%80%AFPM.png" alt="Mangystau photo screenshot reference" loading="lazy" decoding="async">
+                <figcaption>Boszhira Mountain</figcaption>
+              </figure>
+              <figure class="note-carousel-slide">
+                <img class="fill-screenshot" src="../../photos/Aktau/Screenshot%202026-06-26%20at%203.49.22%E2%80%AFPM.png" alt="Aktau photo screenshot reference" loading="lazy" decoding="async">
+                <figcaption>Mangystau</figcaption>
+              </figure>
+            </div>
+            <button class="carousel-arrow prev" type="button" data-carousel-prev aria-label="Previous photography note photo">&#8249;</button>
+            <button class="carousel-arrow next" type="button" data-carousel-next aria-label="Next photography note photo">&#8250;</button>
+            <div class="carousel-dots" aria-hidden="true"></div>
+          </div>
           <div class="card">
             <span class="tag">Camera settings</span>
             <h3>Wide landscapes first</h3>
-            <p><strong>Start with:</strong> 14-24mm or 16-35mm, f/8 for daylight landscapes, f/2.8 for astro.</p>
+            <p><strong>Start with:</strong> 16-35mm, f/8 for daylight landscapes, f/2.8 for astro.</p>
             <p>Use a tripod whenever the frame depends on clean edges, reflections, or low light.</p>
             <p>For desert scenes, keep shutter speed high enough to avoid vibration from wind and hand movement.</p>
             <p>White balance can stay warm for sunrise and a little cooler for the coast and blue hour.</p>
@@ -434,6 +455,41 @@
       <div class="credits">© 2026 Hanley Ho</div>
     </div>
   </footer>
+  <script>
+    (() => {
+      document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+        const track = carousel.querySelector(".note-carousel-track");
+        const slides = Array.from(carousel.querySelectorAll(".note-carousel-slide"));
+        const dots = carousel.querySelector(".carousel-dots");
+        let activeIndex = 0;
+
+        if (!track || !dots || slides.length < 2) {
+          return;
+        }
+
+        slides.forEach(() => {
+          const dot = document.createElement("span");
+          dots.appendChild(dot);
+        });
+
+        const updateCarousel = () => {
+          track.style.transform = `translateX(-${activeIndex * 100}%)`;
+          Array.from(dots.children).forEach((dot, index) => {
+            dot.setAttribute("aria-current", index === activeIndex ? "true" : "false");
+          });
+        };
+
+        const moveCarousel = (direction) => {
+          activeIndex = (activeIndex + direction + slides.length) % slides.length;
+          updateCarousel();
+        };
+
+        carousel.querySelector("[data-carousel-prev]").addEventListener("click", () => moveCarousel(-1));
+        carousel.querySelector("[data-carousel-next]").addEventListener("click", () => moveCarousel(1));
+        updateCarousel();
+      });
+    })();
+  </script>
   <script src="../../js/lightbox.js" defer></script>
   <script src="../../js/site-menu.js" defer></script>
   <script src="../../js/photo-protection.js" defer></script>
