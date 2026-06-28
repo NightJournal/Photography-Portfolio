@@ -158,6 +158,7 @@
     .grid{display:grid; gap:18px;}
     .grid.two{grid-template-columns:repeat(2,1fr)}
     .grid.three{grid-template-columns:repeat(3,1fr)}
+    .grid.four{grid-template-columns:repeat(4,1fr)}
     .card{background:rgba(255,248,239,.9); border:1px solid rgba(215,199,179,.9); border-radius:var(--radius); box-shadow:0 14px 38px rgba(64,53,39,.1); padding:24px;}
     .grid .card{position:relative; overflow:hidden;}
     .grid .card:before{content:""; position:absolute; inset:0 0 auto 0; height:4px; background:linear-gradient(90deg,var(--accent2),var(--accent)); opacity:.55;}
@@ -169,6 +170,11 @@
     .day-label{position:sticky; top:72px; background:linear-gradient(160deg,#2b2a28,#56655b); color:#fffaf0; border-radius:20px; padding:16px; box-shadow:0 14px 34px rgba(47,42,36,.22);}
     .day-label strong{display:block; font-family:Georgia,serif; font-size:1.5rem; line-height:1;}
     .day-label span{font-size:.82rem; opacity:.84;}
+    .day .grid{gap:12px;}
+    .day .grid .card{padding:16px 18px;}
+    .day .grid .card h3{font-size:1.05rem; margin-bottom:4px;}
+    .day .grid .card p{font-size:.9rem; line-height:1.45; margin:.35rem 0;}
+    .day .grid .tag{margin-bottom:8px;}
     table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:18px; border:1px solid var(--line); background:var(--cream); box-shadow:inset 0 1px 0 rgba(255,255,255,.4);}
     th,td{padding:13px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); font-size:.92rem;}
     th{background:#ead9c2; color:#4a3d32; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em;}
@@ -181,7 +187,7 @@
     .photo-card figcaption{position:absolute; left:14px; right:14px; bottom:14px; z-index:2; color:#fffaf0; font-weight:700; text-shadow:0 2px 12px rgba(0,0,0,.55);}
     .photo-card:after{content:""; position:absolute; inset:45% 0 0; background:linear-gradient(180deg, transparent, rgba(0,0,0,.42)); pointer-events:none;}
     .hero-media{min-height:620px; position:relative; overflow:hidden; background:#fff8ef url("../../photos/Aktau/Screenshot%202026-06-26%20at%203.49.34%E2%80%AFPM.png") center top / cover no-repeat; order:1;}
-    .shot{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch;}
+    .shot{display:grid; grid-template-columns:minmax(0, 1.65fr) minmax(280px, .65fr); gap:28px; align-items:stretch;}
     .mini-visual{border-radius:24px; min-height:260px; position:relative; overflow:hidden; background:linear-gradient(180deg,#203746,#587077 58%,#d1b18b);}
     .mini-visual .stars{position:absolute; inset:0; background-image:radial-gradient(#fff 0 1px, transparent 1px); background-size:38px 38px; opacity:.35;}
     .mini-visual .mw{position:absolute; width:120px; height:460px; background:linear-gradient(90deg, transparent, rgba(255,244,214,.16), rgba(255,255,255,.45), rgba(255,244,214,.16), transparent); filter:blur(1px); transform:rotate(20deg); left:44%; top:-44px; border-radius:50%;}
@@ -211,7 +217,7 @@
     .footer-instagram svg,.footer-email svg{display:block; height:18px; width:18px;}
     .footer-instagram:hover,.footer-email:hover{opacity:1;}
     @media (max-width:900px){
-      .hero-card{grid-template-columns:1fr}.hero-art{min-height:360px}.grid.two,.grid.three,.shot{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.photo-card.feature-tile{grid-column:span 2}.day{grid-template-columns:1fr}.day-label{position:relative; top:auto}.checklist{columns:1}.hero-copy{padding:36px 28px}
+      .hero-card{grid-template-columns:1fr}.hero-art{min-height:360px}.grid.two,.grid.three,.grid.four,.shot{grid-template-columns:1fr}.photo-grid{grid-template-columns:1fr 1fr}.photo-card.feature-tile{grid-column:span 2}.day{grid-template-columns:1fr}.day-label{position:relative; top:auto}.checklist{columns:1}.hero-copy{padding:36px 28px}
     }
     @media (max-width:560px){
       nav.site-nav,nav.sticky{display:none;}
@@ -281,7 +287,7 @@
       <div class="wrap">
         <div class="section-title"><h2>Trip Overview</h2></div>
         <div class="grid three">
-          <div class="card"><span class="tag">Route</span><h3>Start from Aktau</h3><p>Fly to Aktau and then move inland for the Mangystau highlights</p></div>
+          <div class="card"><span class="tag">Route</span><h3>Start from Aktau</h3><p>Flying to Aktau and then moving inland for the Mangystau highlights</p></div>
           <div class="card"><span class="tag">Tour</span><h3>3-Day Mangystau</h3><p>Two inland nights for canyon, plateau, and desert expeditions</p></div>
           <div class="card"><span class="tag">Weather</span><h3>Summer Time</h3><p>High temperatures and low humidity; Expected temperatures between 30-40°C</p></div>
         </div>
@@ -307,20 +313,20 @@
 
           <article class="day"><div class="day-label"><strong>10 Jul</strong><span>Local tour</span></div><div class="card">
             <div class="grid four">
-              <div class="card"><span class="tag">Stop 1</span><h3>Torysh</h3><p>Visit the Valley of Balls at Torysh and explore the mysterious ball-shaped rock formation</p></div>
-              <div class="card"><span class="tag">Stop 2</span><h3>Kokala</h3><p>Marvel at the colourful purple gorge</p></div>
-              <div class="card"><span class="tag">Stop 3</span><h3>Sherkala</h3><p>known as the 'Sphinx of Mangystau'</p></div>
+              <div class="card"><span class="tag">Stop 1</span><h3>Torysh</h3><p>Valley of stone spheres</p></div>
+              <div class="card"><span class="tag">Stop 2</span><h3>Kokala</h3><p>Colourful purple gorge</p></div>
+              <div class="card"><span class="tag">Stop 3</span><h3>Sherkala</h3><p>Sphinx of Mangystau</p></div>
               <div class="card"><span class="tag">Stop 4</span><h3>Airakty</h3><p>Valley of Castle-Shaped Mounts</p></div>
             </div></div></article>
 
           <article class="day"><div class="day-label"><strong>11 Jul</strong><span>Local tour</span></div><div class="card">
-            <div class="grid four">
+            <div class="grid two">
               <div class="card"><span class="tag">Stop 1</span><h3>Bozjyra Crest</h3><p>Towering formation</p></div>
-              <div class="card"><span class="tag">Stop 2</span><h3>Mars Panoramic</h3><p>Unique chalky cliffs and red hues, a landscape that resembles the surface of Mars</p></div>
+              <div class="card"><span class="tag">Stop 2</span><h3>Mars Panoramic</h3><p>Chalk cliffs and red desert tones</p></div>
             </div></div></article>
 
           <article class="day"><div class="day-label"><strong>12 Jul</strong><span>Local tour</span></div><div class="card">
-            <div class="grid two">
+            <div class="grid three">
               <div class="card"><span class="tag">Stop 1</span><h3>Bozjyra Fangs Formation</h3><p>Visting the famous Bozjyra Fangs Formation</p></div>
               <div class="card"><span class="tag">Stop 2</span><h3>Bokty Mountain</h3><p>An isolated and fortress-like formation that rises from the steppe</p></div>
               <div class="card"><span class="tag">Stop 3</span><h3>Tiramisu Canyon</h3><p>Layered mountains in vibrant red, yellow and orange hues</p></div>
