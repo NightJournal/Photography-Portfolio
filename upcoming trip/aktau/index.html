@@ -142,11 +142,16 @@
       color:rgba(255,248,239,.82); font-family:Georgia,serif; font-size:1.8rem; line-height:1.1; text-align:right;
     }
     nav.site-nav{position:sticky; top:0; z-index:20; background:rgba(255,248,239,.96); border-bottom:1px solid rgba(215,199,179,.9);}
-    nav.site-nav .wrap{display:flex; align-items:center; gap:32px; overflow:auto; padding:18px 0;}
+    nav.site-nav .wrap{display:flex; align-items:center; gap:32px; overflow:visible; padding:18px 0;}
     nav.site-nav a{white-space:nowrap; text-decoration:none; color:var(--dark); font-size:.95rem; font-weight:500; background:transparent; border:0; border-radius:0; padding:0;}
     nav.site-nav a:hover{color:var(--accent2); border-bottom:1px solid var(--dark); padding-bottom:2px;}
     nav.site-nav a[aria-current="page"]{border-bottom:2px solid var(--dark); padding-bottom:3px;}
     nav.site-nav .logo{font-weight:700;}
+    nav.site-nav .nav-dropdown{position:relative;}
+    nav.site-nav .nav-menu{position:absolute; top:calc(100% + 14px); left:50%; transform:translate(-50%, 8px); min-width:210px; display:grid; gap:10px; padding:16px; background:rgba(255,248,239,.98); border:1px solid rgba(215,199,179,.9); box-shadow:0 16px 32px rgba(43,42,40,.1); opacity:0; pointer-events:none; transition:opacity .18s ease, transform .18s ease; z-index:40;}
+    nav.site-nav .nav-dropdown:hover .nav-menu,nav.site-nav .nav-dropdown:focus-within .nav-menu{opacity:1; pointer-events:auto; transform:translate(-50%, 0);}
+    nav.site-nav .nav-menu a{display:block; color:var(--muted); font-size:.86rem; border-bottom:0; padding:0;}
+    nav.site-nav .nav-menu a:hover{color:var(--accent2); border-bottom:0; padding-bottom:0;}
     nav.sticky{position:sticky; top:0; z-index:10; background:rgba(43,42,40,.84); backdrop-filter:blur(12px); border-bottom:1px solid rgba(255,248,239,.18);}
     nav.sticky .wrap{display:flex; gap:9px; overflow:auto; padding:12px 0;}
     nav.sticky a{white-space:nowrap; text-decoration:none; color:#fffaf0; background:rgba(255,248,239,.12); border:1px solid rgba(255,248,239,.24); border-radius:999px; padding:8px 12px; font-size:.86rem; font-weight:700;}
@@ -251,11 +256,26 @@
 
   <nav class="site-nav">
     <div class="wrap">
-      <a href="../../index.html" class="logo">Travel with Hanley</a>
+      <span class="logo">Travel with Hanley</span>
       <a href="../../index.html">Home</a>
-      <a href="../../gallery.html">Gallery</a>
+      <div class="nav-dropdown">
+        <a href="../../gallery.html">Gallery</a>
+        <div class="nav-menu" aria-label="Gallery categories">
+          <a href="../../gallery-asia.html">Asia</a>
+          <a href="../../gallery-southafrica.html">Africa</a>
+          <a href="../../gallery-europe.html">Europe</a>
+          <a href="../../gallery-northamerica.html">North America</a>
+          <a href="../../gallery-astrophotography.html">Astrophotography</a>
+        </div>
+      </div>
       <a href="../../films.html">Films</a>
-      <a href="../../trips.html" aria-current="page">Upcoming Adventures</a>
+      <div class="nav-dropdown">
+        <a href="../../trips.html" aria-current="page">Upcoming Adventures</a>
+        <div class="nav-menu" aria-label="Upcoming adventure categories">
+          <a href="../../upcoming trip/aktau/index.html">Aktau</a>
+          <a href="../../upcoming trip/dolomites/index.html">Dolomites</a>
+        </div>
+      </div>
       <a href="../../contact.html">Get in Touch</a>
     </div>
   </nav>
@@ -425,7 +445,7 @@
     <p><strong>Part A · Blue hour to stars appearing [22:05–23:00]</strong><br>
     Av mode · f/2.8 or f/4 · Auto ISO 100–3200 · Interval 10 sec · Exposure compensation -1/3 EV · WB 4300K</p>
 
-    <p><strong>Part B · Milky Way appearing and moving [23:00–01:30]</strong><br>
+    <p><strong>Part B · Milky Way appearing [23:00–01:30]</strong><br>
     M mode · f/2.8 · Shutter 8 sec · ISO 6400–8000 · Interval 10 sec · WB 4000K</p>
   </div>
 

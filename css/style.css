@@ -78,7 +78,7 @@ nav .wrap {
   gap: 32px;
   align-items: center;
   padding: 20px 0;
-  overflow-x: auto;
+  overflow: visible;
 }
 
 nav a {
@@ -115,6 +115,53 @@ nav .logo {
   margin-right: auto;
   letter-spacing: 1px;
   font-family: var(--font-body);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > a {
+  display: inline-block;
+}
+
+.nav-menu {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+  display: grid;
+  gap: 10px;
+  left: 50%;
+  min-width: 210px;
+  opacity: 0;
+  padding: 16px;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  transform: translate(-50%, 8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 200;
+}
+
+.nav-dropdown:hover .nav-menu,
+.nav-dropdown:focus-within .nav-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.nav-menu a {
+  border-bottom: 0;
+  color: var(--muted);
+  display: block;
+  font-size: 0.86rem;
+  padding: 0;
+}
+
+.nav-menu a:hover {
+  border-bottom: 0;
+  color: var(--accent);
+  padding-bottom: 0;
 }
 
 /* Header/Hero */
@@ -1649,7 +1696,7 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-card:nth-child(4) .region-image {
-    background-position: left top;
+    background-position: 0 -34px;
     background-size: 100% auto;
   }
 
