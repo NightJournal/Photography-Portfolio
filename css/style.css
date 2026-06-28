@@ -659,6 +659,18 @@ h2 {
   font-family: var(--font-caps);
 }
 
+.tag-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag-row .tag {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+
 /* Gallery Grid */
 .country-nav {
   display: flex;
@@ -891,23 +903,23 @@ h2 {
 }
 
 .region-card:nth-child(1) {
-  --region-img: url("../photos/Gallery Region Pic/asia.jpg");
+  --region-img: url("../photos/web/asia/DJI_0702.jpg");
 }
 
 .region-card:nth-child(2) {
-  --region-img: url("../photos/Gallery Region Pic/africa.jpg");
+  --region-img: url("../photos/web/south-africa/IMG_8638-Edit.jpg");
 }
 
 .region-card:nth-child(3) {
-  --region-img: url("../photos/Gallery Region Pic/europe.jpg");
+  --region-img: url("../photos/web/europe/IMG_7059.jpg");
 }
 
 .region-card:nth-child(4) {
-  --region-img: url("../photos/Gallery Region Pic/north america.jpg");
+  --region-img: url("../photos/web/north-america/1F7A2673.jpg");
 }
 
 .region-card:nth-child(5) {
-  --region-img: url("../photos/Gallery Region Pic/astro.jpg");
+  --region-img: url("../photos/web/astrophotography/Untitled_Panorama-1.jpg");
 }
 
 .region-card.small {
@@ -935,16 +947,6 @@ h2 {
   z-index: 2;
 }
 
-.region-card-uploaded::before {
-  display: none;
-}
-
-.region-card-uploaded {
-  aspect-ratio: var(--card-ratio);
-  height: auto;
-  min-height: 0;
-}
-
 .region-top {
   display: contents;
 }
@@ -966,15 +968,6 @@ h2 {
   position: absolute;
 }
 
-.region-card-uploaded .region-image {
-  background-position: center;
-  background-size: cover;
-}
-
-.region-card-uploaded .region-image::after {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.08));
-}
-
 .explore-label {
   color: #222;
   font-family: Arial, Helvetica, sans-serif;
@@ -985,7 +978,7 @@ h2 {
   line-height: 1;
   position: absolute;
   text-transform: uppercase;
-  top: 24px;
+  top: 38px;
   z-index: 5;
 }
 
@@ -1040,7 +1033,7 @@ h2 {
   position: absolute;
   text-align: center;
   text-transform: uppercase;
-  top: calc(var(--image-start) - 4px);
+  top: calc(var(--image-start) + 34px);
   transform: translateX(-50%);
   white-space: nowrap;
   z-index: 5;
@@ -1592,7 +1585,6 @@ footer a:hover {
 @media (max-width: 768px) {
   .gallery-category-grid {
     grid-template-columns: 1fr;
-    justify-items: center;
   }
 
   .gallery-category-grid .region-card,
@@ -1609,36 +1601,11 @@ footer a:hover {
     --image-start: 44%;
   }
 
-  .gallery-category-grid .region-card-uploaded {
-    aspect-ratio: var(--card-ratio);
-    height: auto;
-    min-height: 0;
-  }
-
-  .gallery-category-grid .region-card-uploaded.full {
-    min-height: 0;
-  }
-
-  .gallery-category-grid .region-card-uploaded.full .region-image {
-    background-color: var(--card-bg);
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-
-  .gallery-category-grid .region-card-uploaded {
-    justify-self: center;
-    width: min(100%, 560px);
-  }
-
   .gallery-category-grid .explore-label {
     font-size: 0.66rem;
     left: 22px;
     letter-spacing: 0.4em;
-    top: 18px;
-  }
-
-  .gallery-category-grid .region-card-uploaded.full .explore-label {
-    top: 10px;
+    top: 28px;
   }
 
   .gallery-category-grid .region-title {
@@ -1663,12 +1630,11 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-subtitle {
-    font-size: clamp(0.42rem, 1.8vw, 0.58rem);
-    letter-spacing: 0.08em;
-    max-width: none;
-    white-space: nowrap;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    max-width: calc(100% - 36px);
+    white-space: normal;
     text-align: center;
-    top: calc(var(--image-start) - 2px);
   }
 }
 
