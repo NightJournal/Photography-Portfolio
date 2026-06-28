@@ -241,6 +241,11 @@
     .photo-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
     .photo-card{min-height:230px; border-radius:24px; overflow:hidden; position:relative; border:1px solid rgba(255,250,240,.65); box-shadow:0 18px 42px rgba(75,54,35,.18); background:#8a735e;}
     .photo-card img{width:100%; height:100%; object-fit:cover; display:block; position:absolute; inset:0;}
+    .photo-carousel{aspect-ratio:3 / 2; border-radius:24px; overflow:hidden; position:relative; border:1px solid rgba(255,250,240,.65); box-shadow:0 18px 42px rgba(75,54,35,.18); background:#8a735e; transition:aspect-ratio .35s ease, max-width .35s ease; width:100%;}
+    .photo-carousel[data-orientation="portrait"]{aspect-ratio:3 / 4; max-width:620px; margin:0 auto;}
+    .photo-carousel[data-orientation="landscape"]{aspect-ratio:3 / 2; max-width:none;}
+    .photo-carousel .photo-card{border:0; border-radius:0; box-shadow:none; inset:0; margin:0; min-height:0; opacity:0; position:absolute; transition:opacity .45s ease;}
+    .photo-carousel .photo-card.is-active{opacity:1; z-index:1;}
     .hero-media{min-height:620px; position:relative; overflow:hidden; background:#fffaf0 url("../../photos/dolomites/dolomites-icon-web.jpg") left center / cover no-repeat; order:1;}
     .hero-media:after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 45%, rgba(47,42,36,.38));}
     .shot{display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:stretch;}
@@ -273,7 +278,7 @@
       .directory-panel a{padding:11px 14px; border-bottom:0; border-radius:0; font-size:1rem;}
       .directory-panel a[aria-current="page"]{background:transparent; color:var(--dark);}
       .directory-panel .menu-socials{margin-top:30px; padding:4px;}
-      .photo-grid{grid-template-columns:1fr}.hero-media{min-height:250px; background-position:center 38%}.wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{min-height:auto; padding-top:18px}
+      .photo-grid{grid-template-columns:1fr}.photo-carousel[data-orientation="landscape"]{aspect-ratio:4 / 3}.photo-carousel[data-orientation="portrait"]{aspect-ratio:3 / 4; max-width:min(100%,360px)}.hero-media{min-height:250px; background-position:center 38%}.table-scroll{max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:18px}.table-scroll table{min-width:680px} .wrap{width:min(100% - 24px,1180px)}th,td{font-size:.84rem;padding:10px}.hero{min-height:auto; padding-top:18px}
     }
     @media print{nav.sticky,.btn{display:none}body{background:white}.card,.hero-card{box-shadow:none}.day-label{position:relative;top:auto}.hero{min-height:auto}.hero-art{display:none}}
   </style>
@@ -341,16 +346,16 @@
         <div class="section-title"><h2>Detailed itinerary</h2><p class="note">Follow this exactly unless weather or fatigue forces a cut.</p></div>
         <div class="timeline">
           <article class="day"><div class="day-label"><strong>Day 1</strong><span>Arrival · Misurina sunset or rest</span></div><div class="card">
-            <table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
+            <div class="table-scroll"><table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
               <tr><td>10:00–12:00</td><td>Land at Venice Marco Polo Airport. Pick up rental car.</td><td>Allow 60–90 min for car pickup.</td><td>Book car from VCE, not city centre.</td></tr>
               <tr><td>12:30–15:30</td><td>Drive to east base and check in.</td><td>VCE to Misurina/Dobbiaco/Cortina: about 2–2.5h.</td><td>Accommodation with parking is essential.</td></tr>
               <tr><td>18:30–21:00</td><td>Optional Lago di Misurina sunset + composition scouting.</td><td>2–5 min walk from car to shoreline.</td><td>Budget €0–10.</td></tr>
               <tr><td>21:30</td><td>Return and sleep early.</td><td>No astro tonight unless unusually fresh.</td><td>—</td></tr>
-            </tbody></table></div></article>
+            </tbody></table></div></div></article>
 
           <article class="day"><div class="day-label"><strong>Day 2</strong><span>Cadini sunrise · Tre Cime · Misurina astro</span></div><div class="card">
             <div class="warning"><strong>Key booking:</strong> book Rifugio Auronzo / Tre Cime car access for the earliest available morning slot, ideally around 05:00.</div><br>
-            <table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
+            <div class="table-scroll"><table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
               <tr><td>04:15</td><td>Wake. Headlamp, layers, tripod, water.</td><td>Keep prep packed the night before.</td><td>—</td></tr>
               <tr><td>04:30</td><td>Depart east base.</td><td>Misurina to Auronzo: about 25–30 min.</td><td>Use pre-booked entry.</td></tr>
               <tr><td>05:00–05:10</td><td>Enter toll road and park at Rifugio Auronzo.</td><td>Short final drive after gate.</td><td>€40 car access.</td></tr>
@@ -359,34 +364,34 @@
               <tr><td>06:30–08:30</td><td>Short Tre Cime visit toward Rifugio Lavaredo.</td><td>15–25 min each way; skip full loop.</td><td>Covered by same Auronzo access.</td></tr>
               <tr><td>09:30–13:30</td><td>Return to accommodation and sleep.</td><td>This rest block protects the night shoot.</td><td>—</td></tr>
               <tr><td>22:30–01:30</td><td>Lago di Misurina astro.</td><td>Walk 1–3 min from car. Face S/SW.</td><td>Budget €0–10.</td></tr>
-            </tbody></table></div></article>
+            </tbody></table></div></div></article>
 
           <article class="day"><div class="day-label"><strong>Day 3</strong><span>Recovery · transfer west</span></div><div class="card">
-            <table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
+            <div class="table-scroll"><table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
               <tr><td>10:30–11:30</td><td>Wake up late and eat breakfast.</td><td>Recovery after sunrise + astro.</td><td>—</td></tr>
               <tr><td>12:00–15:30</td><td>Drive from east base to west base.</td><td>East to Ortisei/Siusi/Castelrotto: about 2.5–3h.</td><td>Fuel approx. €25–35.</td></tr>
               <tr><td>16:30–18:30</td><td>Optional light walk only.</td><td>Siusi/Castelrotto or easy Alpe edge; max 1–2h.</td><td>Village/accommodation dependent.</td></tr>
               <tr><td>20:30</td><td>Early sleep.</td><td>Needed for Day 4 + Day 5.</td><td>—</td></tr>
-            </tbody></table></div></article>
+            </tbody></table></div></div></article>
 
           <article class="day"><div class="day-label"><strong>Day 4</strong><span>Seceda sunset · Giau astro</span></div><div class="card">
-            <table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
+            <div class="table-scroll"><table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
               <tr><td>Morning–midday</td><td>Slow morning. Charge batteries, prepare astro kit.</td><td>No hard hike.</td><td>—</td></tr>
               <tr><td>16:00–17:00</td><td>Park near Ortisei Seceda lift and go up.</td><td>Allow queue time.</td><td>Budget Seceda lift ~€74 return; verify before travel.</td></tr>
               <tr><td>17:00–20:30</td><td>Seceda golden hour / sunset shoot.</td><td>Confirm last lift-down time. Do not get stuck.</td><td>Lift + parking.</td></tr>
               <tr><td>20:30–22:00</td><td>Drive to Passo Giau before full darkness.</td><td>Ortisei/Val Gardena to Giau: about 1.5h.</td><td>Roadside parking generally free.</td></tr>
               <tr><td>23:00–01:30</td><td>Main astro shoot at Passo Giau.</td><td>Stay near parking; optional 5-min hill only if clear.</td><td>Free parking.</td></tr>
-            </tbody></table></div></article>
+            </tbody></table></div></div></article>
 
           <article class="day"><div class="day-label"><strong>Day 5</strong><span>Siusi sunrise · Venice return</span></div><div class="card">
-            <table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
+            <div class="table-scroll"><table><thead><tr><th>Time</th><th>Plan</th><th>Driving / walking</th><th>Parking / cost</th></tr></thead><tbody>
               <tr><td>04:45</td><td>Wake only if safe to drive after Giau astro.</td><td>If exhausted, skip this shoot.</td><td>—</td></tr>
               <tr><td>05:15–05:45</td><td>Arrive for Alpe di Siusi / Compatsch sunrise access.</td><td>Private car access is early-morning only; check 2026 parking reservation.</td><td>P1/P2 paid and likely must be reserved.</td></tr>
               <tr><td>05:45–06:45</td><td>Alpe di Siusi sunrise.</td><td>Keep walk short. Use huts/meadows as foreground.</td><td>Cost varies.</td></tr>
               <tr><td>08:00–10:30</td><td>Breakfast, check out, rest.</td><td>Do not rush if tired.</td><td>—</td></tr>
               <tr><td>10:30–13:30</td><td>Drive back to Venice Marco Polo Airport.</td><td>About 3h. Add buffer for fuel and car return.</td><td>Fuel approx. €30–40.</td></tr>
               <tr><td>16:00+</td><td>Return flight to London.</td><td>Do not book earlier than 16:00.</td><td>—</td></tr>
-            </tbody></table></div></article>
+            </tbody></table></div></div></article>
         </div>
       </div>
     </section>
@@ -417,11 +422,11 @@
 
     <section id="photo-ref">
       <div class="wrap">
-        <div class="photo-grid">
-          <figure class="photo-card"><img src="../../photos/dolomites/cadini-sunrise-cropped.jpg" alt="The Cadini di Misurina" loading="lazy" decoding="async"><figcaption>The Cadini di Misurina</figcaption></figure>
-          <figure class="photo-card"><img src="../../photos/dolomites/misurina-astro.jpeg" alt="Lake Misurina" loading="lazy" decoding="async"><figcaption>Lake Misurina</figcaption></figure>
-          <figure class="photo-card"><img src="../../photos/dolomites/passo-giau-web.jpg" alt="Giau Pass" loading="lazy" decoding="async"><figcaption>Giau Pass</figcaption></figure>
-          <figure class="photo-card"><img src="../../photos/dolomites/seceda-sunset-web.jpg" alt="Seceda" loading="lazy" decoding="async"><figcaption>Seceda</figcaption></figure>
+        <div class="photo-carousel" data-auto-carousel data-orientation="portrait" aria-label="Dolomites photo carousel">
+          <figure class="photo-card is-active" data-orientation="portrait"><img src="../../photos/dolomites/cadini-sunrise-cropped.jpg" alt="The Cadini di Misurina" loading="lazy" decoding="async"><figcaption>The Cadini di Misurina</figcaption></figure>
+          <figure class="photo-card" data-orientation="landscape"><img src="../../photos/dolomites/misurina-astro.jpeg" alt="Lake Misurina" loading="lazy" decoding="async"><figcaption>Lake Misurina</figcaption></figure>
+          <figure class="photo-card" data-orientation="landscape"><img src="../../photos/dolomites/passo-giau-web.jpg" alt="Giau Pass" loading="lazy" decoding="async"><figcaption>Giau Pass</figcaption></figure>
+          <figure class="photo-card" data-orientation="landscape"><img src="../../photos/dolomites/seceda-sunset-web.jpg" alt="Seceda" loading="lazy" decoding="async"><figcaption>Seceda</figcaption></figure>
         </div>
       </div>
     </section>
@@ -455,14 +460,14 @@
       <div class="wrap">
         <div class="section-title"><h2>Budget Estimate</h2></div>
         <div class="card">
-          <table><thead><tr><th>Category</th><th>Estimate</th><th>Notes</th></tr></thead><tbody>
+          <div class="table-scroll"><table><thead><tr><th>Category</th><th>Estimate</th><th>Notes</th></tr></thead><tbody>
             <tr><td>Car rental, 5 days</td><td>€250–450</td><td>Depends on insurance, driver age, manual/automatic.</td></tr>
             <tr><td>Fuel</td><td>€100–140</td><td>Mountain roads + Venice return.</td></tr>
             <tr><td>Parking/access</td><td>€70–130</td><td>Auronzo €40, Misurina small parking, Siusi paid/reserved, village parking.</td></tr>
             <tr><td>Seceda lift</td><td>~€74 adult return</td><td>Verify official price before booking.</td></tr>
             <tr><td>Accommodation, 4 nights</td><td>€360–760</td><td>Hostel/guesthouse-first; July prices can be high.</td></tr>
             <tr><td>Food</td><td>€120–220</td><td>Supermarkets + simple meals; restaurants increase this fast.</td></tr>
-          </tbody></table>
+          </tbody></table></div>
           <p class="budget-total">Total excluding flights: ~€920–1,770</p>
         </div>
       </div>
@@ -492,5 +497,19 @@
   <script src="../../js/lightbox.js" defer></script>
   <script src="../../js/site-menu.js" defer></script>
   <script src="../../js/photo-protection.js" defer></script>
+  <script>
+    document.querySelectorAll("[data-auto-carousel]").forEach((carousel) => {
+      const slides = Array.from(carousel.querySelectorAll(".photo-card"));
+      if (slides.length < 2) return;
+      let index = 0;
+      const showSlide = () => {
+        slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === index));
+        carousel.dataset.orientation = slides[index].dataset.orientation || "landscape";
+        index = (index + 1) % slides.length;
+      };
+      showSlide();
+      window.setInterval(showSlide, 5000);
+    });
+  </script>
 </body>
 </html>
