@@ -1618,7 +1618,7 @@ footer a:hover {
   .gallery-category-grid .region-title.long {
     font-size: clamp(2.15rem, 11vw, 3.65rem);
     line-height: 0.85;
-    transform: translate(-50%, -92%);
+    transform: translate(-50%, -96%);
   }
 
   .gallery-category-grid .region-title.extra-long {
