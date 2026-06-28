@@ -895,7 +895,7 @@ h2 {
   position: relative;
   text-decoration: none;
   transition: box-shadow 0.3s ease;
-  height: clamp(240px, 18vw, 320px);
+  height: clamp(340px, 26vw, 500px);
 }
 
 .region-card:hover {
@@ -973,7 +973,7 @@ h2 {
   line-height: 1;
   position: absolute;
   text-transform: uppercase;
-  top: 38px;
+  top: 28px;
   z-index: 5;
 }
 
@@ -1591,8 +1591,8 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-card {
-    min-height: 220px;
-    height: 220px;
+    min-height: 310px;
+    height: 310px;
     --image-start: 44%;
   }
 
@@ -1600,7 +1600,7 @@ footer a:hover {
     font-size: 0.66rem;
     left: 22px;
     letter-spacing: 0.4em;
-    top: 28px;
+    top: 20px;
   }
 
   .gallery-category-grid .region-title {
@@ -1633,6 +1633,17 @@ footer a:hover {
     max-width: calc(100% - 36px);
     white-space: normal;
     text-align: center;
+  }
+
+  .gallery-category-grid .region-card.full {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery-category-grid .region-card.full .region-image {
+    min-width: 980px;
+    width: 260vw;
   }
 }
 
@@ -1843,6 +1854,7 @@ footer a:hover {
     font-size: 0.62rem;
     letter-spacing: 0.34em;
     left: 22px;
+    top: 24px;
   }
 
   .card {

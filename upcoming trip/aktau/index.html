@@ -518,6 +518,7 @@
         carousel.querySelector("[data-carousel-prev]").addEventListener("click", () => moveCarousel(-1));
         carousel.querySelector("[data-carousel-next]").addEventListener("click", () => moveCarousel(1));
         updateCarousel();
+        window.setInterval(() => moveCarousel(1), 5000);
       });
     })();
   </script>
