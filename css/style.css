@@ -1647,6 +1647,10 @@ footer a:hover {
     min-width: 980px;
     width: 260vw;
   }
+
+  .gallery-category-grid .region-card:nth-child(4) .region-image {
+    top: 28px;
+  }
 }
 
 @media (max-width: 900px) and (orientation: landscape) {
