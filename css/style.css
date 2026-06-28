@@ -1609,12 +1609,15 @@ footer a:hover {
   }
 
   .gallery-category-grid .region-title {
+    background-image: none;
+    color: var(--ink);
     font-size: clamp(2.3rem, 13vw, 3.9rem);
     max-width: calc(100% - 32px);
     white-space: nowrap;
     overflow-wrap: normal;
     text-align: center;
     transform: translate(-50%, -96%);
+    -webkit-text-fill-color: var(--ink);
   }
 
   .gallery-category-grid .region-title.long {
