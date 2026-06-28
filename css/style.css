@@ -1635,12 +1635,14 @@ footer a:hover {
     text-align: center;
   }
 
+  .gallery-category-grid .region-card:nth-child(4),
   .gallery-category-grid .region-card.full {
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
   }
 
+  .gallery-category-grid .region-card:nth-child(4) .region-image,
   .gallery-category-grid .region-card.full .region-image {
     min-width: 980px;
     width: 260vw;
