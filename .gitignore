@@ -4,3 +4,7 @@ Dolomites Planning/
 # Font source archives. The CSS loads the extracted .otf/.ttf in fonts/<name>/,
 # so the zips are redundant in Git. They stay on local disk.
 fonts/*.zip
+
+# Local tooling and the .git backup taken during the history rewrite.
+.claude/
+.git-backup-*/
