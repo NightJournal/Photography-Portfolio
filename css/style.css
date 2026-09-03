@@ -2113,9 +2113,10 @@ footer a:hover {
 
 .fc-panel p {
   margin: 0 0 26px;
-  max-width: 34ch;
+  max-width: none;
   line-height: 1.85;
   color: var(--muted);
+  text-wrap: nowrap;
 }
 
 .fc-more {
@@ -2185,9 +2186,8 @@ footer a:hover {
   right: 0;
   bottom: 20px;
   text-align: center;
-  font-size: 1.05rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-family: var(--font-signature);
+  font-size: 2.2rem;
   line-height: 1;
   color: var(--ink);
 }
@@ -2254,6 +2254,8 @@ footer a:hover {
   .deck-card { width: min(330px, 84%); padding: 12px 12px 62px; }
   .deck-card figcaption { font-size: 1.5rem; bottom: 14px; }
   .deck-metas { min-height: 190px; }
+  .fc-panel p { text-wrap: wrap; }
+  .deck-card figcaption { font-size: 1.7rem; }
 }
 
 /* ---- Respect the system setting --------------------------- */
