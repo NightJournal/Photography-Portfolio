@@ -1,10 +1,6 @@
 .DS_Store
 Dolomites Planning/
 
-# Keep full-resolution local photo uploads out of Git.
-# The site uses optimized copies in photos/web/.
-photos/asia/*
-photos/europe/*
-photos/north-america/*
-photos/south-africa/*
-photos/astrophotography/*
+# Font source archives. The CSS loads the extracted .otf/.ttf in fonts/<name>/,
+# so the zips are redundant in Git. They stay on local disk.
+fonts/*.zip
