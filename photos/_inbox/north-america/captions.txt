@@ -1,0 +1,9 @@
+# One line per photo:  filename | section-id | caption
+# The caption is used for both alt text and the visible figcaption.
+# Lines starting with # are ignored.
+#
+# Example:
+# IMG_0922.jpg | switzerland | Matterhorn, Zermatt 2024
+#
+# Valid section ids for this region:
+#   usa

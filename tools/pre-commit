@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+# Blocks a commit containing images that break the photo tier spec.
+#   photos/full/  <= 3200px long edge
+#   photos/web/   <= 1800px long edge
+# Install:  bash tools/install-hooks.sh
+# Bypass once (you had better have a reason):  git commit --no-verify
+
+fail=0
+tool=""
+if command -v magick >/dev/null 2>&1; then tool=magick
+elif command -v identify >/dev/null 2>&1; then tool=identify
+elif command -v sips >/dev/null 2>&1; then tool=sips
+else
+  echo "pre-commit: no image tool found, skipping photo checks." >&2
+  exit 0
+fi
+
+longedge() {
+  case "$tool" in
+    magick)   magick identify -format '%w %h' "$1" 2>/dev/null ;;
+    identify) identify -format '%w %h' "$1" 2>/dev/null ;;
+    sips)     sips -g pixelWidth -g pixelHeight "$1" 2>/dev/null \
+                | awk -F': ' '/pixelWidth/{w=$2} /pixelHeight/{h=$2} END{print w, h}' ;;
+  esac
+}
+
+while IFS= read -r f; do
+  case "$f" in
+    photos/full/*.jpg|photos/full/*.jpeg|photos/full/*.JPG) limit=3200 ;;
+    photos/web/*.jpg|photos/web/*.jpeg|photos/web/*.JPG)    limit=1800 ;;
+    *) continue ;;
+  esac
+  [ -f "$f" ] || continue
+  read -r w h <<< "$(longedge "$f")"
+  [ -z "$w" ] && continue
+  le=$w; [ "$h" -gt "$w" ] 2>/dev/null && le=$h
+  if [ "$le" -gt "$limit" ]; then
+    echo "  BLOCKED  $f  ${w}x${h}  exceeds ${limit}px" >&2
+    fail=1
+  fi
+done < <(git diff --cached --name-only --diff-filter=ACM)
+
+if [ "$fail" -ne 0 ]; then
+  cat >&2 <<'MSG'
+
+pre-commit: one or more images exceed their tier's size limit.
+
+  photos/full/  must be <= 3200px long edge
+  photos/web/   must be <= 1800px long edge
+
+Fix by running the resizer instead of copying files in by hand:
+  ./add-photos.sh --check
+
+MSG
+  exit 1
+fi
+exit 0

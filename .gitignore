@@ -8,3 +8,9 @@ fonts/*.zip
 # Local tooling and the .git backup taken during the history rewrite.
 .claude/
 .git-backup-*/
+
+# Photo inbox: captions.txt templates are tracked, dropped originals are not.
+photos/_inbox/**/*.jpg
+photos/_inbox/**/*.jpeg
+photos/_inbox/**/*.JPG
+photos/_inbox/_processed/
