@@ -1938,69 +1938,300 @@ footer a:hover {
 
 /* ============================================================
    Motion
-   Scroll reveal, hero entrance, hover zoom.
-   All of it is opt-in: js/scroll-reveal.js adds .js-motion to
-   <html>. With JS off, or with reduced motion requested, every
-   photo stays fully visible.
+   Home page: a slow photo ribbon, an unevenly placed collections
+   field, and a deck of trip prints that rolls while the section is
+   pinned. Plus the hover zoom used site-wide.
+
+   js/home-motion.js adds .js-motion to <html>. Without it, or with
+   reduced motion requested, every section still renders complete and
+   readable - nothing here is required to see the content.
    ============================================================ */
 
-/* ---- Scroll reveal ---------------------------------------- */
-/* Only cards below the fold get .reveal, so nothing ever flashes. */
-.js-motion .photo-card.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  will-change: opacity, transform;
-}
-
-.js-motion .photo-card.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-  transition:
-    opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
-}
-
-/* Drop the hint once the card has settled, so long galleries
-   don't keep hundreds of layers promoted. */
-.js-motion .photo-card.reveal.is-settled {
-  will-change: auto;
-}
-
-/* ---- Hero entrance (homepage only) ------------------------ */
-@keyframes hero-rise {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.home-page .hero-copy .eyebrow,
-.home-page .hero-copy .subtitle,
-.home-page .hero-copy .cta-group,
-.home-page .hero-visual .signature-title {
-  animation: hero-rise 0.62s cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-
-.home-page .hero-copy .eyebrow    { animation-delay: 0.05s; }
-.home-page .hero-copy .subtitle   { animation-delay: 0.14s; }
-.home-page .hero-copy .cta-group  { animation-delay: 0.23s; }
-.home-page .hero-visual .signature-title { animation-delay: 0.20s; }
-
-/* The hero photograph itself is never animated - it is the
-   largest contentful paint and must appear immediately. */
-
-/* ---- Hover zoom ------------------------------------------- */
-/* Only where there is a real pointer, so touch devices are
-   unaffected. .photo-card already has overflow:hidden and its
-   img already carries transition: transform 0.3s ease. */
+/* ---- Hover zoom (site-wide) ------------------------------- */
 @media (hover: hover) and (pointer: fine) {
-  .photo-card:hover img {
+  .photo-card:hover img,
+  .fc-item:hover img,
+  .mq-item:hover img {
     transform: scale(1.045);
   }
+}
+
+/* ---- Featured Photos: a ribbon that moves on its own ------- */
+.mq-section {
+  padding-bottom: 20px;
+}
+
+.mq {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.mq-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: mq-slide 190s linear infinite;
+  will-change: transform;
+}
+
+/* Someone who wants to look at a photograph must be able to stop it. */
+.mq:hover .mq-track,
+.mq:focus-within .mq-track {
+  animation-play-state: paused;
+}
+
+.mq-item {
+  position: relative;
+  margin: 0;
+  flex: 0 0 auto;
+  height: clamp(230px, 34vw, 400px);
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.mq-item img {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.mq-item figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 11px;
+  color: #fff;
+  font-size: 0.76rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mq-item:hover figcaption { opacity: 1; }
+}
+
+/* The track is duplicated in the markup, so half of it is one full
+   pass and the reset is invisible. */
+@keyframes mq-slide {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(-50% - 10px), 0, 0); }
+}
+
+/* ---- Featured Collections: uneven placement --------------- */
+.fc-scatter {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 130px 70px;
+  align-items: start;
+  padding: 20px 0 90px;
+}
+
+.fc-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  will-change: transform;
+}
+
+.fc-media {
+  display: block;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.fc-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ar, 4 / 3);
+  object-fit: cover;
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.fc-label {
+  display: block;
+  margin-top: 18px;
+  font-family: var(--font-caps);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: clamp(1.15rem, 2.3vw, 1.9rem);
+  color: var(--ink);
+  line-height: 1.05;
+}
+
+.fc-sub {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* A written tile among the photographs. Paper and rule rather than a
+   fill, so the page keeps one background throughout. */
+.fc-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(40px, 6vw, 86px) clamp(28px, 5vw, 70px);
+  min-height: clamp(300px, 32vw, 420px);
+  will-change: transform;
+}
+
+.fc-panel p {
+  margin: 0 0 26px;
+  max-width: 34ch;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+.fc-more {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 3px;
+  font-family: var(--font-caps);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Upcoming Adventures: a deck that rolls --------------- */
+.deck-scroll {
+  position: relative;
+  height: 340vh;
+}
+
+.deck-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.deck-grid {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+}
+
+.deck-stage {
+  position: relative;
+  height: 74vh;
+  max-height: 660px;
+}
+
+.deck-card {
+  position: absolute;
+  left: 56%;
+  top: 50%;
+  margin: 0;
+  width: min(370px, 74%);
+  background: var(--paper);
+  padding: 14px 14px 74px;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.18);
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+.deck-card .deck-media { display: block; overflow: hidden; }
+
+.deck-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.deck-card figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  text-align: center;
+  font-family: var(--font-signature);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.deck-eyebrow {
+  font-family: var(--font-caps);
+  font-size: 0.64rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.deck-metas { position: relative; min-height: 210px; }
+
+.deck-meta {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+}
+
+.deck-meta.is-on { opacity: 1; transform: none; pointer-events: auto; }
+
+.deck-place {
+  font-family: var(--font-caps);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.deck-name {
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  margin: 6px 0 12px;
+  line-height: 1;
+}
+
+.deck-meta p { margin: 0; max-width: 42ch; line-height: 1.75; color: var(--muted); }
+
+.deck-dots { display: flex; gap: 8px; margin: 6px 0 22px; }
+
+.deck-dot {
+  width: 26px;
+  height: 2px;
+  background: var(--line);
+  transition: background 0.3s ease;
+}
+
+.deck-dot.is-on { background: var(--ink); }
+
+/* ---- Narrow screens --------------------------------------- */
+@media (max-width: 820px) {
+  .fc-scatter { grid-template-columns: 1fr; gap: 56px; }
+  .fc-item,
+  .fc-panel {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    margin-top: 0 !important;
+  }
+  .deck-grid { grid-template-columns: 1fr; gap: 18px; }
+  .deck-stage { height: 46vh; }
+  .deck-card { width: min(280px, 72%); padding: 10px 10px 56px; }
+  .deck-card figcaption { font-size: 1.5rem; bottom: 14px; }
+  .deck-metas { min-height: 190px; }
 }
 
 /* ---- Respect the system setting --------------------------- */
@@ -2014,12 +2245,39 @@ footer a:hover {
     scroll-behavior: auto !important;
   }
 
-  .js-motion .photo-card.reveal {
-    opacity: 1 !important;
-    transform: none !important;
+  /* The ribbon becomes a strip you scroll yourself. */
+  .mq {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    mask-image: none;
+    -webkit-mask-image: none;
   }
+  .mq-track { animation: none; }
+  .mq-item[aria-hidden="true"] { display: none; }
 
-  .photo-card:hover img {
-    transform: none !important;
+  .fc-item,
+  .fc-panel { transform: none !important; }
+
+  /* The deck unpins and lays the prints out side by side. */
+  .deck-scroll { height: auto; }
+  .deck-sticky { position: static; height: auto; padding: 60px 0; }
+  .deck-stage {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
   }
+  .deck-card {
+    position: static;
+    width: min(300px, 44%);
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .deck-metas { position: static; min-height: 0; }
+  .deck-meta { position: static; opacity: 1; transform: none; margin-bottom: 18px; }
+
+  .photo-card:hover img,
+  .fc-item:hover img,
+  .mq-item:hover img { transform: none !important; }
 }
