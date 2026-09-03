@@ -1935,3 +1935,91 @@ footer a:hover {
     columns: 1;
   }
 }
+
+/* ============================================================
+   Motion
+   Scroll reveal, hero entrance, hover zoom.
+   All of it is opt-in: js/scroll-reveal.js adds .js-motion to
+   <html>. With JS off, or with reduced motion requested, every
+   photo stays fully visible.
+   ============================================================ */
+
+/* ---- Scroll reveal ---------------------------------------- */
+/* Only cards below the fold get .reveal, so nothing ever flashes. */
+.js-motion .photo-card.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: opacity, transform;
+}
+
+.js-motion .photo-card.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Drop the hint once the card has settled, so long galleries
+   don't keep hundreds of layers promoted. */
+.js-motion .photo-card.reveal.is-settled {
+  will-change: auto;
+}
+
+/* ---- Hero entrance (homepage only) ------------------------ */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.home-page .hero-copy .eyebrow,
+.home-page .hero-copy .subtitle,
+.home-page .hero-copy .cta-group,
+.home-page .hero-visual .signature-title {
+  animation: hero-rise 0.62s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.home-page .hero-copy .eyebrow    { animation-delay: 0.05s; }
+.home-page .hero-copy .subtitle   { animation-delay: 0.14s; }
+.home-page .hero-copy .cta-group  { animation-delay: 0.23s; }
+.home-page .hero-visual .signature-title { animation-delay: 0.20s; }
+
+/* The hero photograph itself is never animated - it is the
+   largest contentful paint and must appear immediately. */
+
+/* ---- Hover zoom ------------------------------------------- */
+/* Only where there is a real pointer, so touch devices are
+   unaffected. .photo-card already has overflow:hidden and its
+   img already carries transition: transform 0.3s ease. */
+@media (hover: hover) and (pointer: fine) {
+  .photo-card:hover img {
+    transform: scale(1.045);
+  }
+}
+
+/* ---- Respect the system setting --------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js-motion .photo-card.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .photo-card:hover img {
+    transform: none !important;
+  }
+}
