@@ -3,7 +3,7 @@
  *
  *   Featured Collections - every tile drifts at its own rate, so the
  *     uneven layout keeps shifting instead of settling into a grid.
- *   Upcoming Adventures - the section pins and the deck of prints deals
+ *   Adventures - the section pins and the deck of prints deals
  *     forward, one card at a time, driven by scroll position.
  *
  * Featured Photos needs no JavaScript: the ribbon is a CSS animation.
